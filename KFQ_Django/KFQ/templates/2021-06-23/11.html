@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+
+    <script defer src={% static 'JavaScript/2021-06-23/11.js' %}></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- <link href="{% static 'CSS/05.css' %}" rel="stylesheet"> -->
+</head>
+
+<body style="background-image: url({% static 'image/hacker2.jpg' %}); height:100%; width:100%">
+
+    <h1 style="color:#FFFFFF;">Ajax_jquery</h1>
+    <p style="color:#FFFFFF;">reacet - axios</p>
+    <P>기본적으로 비동기 방식으로 데이터를 가져오는건 막혀있다.</P>
+    <P>Ajax로 데이터를 가져오는건 한계가 있다.</P>
+
+</body>
+
+</html>

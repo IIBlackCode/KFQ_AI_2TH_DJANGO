@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script>
+        var xmlHttp = new XMLHttpRequest();
+
+        function send1() {
+            //var url = "호출 주소";
+            var url = 'https://ggoreb.com/ajax/json/data3.jsp';
+            // 통신 상태에 따라 동작될 callback 함수 지정
+            xmlHttp.onreadystatechange = callback; 
+            // http메소드, 요청주소, 비동기/동기 여부
+            xmlHttp.open("GET", url, true);
+            // POST 통신 시 파라미터 지정
+            // GET 통신 시 null
+            //xmlHttp.send(null);
+            xmlHttp.send("POST", url, true);
+        }
+
+        function callback() {
+            /* 
+                현재 xmlHttp 객체의 상태
+                0 ~ 4 까지의 값 존재
+                0(UNINITIALIZED) : 초기화 전
+                1(LOADING) : open 함수 호출
+                2(LOADED) : send 함수까지 호출했지만 서버로부터 응답이 도착하지 않음
+                3(INTERACTIVE) : 응답 데이터를 일부만 받음
+                4(COMPLETED) : 응답 데이터를 모두 받음(완료)
+            */
+            if(xmlHttp.readyState == 4) {
+
+                /* 
+                    서버와의 통신 후 결과 코드
+                    ex) 200(OK) : 통신 완료
+                        403(Forbidden) : 접근 거부
+                        404(Not Found) : 페이지 없음
+                        500(Internal Server Error) : 서버 오류
+                */
+                //모든 작업이 완료된 다음 아래 코드 수행
+                if(xmlHttp.status == 200) {
+                    temp = xmlHttp.responseText;
+                    t = `<h1>${temp}</h1>`
+                    document.querySelector('body').innerHTML += t;
+                    //alert(temp);
+                }
+            }
+        }
+        
+        
+        function send2() {
+            //var url = "호출 주소";
+            var url = 'https://ggoreb.com/ajax/json/data3.jsp';
+            // 통신 상태에 따라 동작될 callback 함수 지정
+            xmlHttp.onreadystatechange = callback2; 
+            // http메소드, 요청주소, 비동기/동기 여부
+            xmlHttp.open("GET", url, true);
+            // POST 통신 시 파라미터 지정
+            // GET 통신 시 null
+            xmlHttp.send(null);
+        }
+
+        function callback2() {
+            /* 
+                현재 xmlHttp 객체의 상태
+                0 ~ 4 까지의 값 존재
+                0(UNINITIALIZED) : 초기화 전
+                1(LOADING) : open 함수 호출
+                2(LOADED) : send 함수까지 호출했지만 서버로부터 응답이 도착하지 않음
+                3(INTERACTIVE) : 응답 데이터를 일부만 받음
+                4(COMPLETED) : 응답 데이터를 모두 받음(완료)
+            */
+            if(xmlHttp.readyState == 4) {
+
+                /* 
+                    서버와의 통신 후 결과 코드
+                    ex) 200(OK) : 통신 완료
+                        403(Forbidden) : 접근 거부
+                        404(Not Found) : 페이지 없음
+                        500(Internal Server Error) : 서버 오류
+                */
+                //모든 작업이 완료된 다음 아래 코드 수행
+                if(xmlHttp.status == 200) {
+                    temp2 = xmlHttp.responseText;
+                    temp2 = JSON.parse(temp2);
+                    let name = temp2[0]['name'];
+                    let age = temp2[0]['age']
+                    html = `<table>\
+                                <tr>\
+                                    <td>${name}</td>\
+                                    <td>${age}</td>\
+                                </tr>\
+                            </table>`
+                    t = `<h1>${html}</h1>`
+                    document.querySelector('body').innerHTML += t;
+                    document.querySelector('input').innerText += t;
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <input type="button" value="요청1" onclick="send1()">
+    <input type="button" value="요청2" onclick="send2()">
+
+    <div><input type="text" value=""></div>
+</body>
+
+</html>

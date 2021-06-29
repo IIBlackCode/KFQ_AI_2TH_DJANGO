@@ -1,0 +1,18 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+    <!--head : 용량이 크면 불러오기전에 로딩시간이 길어짐-->
+    <!--head + async : 시작을 병렬처리하여 로딩시간이 빨라짐-->
+    <!--head + defer : 가장 효율적인 방법-->
+    {% comment %} <script defer src="{% {% static '01_basic.js' %}"></script> {% endcomment %}
+    <script defer src = {% static 'JavaScript/01_basic.js'%}></script>
+</head>
+<body>
+    <h1>TEST<h1>
+</body>
+</html>

@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure</title>
+    
+
+    <script defer src = {% static 'JavaScript/2021-06-24/08.js' %}></script>
+    <link href="{% static 'CSS/main.css' %}" rel="stylesheet">
+</head>
+<body style="background-image: url({% static 'image/hacker2.jpg' %}); height:100%; width:100%">
+    
+    <h1>연습문제</h1>
+    <h3>● "이동" 링크를 클릭하면 아래와 같은 경고창을 보여주고 웹사이트 이동 막기</h3>
+
+    <a href='http://ggoreb.com'><h3>이동</h3></a>
+
+    <textarea>
+        <script>
+            document.querySelector('a')
+            .addEventListener('click', (e) => {
+                e.preventDefault();
+                alert('click');
+            })
+        </script>
+    </textarea>
+
+</body>
+</html>
