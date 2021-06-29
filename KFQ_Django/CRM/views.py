@@ -41,6 +41,13 @@ class Crm :
             'page' : page
         }
         return render(request, './crm/04_statistics.html', context)
+    def seatingChart(request):
+        print("PAGE : SeatingChart")
+        page ='SeatingChart'
+        context = {
+            'page' : page
+        }
+        return render(request, './crm/05_seatingChart.html', context)
 
 
     def ui_Element(request, page):

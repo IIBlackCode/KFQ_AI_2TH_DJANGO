@@ -29,8 +29,4 @@ urlpatterns = [
 
     #CRM system 관련 페이지
     path('CRM/', include('CRM.urls')),
-
-
-    #한국품질재단 교육
-    path('KFQ/', include('KFQ.urls')),
 ]

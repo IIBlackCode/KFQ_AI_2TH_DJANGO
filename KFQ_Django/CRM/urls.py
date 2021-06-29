@@ -9,6 +9,7 @@ urlpatterns = [
     path('settings/',                       views.Crm.settings,     name='02_settings.html'),
     path('status/',                         views.Crm.status,       name='03_status.html'),
     path('statistics/',                     views.Crm.statistics,   name='04_statistics.html'),
+    path('seatingChart/',                   views.Crm.seatingChart, name='05_seatingChart.html'),
 
     path('UI_Element/page=<page>/',           views.Crm.ui_Element, name='06_UI_Element.html'),
     path('icons/',                           views.Crm.icons,      name='07_icons.html'),
