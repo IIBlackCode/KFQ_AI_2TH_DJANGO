@@ -1,7 +1,7 @@
 {% load static %}
 <nav id="sidebar" class="sidebar">
 	<div class="sidebar-content js-simplebar">
-		<a class="sidebar-brand" href="/CRM/index"><span class="align-middle">AdminKit</span></a>
+		<a class="sidebar-brand" href="/CRM/index"><span class="align-middle">We're Here</span></a>
 
 		<ul class="sidebar-nav">
 			<li class="sidebar-header">
@@ -15,7 +15,7 @@
 			{% else %}
 			<li class="sidebar-item">
 			{% endif %}
-				<a class="sidebar-link" href="/CRM/index">
+				<a class="sidebar-link" href="{% url 'CRM:index' %}">
 					<i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Dashboard</span>
 				</a>
 			</li>

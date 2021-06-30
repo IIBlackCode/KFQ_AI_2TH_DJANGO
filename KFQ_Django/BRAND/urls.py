@@ -2,15 +2,17 @@ from django.urls import path
 from BRAND import views
 from .VIEW.theme import Theme
 
+app_name='BRAND'
+
 urlpatterns = [
     path('test/', views.index),
-    path('index/', views.Brand.index, name='1_index.html'),
-    path('about/', views.Brand.aboutus, name='2_about.html'),
-    path('features/', views.Brand.features, name='3_features.html'),
-    path('hosting/', views.Brand.hosting, name='4_hosting.html'),
-    path('domain/', views.Brand.domain, name='5_domain.html'),
-    path('pricing/', views.Brand.pricing, name='6_pricing.html'),
-    path('contact/', views.Brand.contact, name='7_contact.html'),
+    path('index/', views.Brand.index, name='index'),
+    path('about/', views.Brand.aboutus, name='about'),
+    path('features/', views.Brand.features, name='features'),
+    path('hosting/', views.Brand.hosting, name='hosting'),
+    path('domain/', views.Brand.domain, name='domain'),
+    path('pricing/', views.Brand.pricing, name='pricing'),
+    path('contact/', views.Brand.contact, name='contact'),
 #***********************************************************************#
     # Original Theme
     path('theme/index/', Theme.theme_index, name='1_index.html'),

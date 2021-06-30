@@ -10,8 +10,9 @@
 			<div class="modal-body customer-box">
 				<!-- Nav tabs -->
 				<ul class="nav nav-tabs">
-					<li><a class="active" href="#Login" data-toggle="tab">로그인</a></li>
-					<li><a href="#Registration" data-toggle="tab">회원가입</a></li>
+					<li><a class="dropdwon-item" href="#">로그인</a></li>
+					<li><a class="dropdwon-item" href="#">회원가입</a></li>
+					{% comment %} <li><a href="#Registration" data-toggle="tab">회원가입</a></li> {% endcomment %}
 				</ul>
 				<!-- Tab panes -->
 				<div class="tab-content">
@@ -106,46 +107,54 @@
 						{% endif %} {% endcomment %}
 
 						{% if page == 'Home' %}
-						<li class="nav-item active"><a class="nav-link" href="/BRAND/index">홈</a></li>
+						<li class="nav-item active"><a class="nav-link" href="{% url 'BRAND:index' %}">홈</a></li>
 						{% else %}
-						<li class="nav-item"><a class="nav-link" href="/BRAND/index">홈</a></li>
+						<li class="nav-item"><a class="nav-link" href="{% url 'BRAND:index' %}">홈</a></li>
 						{% endif %}
 
 						{% if page == 'Features' %}
-						<li class="nav-item active"><a class="nav-link" href="/BRAND/features">핵심기능</a></li>
+						<li class="nav-item active"><a class="nav-link" href="{% url 'BRAND:features' %}">핵심기능</a></li>
 						{% else %}
-						<li class="nav-item"><a class="nav-link" href="/BRAND/features">핵심기능</a></li>
+						<li class="nav-item"><a class="nav-link" href="{% url 'BRAND:features' %}">핵심기능</a></li>
 						{% endif %}
 
-						{% if page == 'Hosting' %}
-						<li class="nav-item active dropdown">
+						{% if user.is_authenticated %}
+						<li class="nav-item"><a class="nav-link" href="{% url 'CRM:index' %}">CRM 사용</a></li>
 						{% else %}
-						<li class="nav-item dropdown">
+							{% if page == 'Hosting' %}
+							<li class="nav-item active dropdown">
+							{% else %}
+							<li class="nav-item dropdown">
+							{% endif %}
+								<a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">시스템체험</a>
+								<div class="dropdown-menu" aria-labelledby="dropdown-a">
+								<a class="dropdown-item" href="{% url 'BRAND:hosting' %}">대쉬보드</a>
+								<a class="dropdown-item" href="{% url 'BRAND:hosting' %}">프로필</a>
+								<a class="dropdown-item" href="{% url 'BRAND:hosting' %}">게시판소개</a>
+								</div>
+							</li>
 						{% endif %}
-							<a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">시스템체험 </a>
-							<div class="dropdown-menu" aria-labelledby="dropdown-a">
-								<a class="dropdown-item" href="/BRAND/hosting">대쉬보드</a>
-								<a class="dropdown-item" href="/BRAND/hosting">프로필</a>
-								<a class="dropdown-item" href="/BRAND/hosting">게시판소개</a>
-							</div>
-						</li>
 
 						{% if page == 'Contact' %}
-						<li class="nav-item active"><a class="nav-link" href="/BRAND/contact">고객센터</a></li>
+						<li class="nav-item active"><a class="nav-link" href="{% url 'BRAND:contact' %}">고객센터</a></li>
 						{% else %}
-						<li class="nav-item"><a class="nav-link" href="/BRAND/contact">고객센터</a></li>
+						<li class="nav-item"><a class="nav-link" href="{% url 'BRAND:contact' %}">고객센터</a></li>
 						{% endif %}
 
 						{% if page == 'About Us' %}
-						<li class="nav-item active"><a class="nav-link" href="/BRAND/about">팀원소개</a></li>
+						<li class="nav-item active"><a class="nav-link" href="{% url 'BRAND:about' %}">팀원소개</a></li>
 						{% else %}
-						<li class="nav-item"><a class="nav-link" href="/BRAND/about">팀원소개</a></li>
+						<li class="nav-item"><a class="nav-link" href="{% url 'BRAND:about' %}">팀원소개</a></li>
 						{% endif %}
 						
 						{% endblock %}
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
+						{% if user.is_authenticated %}
+						<li><a class="hover-btn-new log" href="#"><span>로그아웃</span></a></li>
+						{% else %}
                         <li><a class="hover-btn-new log" href="#" data-toggle="modal" data-target="#login"><span>로그인</span></a></li>
+						{% endif %}
                     </ul>
 				</div>
 			</div>

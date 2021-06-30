@@ -106,9 +106,11 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+# LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ko-kr'
 
-TIME_ZONE = 'UTC'
+# TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Seoul'
 
 USE_I18N = True
 
@@ -142,3 +144,7 @@ LOGGING = {
         },
     }
 }
+
+# 로그인 로그아웃 시 이동 경로
+# LOGIN_REDIRECT_URL = 'BRAND:index'
+# LOGOUT_REDIRECT_URL = 'BRAND:index'

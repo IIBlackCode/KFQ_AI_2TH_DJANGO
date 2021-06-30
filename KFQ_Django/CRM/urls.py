@@ -2,21 +2,22 @@ from django.urls import path
 from CRM import views
 from .VIEW.theme import Theme
 
+app_name='CRM'
 urlpatterns = [
     path('test/', views.index),
-    path('index/',                          views.Crm.index,        name='01_index.html'),
-    path('profile/',                        views.Crm.profile,      name='02_profile.html'),
-    path('settings/',                       views.Crm.settings,     name='02_settings.html'),
-    path('status/',                         views.Crm.status,       name='03_status.html'),
-    path('statistics/',                     views.Crm.statistics,   name='04_statistics.html'),
-    path('seatingChart/',                   views.Crm.seatingChart, name='05_seatingChart.html'),
+    path('index/',                          views.Crm.index,        name='index'),
+    path('profile/',                        views.Crm.profile,      name='profile'),
+    path('settings/',                       views.Crm.settings,     name='settings'),
+    path('status/',                         views.Crm.status,       name='status'),
+    path('statistics/',                     views.Crm.statistics,   name='statics'),
+    path('seatingChart/',                   views.Crm.seatingChart, name='seatingChart'),
 
-    path('UI_Element/page=<page>/',           views.Crm.ui_Element, name='06_UI_Element.html'),
-    path('icons/',                           views.Crm.icons,      name='07_icons.html'),
-    path('forms/page=<page>/',                views.Crm.forms,      name='08_Forms.html'),
-    path('tables/',                           views.Crm.tables,     name='09_tables.html'),
-    path('charts/',                           views.Crm.chart,      name='10_charts.html'),
-    path('maps/',                             views.Crm.maps,       name='11_maps.html'),
+    path('UI_Element/page=<page>/',           views.Crm.ui_Element, name='UI_Element'),
+    path('icons/',                           views.Crm.icons,      name='icons'),
+    path('forms/page=<page>/',                views.Crm.forms,      name='Forms'),
+    path('tables/',                           views.Crm.tables,     name='tables'),
+    path('charts/',                           views.Crm.chart,      name='charts'),
+    path('maps/',                             views.Crm.maps,       name='maps'),
 
 #***********************************************************************#
     # Original Theme
