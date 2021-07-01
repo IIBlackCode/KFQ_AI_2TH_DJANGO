@@ -27,14 +27,28 @@
 
 
 		// 학생 정보 매핑 관련
-		L.circle([200, 140], {color: 'blue',radius: 40, fillOpacity: 0.3}).addTo(map)
-		.bindTooltip("iwatsuki", {permanent: true, direction: 'center'}).openTooltip()
-		.bindPopup("iwatsuki <br />IT Support Department");
+		L.circle([200, 140], {color: 'green',radius: 40, fillOpacity: 0.3}).addTo(map)
+		.bindTooltip("한정탁", {permanent: true, direction: 'center'}).openTooltip()
+		.bindPopup("<center>한정탁</center><br />\
+		<img src='{% static 'img/avatars/avatar-2.jpg' %}'><br />\
+		<br /><center>반 : AI 개발자 과정</center><br />\
+		<center>전공 : 기계로봇에너지공학과</center><br />\
+		<center>체온 : 39.8 도</center>");
 
 		// 추가할거
-		// 
+		// 호버링시 학생 사진, 간략 정보 보이게
+		// 결석,지각 등 색깔 바뀌게
+
+		// 함수로 좌석번호로 좌표찾게
+		// 함수로 좌석번호로 자동으로 정보 들어가게
 
 
+		// 를 쓸때 사용할 친구
+		{% comment %} seatnum function(y,x){
+			L.circle([y, x], {color: 'blue',radius: 40, fillOpacity: 0.3}).addTo(map)
+			.bindTooltip("iwatsuki", {permanent: true, direction: 'center'}).openTooltip()
+			.bindPopup("한정탁<br /><img src='{ static '/img/avatars/avatar-2.jpg'}' />AI 개발자 과정<br />");	
+		} {% endcomment %}
 
 
 		// 얘는 냅둘것
