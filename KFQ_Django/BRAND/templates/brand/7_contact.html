@@ -1,14 +1,7 @@
+{% extends './include/base_b.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    {% include "brand/include/head.html" %}
-    <title>We're Here Web prj2 contact pg</title>
-</head>
-<body class="host_version"> 
+{% block content %}
 
-	{% include "brand/include/header.html" %}
-	
 	<div class="all-title-box">
 		<div class="container text-center">
 			<h1>Contact<span class="m_1">Lorem Ipsum dolroin gravida nibh vel velit.</span></h1>
@@ -59,16 +52,11 @@
         </div><!-- end container -->
     </div><!-- end section -->
 
-	{% include "brand/include/footer.html" %}
 
     <!-- ALL JS FILES -->
-    <script src="{% static 'js/all.js' %}"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCKjLTXdq6Db3Xit_pW_GK4EXuPRtnod4o"></script>
 	<!-- Mapsed JavaScript -->
 	<script src="{% static 'js/mapsed.js' %}"></script>
 	<script src="{% static 'js/01-custom-places-example.js' %}"></script>
-    <!-- ALL PLUGINS -->
-    <script src="{% static 'js/custom.js' %}"></script>
 
-</body>
-</html>
+{% endblock %}

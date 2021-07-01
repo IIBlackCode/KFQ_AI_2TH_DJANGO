@@ -1,14 +1,7 @@
+{% extends './include/base_b.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-    {% include "brand/include/head.html" %}
-    <title>We're Here Web prj2 features pg</title>
-</head>
-<body class="host_version"> 
+{% block content %}
 
-	{% include "brand/include/header.html" %}
-	
 	<div class="all-title-box">
 		<div class="container text-center">
 			<h1>핵심기능<span class="m_1">설명</span></h1>
@@ -129,12 +122,4 @@
 
     {% include "brand/include/team_intro.html" %}
 
-    {% include "brand/include/footer.html" %}
-
-    <!-- ALL JS FILES -->
-    <script src="{% static 'js/all.js' %}"></script>
-    <!-- ALL PLUGINS -->
-    <script src="{% static 'js/custom.js' %}"></script>
-
-</body>
-</html>
+{% endblock %}
