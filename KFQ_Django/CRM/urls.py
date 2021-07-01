@@ -1,6 +1,7 @@
 from django.urls import path
 from CRM import views
 from .VIEW.theme import Theme
+from django.contrib.auth import views as auth_views
 
 app_name='CRM'
 urlpatterns = [
@@ -11,6 +12,8 @@ urlpatterns = [
     path('status/',                         views.Crm.status,       name='status'),
     path('statistics/',                     views.Crm.statistics,   name='statics'),
     path('seatingChart/',                   views.Crm.seatingChart, name='seatingChart'),
+
+    path('login/',                          auth_views.LoginView.as_view(template_name='crm/account/login.html'), name='login'),
 
     path('UI_Element/page=<page>/',           views.Crm.ui_Element, name='UI_Element'),
     path('icons/',                           views.Crm.icons,      name='icons'),
