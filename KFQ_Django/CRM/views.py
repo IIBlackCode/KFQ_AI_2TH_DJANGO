@@ -1,8 +1,14 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+import sqlite3
 
 # Create your views here.
 def index(request):
+    con = sqlite3.connect("test.db")
+    cur = con.cursor()
+    query = '''select * from KFQ_answer'''
+    result = cur.execute(query)
+    print("test",result.fetchall())
     return HttpResponse("CRM PAGE.")
 #***********************************************************************#
 class Crm :
