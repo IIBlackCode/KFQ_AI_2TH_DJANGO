@@ -23,6 +23,7 @@ class Member (models.Model):
     #FK
     class_fk = models.ForeignKey(ClassList, on_delete=models.CASCADE)
 
+    password = models.CharField(max_length=200)
     name = models.CharField(max_length=50)
     age = models.IntegerField()
     university = models.CharField(max_length=50,default = '')
