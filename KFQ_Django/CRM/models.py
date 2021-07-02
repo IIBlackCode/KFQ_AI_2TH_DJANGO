@@ -14,7 +14,7 @@ class ClassList(models.Model):
 
 '''
 INSERT INTO CRM_classlist (class_name, student_count, open_date, close_date)
-VALUES('AI인공지능',25,'2021-04-26','2021-10-30')  a
+VALUES('AI인공지능',25,'2021-04-26','2021-10-30')
 '''
 
 class Member (models.Model):

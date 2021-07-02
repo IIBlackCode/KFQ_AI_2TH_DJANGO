@@ -10,6 +10,7 @@ def index(request):
     result = cur.execute(query)
     print("test",result.fetchall())
     return HttpResponse("CRM PAGE.")
+    
 #***********************************************************************#
 class Crm :
     def index(request):
