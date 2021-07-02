@@ -1,6 +1,7 @@
 {% extends './include/base_c.html' %}
 {% load static %}
 {% block content %}
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <main class="content">
 	<div class="container-fluid p-0">
 
@@ -105,56 +106,9 @@
 
 	</div>
 </main>
-<script>
-	document.addEventListener("DOMContentLoaded", function () {
-		// Bar chart
-			console.log("출석 :")
-			console.log("결석 :")
-			console.log("지각 :")
-			console.log("조퇴 :")
-		new Chart(document.getElementById("chartjs-dashboard-bar"), {
-			
-			
-			type: "bar",
-			data: {
-				labels: ["출석", "결석", "지각", "조퇴"],
-				datasets: [{
-					label: "오늘",
-					backgroundColor: window.theme.primary,
-					borderColor: window.theme.primary,
-					hoverBackgroundColor: window.theme.primary,
-					hoverBorderColor: window.theme.primary,
-					data: [54, 67, 41, 55],
-					barPercentage: .75,
-					categoryPercentage: .5
-				}]
-			},
-			options: {
-				maintainAspectRatio: false,
-				legend: {
-					display: false
-				},
-				scales: {
-					yAxes: [{
-						gridLines: {
-							display: false
-						},
-						stacked: false,
-						ticks: {
-							stepSize: 20
-						}
-					}],
-					xAxes: [{
-						stacked: false,
-						gridLines: {
-							color: "transparent"
-						}
-					}]
-				}
-			}
-		});
-	});
-</script>
+
+<script type="text/javascript" src="{% static 'PAGE/DASHBOARD/dashboard.js' %}"></script>
+
 
 <script>
 	document.addEventListener("DOMContentLoaded", function () {

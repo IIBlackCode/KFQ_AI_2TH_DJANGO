@@ -1,0 +1,10 @@
+INSERT INTO CRM_classlist (class_name, student_count, open_date, close_date)
+VALUES('AI인공지능',25,'2021-04-26','2021-10-30')
+
+
+INSERT INTO CRM_member (email, password, name, age,class_fk_id)
+VALUES('test','test','name',25,1)
+
+
+INSERT INTO CRM_student_list (member_fk_id,date,inout_time,output_time)
+VALUES('test',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP)

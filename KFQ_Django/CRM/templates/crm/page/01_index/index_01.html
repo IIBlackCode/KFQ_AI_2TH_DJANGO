@@ -10,14 +10,14 @@
                     <div class="card">
                         <div class="card-body">
                             <h1 class="card-title mb-4">출석</h1>
-                            <h1 class="mt-1 mb-3">1234</h1>
+                            <h1 class="mt-1 mb-3" id="total_attendance" value=""></h1>
                         </div>
                     </div>
 
                     <div class="card">
                         <div class="card-body">
                             <h1 class="card-title mb-4">결석</h1>
-                            <h1 class="mt-1 mb-3">1234</h1>
+                            <h1 class="mt-1 mb-3" id="total_absent"></h1>
                         </div>
                     </div>
 
@@ -28,13 +28,13 @@
                     <div class="card">
                         <div class="card-body">
                             <h1 class="card-title mb-4">지각</h1>
-                            <h1 class="mt-1 mb-3">1234</h1>
+                            <h1 class="mt-1 mb-3" id="total_late"></h1>
                         </div>
                     </div>
                     <div class="card">
                         <div class="card-body">
                             <h1 class="card-title mb-4">조퇴</h1>
-                            <h1 class="mt-1 mb-3">1234</h1>
+                            <h1 class="mt-1 mb-3" id="total_early"></h1>
                         </div>
                     </div>
 
@@ -61,12 +61,12 @@
                 <div class="card">
                     <div class="card-body">
                         <h1 class="card-title mb-4">진행중인 과정</h1>
-                        <table>
-                            <th>
+                        <table class="table mb-0">
+                            <tr>
                                 <td>No.</td>
                                 <td>과정명</td>
                                 <td>수강인원</td>
-                            </th>
+                            </tr>
                             <tr>
                                 <td>1</td>
                                 <td>인공지능</td>
@@ -92,14 +92,14 @@
             
             <div class="row">
                 <div class="btn-group">
-                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        반 선택
-                    </button>
+                    <select type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false" id="select_class" onchange="select_class()">
+                        
+                        <option class="dropdown-item" href="#" value = 1>AI 인공지능</option>
+                        <option class="dropdown-item" href="#" value = 2>빅데이터</option>
+                        <option class="dropdown-item" href="#" value = 3>스마트펙토리</option>
+                    </select>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">AI 인공지능</a>
-                        <a class="dropdown-item" href="#">빅데이터</a>
-                        <a class="dropdown-item" href="#">스마트펙토리</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">Separated link</a>
                     </div>
@@ -111,14 +111,14 @@
                     <div class="card">
                         <div class="card-body">
                             <h1 class="card-title mb-4">출석</h1>
-                            <h1 class="mt-1 mb-3">1234</h1>
+                            <h1 class="mt-1 mb-3" id="class_attendance"></h1>
                         </div>
                     </div>
 
                     <div class="card">
                         <div class="card-body">
                             <h1 class="card-title mb-4">결석</h1>
-                            <h1 class="mt-1 mb-3">1234</h1>
+                            <h1 class="mt-1 mb-3" id="class_absent"></h1>
                         </div>
                     </div>
 
@@ -129,13 +129,13 @@
                     <div class="card">
                         <div class="card-body">
                             <h1 class="card-title mb-4">지각</h1>
-                            <h1 class="mt-1 mb-3">1234</h1>
+                            <h1 class="mt-1 mb-3" id="class_late"></h1>
                         </div>
                     </div>
                     <div class="card">
                         <div class="card-body">
                             <h1 class="card-title mb-4">조퇴</h1>
-                            <h1 class="mt-1 mb-3">1234</h1>
+                            <h1 class="mt-1 mb-3" id="class_early"></h1>
                         </div>
                     </div>
 
