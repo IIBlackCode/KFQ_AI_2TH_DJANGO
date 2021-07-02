@@ -14,7 +14,11 @@ urlpatterns = [
     path('seatingChart/',                   views.Crm.seatingChart, name='seatingChart'),
 
     path('login/',                          auth_views.LoginView.as_view(template_name='crm/account/login.html'), name='login'),
+    path('logout/',                         auth_views.LogoutView.as_view(template_name=''),     name='logout'),
 
+
+
+    
     path('UI_Element/page=<page>/',           views.Crm.ui_Element, name='UI_Element'),
     path('icons/',                           views.Crm.icons,      name='icons'),
     path('forms/page=<page>/',                views.Crm.forms,      name='Forms'),

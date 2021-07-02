@@ -29,5 +29,6 @@ urlpatterns = [
 
     #CRM system 관련 페이지
     path('CRM/', include('CRM.urls')),
+    
 
 ]
