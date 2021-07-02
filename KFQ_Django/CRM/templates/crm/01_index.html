@@ -4,11 +4,8 @@
 <main class="content">
 	<div class="container-fluid p-0">
 
-		<div class="row mb-2 mb-xl-3">
-		
-		</div>
 		<!-- 수강생 현황 전광판 -->
-		{% include "crm/page/index/index_01.html" %}
+		{% include "crm/page/01_index/index_01.html" %}
 
 		<div class="row">
 			<div class="col-12 col-md-6 col-xxl-3 d-flex order-1 order-xxl-1">
@@ -145,14 +142,14 @@
 		new Chart(document.getElementById("chartjs-dashboard-bar"), {
 			type: "bar",
 			data: {
-				labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+				labels: ["출석", "결석", "지각", "조퇴"],
 				datasets: [{
 					label: "This year",
 					backgroundColor: window.theme.primary,
 					borderColor: window.theme.primary,
 					hoverBackgroundColor: window.theme.primary,
 					hoverBorderColor: window.theme.primary,
-					data: [54, 67, 41, 55, 62, 45, 55, 73, 60, 76, 48, 79],
+					data: [54, 67, 41, 55],
 					barPercentage: .75,
 					categoryPercentage: .5
 				}]
