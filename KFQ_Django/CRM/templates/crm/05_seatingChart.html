@@ -56,8 +56,6 @@
 
 
 		// 를 쓸때 사용할 친구
-		
-
 
 		function seatnum(x,y) {
 			L.circle([y, x], {color: 'green',radius: 40, fillOpacity: 0.3}).addTo(map)
@@ -67,12 +65,13 @@
 			<br /><center>반 : AI 개발자 과정</center><br />\
 			<center>전공 : 기계로봇에너지공학과</center><br />\
 			<center>체온 : 39.8 도</center>")
-			.openPopup();
+			.on("mouseover", function(evt) { this.openPopup(); }).on("mouseout", function(evt) { this.closePopup(); });
 		}
 
 		// 얘는 냅둘것
 		map.fitBounds(bounds); // 표현 영역을 설정한다
 	</script>
+	
 	<script>
 		// 우측 상위 반 선택 기능 추가하기
 		var baseMaps = {
