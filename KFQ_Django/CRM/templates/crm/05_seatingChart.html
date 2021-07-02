@@ -25,40 +25,28 @@
 		var bounds = [[0,0], [680,1500]]; // 이미지의 해상도를 bounds로 설정한다. [y,x]
 		L.imageOverlay( imgurl, bounds).addTo(map); // 배경 이미지를 설정한다.
 
-
-		// 학생 정보 매핑 관련
-		{% comment %} L.circle([200, 140], {color: 'green',radius: 40, fillOpacity: 0.3}).addTo(map)
-		.bindTooltip("한정탁", {permanent: true, direction: 'center'}).openTooltip()
-		.bindPopup("<center>한정탁</center><br />\
-		<img src='{% static 'img/avatars/avatar-2.jpg' %}'><br />\
-		<br /><center>반 : AI 개발자 과정</center><br />\
-		<center>전공 : 기계로봇에너지공학과</center><br />\
-		<center>체온 : 39.8 도</center>"); {% endcomment %}
-
-		seatnum(138,200); seatnum(138,320); seatnum(138,440); seatnum(138,563);
-		seatnum(317,200); seatnum(320,320); seatnum(320,440); seatnum(320,563);
-		seatnum(496,200); seatnum(496,320); seatnum(496,440); seatnum(496,563);
-		seatnum(675,200); seatnum(675,320); seatnum(675,440); seatnum(675,563);
-		seatnum(854,200); seatnum(854,320); seatnum(854,440); seatnum(854,563);
-		seatnum(1033,200); seatnum(1033,320); seatnum(1033,440); seatnum(1033,563);
-		seatnum(1212,200); seatnum(1212,320); seatnum(1212,440); seatnum(1212,563);
-		seatnum(1391,200); seatnum(1391,320); seatnum(1391,440); seatnum(1391,563);
-
+		column = [138,317,496,675,854,1033,1212,1391];
+		row = [253,375,498,620];
+		for(var i=0; i<column.length; i++) {
+			for(var j=0; j<row.length; j++) {
+				seat_on(column[i],row[j]);				
+			}
+			console.log('\n');
+		}
 
 
 
 		// 추가할거
-		// 호버링시 학생 사진, 간략 정보 보이게
+		// 호버링시 popup 위치
 		// 결석,지각 등 색깔 바뀌게
-
 		// 함수로 좌석번호로 좌표찾게
 		// 함수로 좌석번호로 자동으로 정보 들어가게
 
 
 		// 를 쓸때 사용할 친구
 
-		function seatnum(x,y) {
-			L.circle([y, x], {color: 'green',radius: 40, fillOpacity: 0.3}).addTo(map)
+		function seat_on(x,y) {
+			L.circle([y, x], {color: 'green',radius: 20, fillOpacity: 0.3}).addTo(map)
 			.bindTooltip("한정탁", {permanent: true, direction: 'center'}).openTooltip()
 			.bindPopup("<center>한정탁</center><br />\
 			<img src='{% static 'img/avatars/avatar-2.jpg' %}'><br />\
