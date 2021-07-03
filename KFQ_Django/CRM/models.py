@@ -21,7 +21,7 @@ class Member (models.Model):
     #PK
     email = models.CharField(max_length=200, primary_key=True)
     #FK
-    class_fk_id = models.ForeignKey(ClassList, on_delete=models.CASCADE)
+    class_fk = models.ForeignKey(ClassList, on_delete=models.CASCADE)
 
     password = models.CharField(max_length=200)
     name = models.CharField(max_length=50)

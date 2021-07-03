@@ -33,10 +33,8 @@
 							<tbody>
 								{% for status in lst_status %}
 								<tr>
-									
-									<td> {{status.studentListNum}}  </td>
-																				<!-- ID -->
-									<td> <a class="nav-link dropdown-toggle" href="#"> test</a> <!-- 이름 -->
+									<td> {{status.studentListNum}}  </td>	<!-- ID -->										
+									<td> <a class="nav-link dropdown-toggle" href="#"> {{ status.member_fk.name }} </a> <!-- 이름 -->
 										<!-- <div class="drowdown-toggle show" href="#" data-toggle="dropdown" aria-expanded="true">
 											
 											<a class="dropdown-menu show" aria-labelledby="messagesDropdown">
@@ -47,25 +45,16 @@
 	
 										</div> -->																
 									</td>
-									
-									<td> {{status.date}} </td>							<!-- 날짜 -->
-									
-																 
+									<td> {{status.date}} </td>							     <!-- 날짜 -->			 
 									<td> {{status.inout_time}} </td>						 <!-- 출석시간 -->
-									
-									
 									<td> {{status.output_time}} </td>						 <!-- 퇴실시간 -->
-									
-
-									
 									{% if status.inout_time == '17:59:21' %}
 									<td> </td> 												 <!-- 출결상태 -->
 									{% else %}
 									<td> <span class ="badge bg-warning"> 지각 </span> </td> 
 									{% endif %}
-									
 									<td> {{status.output_time}} </td>						 <!-- 총 외출시간 -->
-									<td> {{status.output_time}} </td>						 <!-- 총 시간 -->
+									<td> {{status.total_time}} </td>						 <!-- 총 시간 -->
 									<td> <a href="#"> <i class="align-middle" data-feather="edit-2"></i></a> </td> <!-- 사유서 -->
 								</tr>
 								{% endfor %}
