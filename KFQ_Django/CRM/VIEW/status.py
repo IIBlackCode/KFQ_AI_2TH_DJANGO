@@ -7,6 +7,8 @@ from django.utils import timezone
 from django.utils.dateformat import DateFormat
 from django.utils.dateparse import parse_datetime
 
+# 친애하는 민서님께 드리는 커밋!
+
 class Status :
     def status(request):
         print("PAGE : status")
