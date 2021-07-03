@@ -1,4 +1,4 @@
-{% extends './include/leafletmap.html' %}
+{% extends './page/05_seatingChart/leafletmap.html' %}
 {% load static %}
 {% block content %}
 
@@ -27,11 +27,24 @@
 
 		column = [138,317,496,675,854,1033,1212,1391];
 		row = [253,375,498,620];
+		set = [];
+		s_num = column.length + row.length;
+		e=0;
+
 		for(var i=0; i<column.length; i++) {
 			for(var j=0; j<row.length; j++) {
 				seat_on(column[i],row[j]);				
+				set[e]=1;
+				e++;
+				console.log(set[e]);
 			}
-			console.log('\n');
+		}
+
+		for(var i=0; i<column.length; i++) {
+			for(var j=0; j<row.length; j++) {
+				seat_on(column[i],row[j]);				
+				console.log(s_num);
+			}
 		}
 
 
