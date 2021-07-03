@@ -9,7 +9,7 @@
 2. git remote add origin https://github.com/IIBlackCode/KFQ  
 
 [업데이트 시]  
-3. git pull url or origin master
+3. git pull url or origin master  
 4. git add 폴더경로or파일경로  
 5. git commit -m "업데이트 내용"  
 6. git push  
