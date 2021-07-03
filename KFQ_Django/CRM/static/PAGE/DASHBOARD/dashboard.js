@@ -1,3 +1,4 @@
+// setTimeout("location.reload()",5000)
 $.ajax({
 	type : 'GET',
 	url : "total_attendance",
@@ -8,6 +9,8 @@ $.ajax({
 
 		const value = document.getElementById("total_attendance");
 		value.innerText = count.count
+	
+		// $('#test').load(window.location.href + '#test');
 	}//end of success
 })//The end of Ajax
 
