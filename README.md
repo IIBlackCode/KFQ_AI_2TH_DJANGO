@@ -31,6 +31,6 @@
 5. git merge MS-K 		- 내가 만   
 6. git push origin master 	- 최종적으로 깃허브에 업로드  
 
-|출처  
-[git commit 영어사전](https://blog.ull.im/engineering/2019/03/10/logs-on-git.html)  
-[Commit message 작성 규칙](https://velog.io/@djh20/Git-제대로-사용해보자)  
+> 출처  
+> [git commit 영어사전](https://blog.ull.im/engineering/2019/03/10/logs-on-git.html)  
+> [Commit message 작성 규칙](https://velog.io/@djh20/Git-제대로-사용해보자)  
