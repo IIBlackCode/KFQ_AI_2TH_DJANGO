@@ -21,7 +21,7 @@ class Member (models.Model):
     #PK
     email = models.CharField(max_length=200, primary_key=True)
     #FK
-    class_fk = models.ForeignKey(ClassList, on_delete=models.CASCADE)
+    class_fk_id = models.ForeignKey(ClassList, on_delete=models.CASCADE)
 
     password = models.CharField(max_length=200)
     name = models.CharField(max_length=50)
@@ -37,7 +37,7 @@ class Member (models.Model):
 class Student_list(models.Model):
     studentListNum = models.AutoField(ClassList, primary_key=True)
     member_fk = models.ForeignKey(Member, on_delete=models.CASCADE)
-    class_fg = models.ForeignKey(ClassList, on_delete=models.CASCADE)
+    #class_fg = models.ForeignKey(ClassList, on_delete=models.CASCADE)
 
     date = models.DateTimeField(auto_now_add=True)
 
@@ -47,6 +47,6 @@ class Student_list(models.Model):
     late = models.CharField(max_length=2,default='N',null=True)
     early= models.CharField(max_length=2,default='N',null=True)
     
-    inout_time = models.TimeField(auto_now_add=True)
-    output_time= models.TimeField(auto_now_add=True)
-    total_time = models.TimeField(null=True)
+    inout_time = models.DateTimeField(auto_now_add=True)
+    output_time= models.DateTimeField(auto_now_add=True)
+    total_time = models.DateTimeField(null=True)

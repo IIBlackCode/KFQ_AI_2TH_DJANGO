@@ -8,15 +8,72 @@
 			<h1 class="h3 mb-3">수강생 현황</h1>
 
 			<div class="row">
+
 				<div class="col-12">
 					<div class="card">
 						<div class="card-header">
-							<h5 class="card-title mb-0">Empty card</h5>
+							<h5 class="card-title">인공지능</h5>
+							<h6 class="card-subtitle text-muted">검색기능 <code>.table-striped</code> to add zebra-striping to
+								any table row within the <code>&lt;tbody&gt;</code>.</h6>
 						</div>
-						<div class="card-body">
-						</div>
+						<table class="table table-striped">
+							<thead>
+								<tr>
+									<th style="width:4%;">ID</th>
+									<th style="width:10%">이름</th>
+									<th style="width:15%">날짜</th>
+									<th style="width:13%">출석시간</th>
+									<th style="width:13%">퇴실시간</th>
+									<th style="width:10%">출결상태</th>
+									<th style="width:12.5%">총 외출시간</th>
+									<th style="width:12.5%">총 시간</th>
+									<th style="width:10%">사유서</th>
+								</tr>
+							</thead>
+							<tbody>
+								{% for status in lst_status %}
+								<tr>
+									
+									<td> {{status.studentListNum}}  </td>
+																				<!-- ID -->
+									<td> <a class="nav-link dropdown-toggle" href="#"> test</a> <!-- 이름 -->
+										<!-- <div class="drowdown-toggle show" href="#" data-toggle="dropdown" aria-expanded="true">
+											
+											<a class="dropdown-menu show" aria-labelledby="messagesDropdown">
+												<div class="list-group">
+													<li class="list-group-item"> 전자과 </li>
+												</div>
+											</a>
+	
+										</div> -->																
+									</td>
+									
+									<td> {{status.date}} </td>							<!-- 날짜 -->
+									
+																 
+									<td> {{status.inout_time}} </td>						 <!-- 출석시간 -->
+									
+									
+									<td> {{status.output_time}} </td>						 <!-- 퇴실시간 -->
+									
+
+									
+									{% if status.inout_time == '17:59:21' %}
+									<td> </td> 												 <!-- 출결상태 -->
+									{% else %}
+									<td> <span class ="badge bg-warning"> 지각 </span> </td> 
+									{% endif %}
+									
+									<td> {{status.output_time}} </td>						 <!-- 총 외출시간 -->
+									<td> {{status.output_time}} </td>						 <!-- 총 시간 -->
+									<td> <a href="#"> <i class="align-middle" data-feather="edit-2"></i></a> </td> <!-- 사유서 -->
+								</tr>
+								{% endfor %}
+							</tbody>
+						</table>
 					</div>
 				</div>
+	
 			</div>
 
 		</div>

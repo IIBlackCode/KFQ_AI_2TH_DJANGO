@@ -5,6 +5,7 @@ from django.contrib.auth import views as auth_views
 from .VIEW.account import Account
 from .VIEW.dashboard import Dashboard
 from .VIEW.QuerryTest import Test
+from .VIEW.status import Status
 
 app_name='CRM'
 urlpatterns = [
@@ -25,7 +26,7 @@ urlpatterns = [
     path('index/',                          views.Crm.index,        name='index'),
     path('profile/',                        views.Crm.profile,      name='profile'),
     path('settings/',                       views.Crm.settings,     name='settings'),
-    path('status/',                         views.Crm.status,       name='status'),
+    path('status/',                         Status.status,       name='status'),
     path('statistics/',                     views.Crm.statistics,   name='statics'),
     path('seatingChart/',                   views.Crm.seatingChart, name='seatingChart'),
     path('UI_Element/page=<page>/',           views.Crm.ui_Element, name='UI_Element'),
