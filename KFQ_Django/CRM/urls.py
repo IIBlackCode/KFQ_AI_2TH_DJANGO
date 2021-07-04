@@ -12,9 +12,17 @@ urlpatterns = [
     path('test/', Test.test01),
     #***********************************************************************#
     #PAGE : Account
-    path('login/',                          auth_views.LoginView.as_view(template_name='crm/account/login.html'), name='login'),
-    path('logout/',                         auth_views.LogoutView.as_view(template_name=''),     name='logout'),
-    path('signup/',                         Account.signup,       name='signup'),
+    # path('login/',                          auth_views.LoginView.as_view(template_name='crm/account/login.html'), name='login'),
+    # path('logout/',                         auth_views.LogoutView.as_view(template_name=''),     name='logout'),
+    # path('signup/',                         Account.signup,       name='signup'),
+    # test
+    # path('login/',                          Account.login,          name='login'),
+    # path('logout/',                         Account.logout,         name='logout'),
+    path('signup/',                           Account.signup,         name='signup'),
+    path('signin/',                           Account.signin,         name='signin'),
+    path('signout/',                          Account.signout,        name='signout'),
+    
+
     #***********************************************************************#
     #PAGE : 01_index Dashboard
     path('index/total_attendance/',          Dashboard.total_attendance,        name='Total_attendance'),
