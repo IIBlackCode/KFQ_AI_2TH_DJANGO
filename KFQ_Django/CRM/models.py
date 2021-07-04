@@ -17,6 +17,8 @@ INSERT INTO CRM_classlist (class_name, student_count, open_date, close_date)
 VALUES('AI인공지능',25,'2021-04-26','2021-10-30')
 '''
 
+#변경내용 Member authority, Student_list temperature
+
 class Member (models.Model):
     #PK
     email = models.CharField(max_length=200, primary_key=True)
@@ -31,8 +33,9 @@ class Member (models.Model):
     interest_language = models.CharField(max_length=50,default = '',null=True)
     phone_number = models.CharField(max_length=100,default = '',null=True)
     address = models.CharField(max_length=200,default = '',null=True)
-    temperature = models.FloatField(default = '',null=True)
     birth = models.DateField(null=True)
+    seat_num = models.IntegerField(null=True)
+    authority = models.CharField(max_length=50)
 
 class Student_list(models.Model):
     studentListNum = models.AutoField(ClassList, primary_key=True)
@@ -47,6 +50,9 @@ class Student_list(models.Model):
     late = models.CharField(max_length=2,default='N',null=True)
     early= models.CharField(max_length=2,default='N',null=True)
     
-    inout_time = models.DateTimeField(auto_now_add=True)
-    output_time= models.DateTimeField(auto_now_add=True)
+    input_time = models.DateTimeField(null=True)
+    output_time= models.DateTimeField(null=True)
+
+    total_time_outing = models.DateTimeField(null=True)
     total_time = models.DateTimeField(null=True)
+    temperature = models.FloatField(null=True)

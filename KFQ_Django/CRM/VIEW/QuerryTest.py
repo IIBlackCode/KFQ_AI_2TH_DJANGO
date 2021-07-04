@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 import sqlite3
+import datetime
 
 # Create your views here.
 class Test :
@@ -33,3 +34,18 @@ class Test :
 
 
         return HttpResponse("CRM PAGE.")
+
+    def total_member(request):
+        conn = sqlite3.connect("db.sqlite3",check_same_thread=False)
+        cur = conn.cursor()
+
+        now = datetime.datetime.now()
+        print(now) 
+
+        
+        cur.execute("select count(*) from CRM_member ")
+        count = cur.fetchone()
+        print('출석 수 : ',count[0])
+        
+        return HttpResponse("CRM PAGE."+str(count[0]))
+        # return JsonResponse({'count' :count[0]},status=200)

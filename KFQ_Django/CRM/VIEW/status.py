@@ -7,7 +7,7 @@ from django.utils import timezone
 from django.utils.dateformat import DateFormat
 from django.utils.dateparse import parse_datetime
 
-# 친애하는 민서님께 드리는 커밋!
+#임시
 
 class Status :
     def status(request):
@@ -23,17 +23,25 @@ class Status :
         for d in lst_status:
             lst_name.append(d.member_fk)
             #print(d.member_fk.name)
-            d.date = d.date.strftime('%Y-%m-%d')
-            d.inout_time = d.inout_time.strftime('%H:%M:%S')
-            d.output_time = d.output_time.strftime('%H:%M:%S')
-            d.total_time = Status.diff_time(d.output_time, d.inout_time)
-           
+            if d.date and d.output_time:
+                d.date = d.date.strftime('%Y-%m-%d')
+                d.input_time = d.input_time.strftime('%H:%M:%S')
+                d.output_time = d.output_time.strftime('%H:%M:%S')
+                d.total_time = Status.diff_time(d.output_time, d.input_time)
+                d.absent = Status.check_status(d.input_time, d.output_time)
+            elif d.input_time and not d.output_time:
+                d.date = d.date.strftime('%Y-%m-%d')
+                d.input_time = d.input_time.strftime('%H:%M:%S')
+                d.absent = '미퇴실'
+            else:
+                d.absent = '결석'
+
             #lst_date.append(d.date.strftime('%Y:%m:%d'))
-            #lst_input_time.append(d.inout_time.strftime('%H:%M:%S'))
+            #lst_input_time.append(d.input_time.strftime('%H:%M:%S'))
             #lst_output_time.append(d.output_time.strftime('%H:%M:%S'))
 
             #print(d.date)
-            #print(d.inout_time)
+            #print(d.input_time)
             #print(d.output_time)
             #print(d.total_time)
 
@@ -51,5 +59,40 @@ class Status :
         time_stay = abs(t2-t1)
         result = time(time_stay.seconds //3600, (time_stay.seconds // 60) % 60).strftime('%H:%M')
         return result
+
+    def check_status(time_in, time_out):
+        
+        #chk_time = time(diff_time.seconds//3600, (diff_time.seconds//60)%60).strftime('%H:%M')
+        #print(chk_time)
+
+        standard_time = datetime.strptime('09:39:59','%H:%M:%S')
+        t1 = datetime.strptime(time_in,'%H:%M:%S')
+        t2 = datetime.strptime(time_out,'%H:%M:%S')
+        
+        diff_time = standard_time - t1
+        #print(time_in)
+        #print(diff_time.days)
+
+        time_stay = t2-t1
+        time_stay= time_stay.seconds //3600
+        result = ''
+
+        print(time_stay)
+
+        if diff_time.days < 0 and time_stay > 5:
+            print('late')
+            result = '지각'
+            return result
+        elif time_stay < 7:
+            result = '조퇴/외출'
+            return result
+        else:
+            result = '출석'
+            print('done')
+            return result
+        
+
+
+        
 
 #***********************************************************************#    
