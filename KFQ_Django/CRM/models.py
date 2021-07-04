@@ -17,6 +17,8 @@ INSERT INTO CRM_classlist (class_name, student_count, open_date, close_date)
 VALUES('AI인공지능',25,'2021-04-26','2021-10-30')
 '''
 
+#변경내용 Member authority, Student_list temperature
+
 class Member (models.Model):
     #PK
     email = models.CharField(max_length=200, primary_key=True)
