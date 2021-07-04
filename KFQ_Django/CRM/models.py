@@ -31,9 +31,9 @@ class Member (models.Model):
     interest_language = models.CharField(max_length=50,default = '',null=True)
     phone_number = models.CharField(max_length=100,default = '',null=True)
     address = models.CharField(max_length=200,default = '',null=True)
-    temperature = models.FloatField(default = '',null=True)
     birth = models.DateField(null=True)
     seat_num = models.IntegerField(null=True)
+    authority = models.CharField(max_length=50)
 
 class Student_list(models.Model):
     studentListNum = models.AutoField(ClassList, primary_key=True)
@@ -51,3 +51,4 @@ class Student_list(models.Model):
     inout_time = models.DateTimeField(auto_now_add=True)
     output_time= models.DateTimeField(auto_now_add=True)
     total_time = models.DateTimeField(null=True)
+    temperature = models.FloatField(null=True)

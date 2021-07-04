@@ -19,22 +19,39 @@
 					<table class="table table-striped">
 						<thead>
 							<tr>
-								<th style="width:4%;">ID</th>
+								<th style="width:4%;">Email</th>
 								<th style="width:10%">이름</th>
 								<th style="width:15%">날짜</th>
 								<th style="width:13%">입실시간</th>
 								<th style="width:13%">퇴실시간</th>
 								<th style="width:10%">출결상태</th>
 								<th style="width:12.5%">총 외출시간</th>
-								<th style="width:12.5%">총 시간</th>
+								<th style="width:12.5%">총 수강시간</th>
 								<th style="width:10%">사유서</th>
 							</tr>
 						</thead>
 						<tbody>
 							{% for status in lst_status %}
 							<tr>
-								<td> {{status.studentListNum}} </td> <!-- ID -->
-								<td> <a class="nav-link dropdown-toggle" href="#"> {{ status.member_fk.name }} </a>
+								<td> {{status.member_fk.email}} </td> <!-- ID -->
+								<td> {{ status.member_fk.name }}
+
+									<!-- 
+									<a class="dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false"> 
+										{{ status.member_fk.name }} 
+									</a>
+									
+									<div class ="dropdown-menu dropdown-menu-right show">
+										<a class="dropdown-item" href='/settings.html'>
+											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill='none' stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user align-middle mr-1">
+												<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+												<circle cx="12" cy="7" r="4"></circle>
+											</svg>
+											Profile
+										</a>
+									</div>
+									-->
+
 									<!-- 이름 -->
 									<!-- <div class="drowdown-toggle show" href="#" data-toggle="dropdown" aria-expanded="true">
 											
