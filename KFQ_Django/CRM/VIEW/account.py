@@ -5,9 +5,23 @@ from CRM.forms import UserForm
 class Account:
 
     def signup(request):
-            """
-            계정생성
-            """
+        """
+        계정생성
+        """
+        if request.method == "POST":
+            form = UserForm(request.POST)
+            if form.is_valid():
+                form.save()
+                username = form.cleaned_data.get('username')
+                raw_password = form.cleaned_data.get('password1')
+                user = authenticate(username=username, password=raw_password)
+                login(request, user)
+                return redirect('index')
+        else:
+            form = UserForm()
+        return render(request, './crm/account/signup.html', {'form': form})
+
+    def addnovice(request):
             if request.method == "POST":
                 form = UserForm(request.POST)
                 if form.is_valid():
@@ -19,4 +33,4 @@ class Account:
                     return redirect('index')
             else:
                 form = UserForm()
-            return render(request, './crm/account/signup.html', {'form': form})
+            return render(request, './crm/account/add_novice.html', {'form': form})

@@ -50,7 +50,9 @@ class Student_list(models.Model):
     late = models.CharField(max_length=2,default='N',null=True)
     early= models.CharField(max_length=2,default='N',null=True)
     
-    inout_time = models.DateTimeField(auto_now_add=True)
-    output_time= models.DateTimeField(auto_now_add=True)
+    input_time = models.DateTimeField(null=True)
+    output_time= models.DateTimeField(null=True)
+
+    total_time_outing = models.DateTimeField(null=True)
     total_time = models.DateTimeField(null=True)
     temperature = models.FloatField(null=True)

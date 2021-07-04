@@ -9,12 +9,43 @@
 
 		<div class="row">
 
+			<div class="col-12 col-xl-3">
+
+				<div class="card">
+					<div class="card-header">
+						<h5 class="card-title">과정명</h5>
+						<!-- <h6 class="card-subtitle text-muted">인공지능</h6> -->
+						<select class="form-control mb-3">
+							<option selected>과정명</option>
+							<option>인공지능</option>
+							<option>스마트팩토리</option>
+							<option>빅데이터</option>
+						</select>
+					</div>
+					<div class="card-body">
+						<form>
+
+							<div class="mb-3 row">
+								<div class="col-sm-10 ml-sm-auto">
+									<button type="submit" class="btn btn-primary">
+										<a href='/CRM/add_novice'> 수강생등록 </a>
+									</button>
+								</div>
+								<div class="col-sm-10 ml-sm-auto">
+									<button type="submit" class="btn btn-secondary">수강생조회</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+
+
 			<div class="col-12">
 				<div class="card">
 					<div class="card-header">
 						<h5 class="card-title">인공지능</h5>
-						<h6 class="card-subtitle text-muted">검색기능 <code>.table-striped</code> to add zebra-striping to
-							any table row within the <code>&lt;tbody&gt;</code>.</h6>
+						<h6 class="card-subtitle text-muted">검색기능 <code>코드넣는 태그</code> 설명란 </h6>
 					</div>
 					<table class="table table-striped">
 						<thead>
@@ -34,23 +65,25 @@
 							{% for status in lst_status %}
 							<tr>
 								<td> {{status.member_fk.email}} </td> <!-- ID -->
-								<td> {{ status.member_fk.name }}
+								<td>
 
-									<!-- 
-									<a class="dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false"> 
-										{{ status.member_fk.name }} 
+									<a class="dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">
+										{{ status.member_fk.name }}
 									</a>
-									
-									<div class ="dropdown-menu dropdown-menu-right show">
-										<a class="dropdown-item" href='/settings.html'>
-											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill='none' stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user align-middle mr-1">
+
+									<div class="dropdown-menu dropdown-menu-right show">
+										<a class="dropdown-item" href='/CRM/settings'>
+											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+												viewBox="0 0 24 24" fill='none' stroke="currentColor" stroke-width="2"
+												stroke-linecap="round" stroke-linejoin="round"
+												class="feather feather-user align-middle mr-1">
 												<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
 												<circle cx="12" cy="7" r="4"></circle>
 											</svg>
-											Profile
+											학생정보편집
 										</a>
 									</div>
-									-->
+
 
 									<!-- 이름 -->
 									<!-- <div class="drowdown-toggle show" href="#" data-toggle="dropdown" aria-expanded="true">
