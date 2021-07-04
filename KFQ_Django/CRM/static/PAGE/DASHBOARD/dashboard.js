@@ -1,6 +1,21 @@
 // setTimeout("location.reload()",5000)
 $.ajax({
 	type : 'GET',
+	url : "total_member",
+	// data : {test : ''},
+	success : function(count) {
+		//Console 창으로 data확인
+		console.log('데이터 보내기 성공',count);
+
+		const value = document.getElementById("total_attendance");
+		value.innerText = count.count
+	
+		// $('#test').load(window.location.href + '#test');
+	}//end of success
+})//The end of Ajax
+
+$.ajax({
+	type : 'GET',
 	url : "total_attendance",
 	// data : {test : ''},
 	success : function(count) {
