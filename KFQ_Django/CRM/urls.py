@@ -24,12 +24,14 @@ urlpatterns = [
     path('index/total_early/',          Dashboard.total_early,        name='Total_attendance'),
     path('index/class_statistics/',          Dashboard.class_statistics,        name='class_statistics'),
     #***********************************************************************#
+    path('seatingChart/seatingChart/',          SeatingChart.seatingChart, name='seatingChart_data'),
+    #***********************************************************************#
     path('index/',                          views.Crm.index,        name='index'),
     path('profile/',                        views.Crm.profile,      name='profile'),
     path('settings/',                       views.Crm.settings,     name='settings'),
     path('status/',                         Status.status,       name='status'),
     path('statistics/',                     views.Crm.statistics,   name='statics'),
-    path('seatingChart/',                   SeatingChart.test, name='seatingChart'),
+    path('seatingChart/',                   views.Crm.seatingChart, name='seatingChart'),
     path('UI_Element/page=<page>/',           views.Crm.ui_Element, name='UI_Element'),
     path('icons/',                           views.Crm.icons,      name='icons'),
     path('forms/page=<page>/',                views.Crm.forms,      name='Forms'),
