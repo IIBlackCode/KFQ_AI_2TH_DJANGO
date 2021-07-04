@@ -19,11 +19,12 @@ urlpatterns = [
     path('add_novice/',                     Account.addnovice,    name='addnovice'),
     #***********************************************************************#
     #PAGE : 01_index Dashboard
-    path('index/total_attendance/',          Dashboard.total_attendance,    name='Total_attendance'),
-    path('index/total_absent/',              Dashboard.total_absent,        name='Total_attendance'),
-    path('index/total_late/',                Dashboard.total_late,          name='Total_attendance'),
-    path('index/total_early/',               Dashboard.total_early,         name='Total_attendance'),
-    path('index/class_statistics/',          Dashboard.class_statistics,    name='class_statistics'),
+    path('index/total_member/',             Dashboard.total_member,         name='total_member'),
+    path('index/total_attendance/',         Dashboard.total_attendance,    name='Total_attendance'),
+    path('index/total_absent/',             Dashboard.total_absent,        name='Total_attendance'),
+    path('index/total_late/',               Dashboard.total_late,          name='Total_attendance'),
+    path('index/total_early/',              Dashboard.total_early,         name='Total_attendance'),
+    path('index/class_statistics/',         Dashboard.class_statistics,    name='class_statistics'),
     #***********************************************************************#
     path('index/',                          views.Crm.index,      name='index'),
     path('profile/',                        views.Crm.profile,    name='profile'),

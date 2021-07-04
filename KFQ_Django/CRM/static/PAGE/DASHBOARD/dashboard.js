@@ -7,13 +7,26 @@ $.ajax({
 		//Console 창으로 data확인
 		console.log('데이터 보내기 성공',count);
 
-		const value = document.getElementById("total_attendance");
-		value.innerText = count.count
+		// const total = document.getElementById("total_member");
+		// total.innerText = count.total
+
+		const attendance = document.getElementById("total_attendance");
+		attendance.innerText = count.attendance+' / '+count.total
+
+		const absent = document.getElementById("total_absent");
+		absent.innerText = count.absent+' / '+count.total
+
+		const late = document.getElementById("total_late");
+		late.innerText = count.late+' / '+count.total
+
+		const early = document.getElementById("total_early");
+		early.innerText = count.early+' / '+count.total
 	
 		// $('#test').load(window.location.href + '#test');
 	}//end of success
 })//The end of Ajax
 
+/*
 $.ajax({
 	type : 'GET',
 	url : "total_attendance",
@@ -67,7 +80,7 @@ $.ajax({
 		value.innerText = count.count
 	}//end of success
 })//The end of Ajax
-
+*/
 
 function select_class() {
 	var test = document.getElementById("select_class");
