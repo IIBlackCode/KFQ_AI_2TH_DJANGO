@@ -1,57 +1,46 @@
-{% extends '../include/base_c.html' %}
+{% extends 'crm/include/base_c.html' %}
 {% load static %}
 {% block content %}
-
-	<main class="content">
-		<div class="container-fluid p-0">
-
-		
-
-			<div class="row">
-				<div class="col-12">
-					<div class="card">
-						<div class="card-header">
-
-						</div>
-						<div class="card-body">
-							<div class="container my-3">
-								<div class="row my-3">
-									<div class="col-4">
-										<h4>계정생성</h4>
-									</div>
-								</div>
-								<form method="post" class="post-form">
-									{% csrf_token %}
-									{% include "crm/account/form_errors.html" %}
-									<div class="form-group">
-										<label for="username">사용자 이름</label>
-										<input type="text" class="form-control" name="username" id="username"
-											   value="{{ form.username.value|default_if_none:'' }}">
-									</div>
-									<div class="form-group">
-										<label for="password1">비밀번호</label>
-										<input type="password" class="form-control" name="password1" id="password1"
-											   value="{{ form.password1.value|default_if_none:'' }}">
-									</div>
-									<div class="form-group">
-										<label for="password2">비밀번호 확인</label>
-										<input type="password" class="form-control" name="password2" id="password2"
-											   value="{{ form.password2.value|default_if_none:'' }}">
-									</div>
-									<div class="form-group">
-										<label for="email">이메일</label>
-										<input type="text" class="form-control" name="email" id="email"
-											   value="{{ form.email.value|default_if_none:'' }}">
-									</div>
-									<button type="submit" class="btn btn-primary">생성하기</button>
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
+<div class="jumbotron">
+	<div class="container text-center">
+		<form method="post" action="/signup/">
+			{% csrf_token %}
+			<div class="form-group">
+				<label for="name">Name:</label>
+				<input type="text" class="form-control" id="name" name="name">
+			</div>
+			<div class="form-group">
+				<label for="birth">birth:</label>
+				<input type="text" class="form-control" id="birth" name="birth">
+			</div>
+			<div class="form-group">
+				<label for="email">Email:</label>
+				<input type="text" class="form-control" id="email" name="email">
+			</div>
+			<div class="form-group">
+				<label for="password">Password:</label>
+				<input type="password" class="form-control" id="password" name="password">
+			</div>
+			
+			<div class="form-group">
+				<label for="address">Address:</label>
+				<input type="text" class="form-control" id="address" name="address">
+			</div>
+			<div class="form-group">
+				<label for="university">Univ:</label>
+				<input type="text" class="form-control" id="university" name="university">
+			</div>
+			<div class="form-group">
+				<label for="major">Major:</label>
+				<input type="text" class="form-control" id="major" name="major">
+			</div>
+			<div class="form-group">
+				<label for="interest_language">Language:</label>
+				<input type="text" class="form-control" id="interest_language" name="interest_language">
 			</div>
 
-		</div>
-	</main>
-
+			<button class="btn btn-primary btn-block" id="signup" onClick="location.href='/CRM/signup'">회원 가입</button>
+		</form>
+	</div>
+</div>
 {% endblock %}

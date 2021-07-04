@@ -92,6 +92,26 @@ class Status :
             return result
         
 
+    def addnovice(request):
+        print("PAGE : add_novice")
+        if request.method == "POST":
+            form = NoviceForm()
+            if form.is_valid():
+                newbie = form.save(commit=False)
+                novice_name = newbie.name
+                print(novice_name)
+
+                newbie.objects.create(email='zz@cc.cc',
+                class_fk_id=newbie.objects.get(class_id=1),
+                name=novice_name,age = '28',university='kfq',major='sw',
+                interest_language='python',phone_number='000-0000-0000', address='서울시 구로구',
+                temperature = 36.5, birth='1994-07-04',seat_num=1,authority='학생')
+
+                return redirect('index')
+        else:
+            form = NoviceForm()
+        return render(request, './crm/page/account/add_novice.html', {'form': form})
+
 
         
 
