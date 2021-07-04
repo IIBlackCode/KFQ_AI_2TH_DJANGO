@@ -38,10 +38,14 @@
 		}
 
 		// 모든 좌석 앉히기
-		for(var i=0; i<column.length; i++) {
+		{% comment %} for(var i=0; i<column.length; i++) {
 			for(var j=0; j<row.length; j++) {
 				seat_on(column[i],row[j]);				
 			}
+		} {% endcomment %}
+
+		for(var n=0; n<set.length; n++) {
+			seat_on(set[n][1],set[n][2]);
 		}
 		
 
@@ -49,6 +53,8 @@
 		// 결석,지각 등 색깔 바뀌게
 		// 함수로 좌석번호로 좌표찾게
 		// 함수로 좌석번호로 자동으로 정보 들어가게
+
+
 
 
 		// 를 쓸때 사용할 친구
