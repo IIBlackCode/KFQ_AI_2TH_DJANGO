@@ -6,6 +6,7 @@ from .VIEW.account import Account
 from .VIEW.dashboard import Dashboard
 from .VIEW.QuerryTest import Test
 from .VIEW.status import Status
+from .VIEW.seatingChart import SeatingChart
 
 app_name='CRM'
 urlpatterns = [
@@ -28,7 +29,7 @@ urlpatterns = [
     path('settings/',                       views.Crm.settings,     name='settings'),
     path('status/',                         Status.status,       name='status'),
     path('statistics/',                     views.Crm.statistics,   name='statics'),
-    path('seatingChart/',                   views.Crm.seatingChart, name='seatingChart'),
+    path('seatingChart/',                   SeatingChart.test, name='seatingChart'),
     path('UI_Element/page=<page>/',           views.Crm.ui_Element, name='UI_Element'),
     path('icons/',                           views.Crm.icons,      name='icons'),
     path('forms/page=<page>/',                views.Crm.forms,      name='Forms'),

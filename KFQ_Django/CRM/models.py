@@ -33,6 +33,7 @@ class Member (models.Model):
     address = models.CharField(max_length=200,default = '',null=True)
     temperature = models.FloatField(default = '',null=True)
     birth = models.DateField(null=True)
+    seat_num = models.IntegerField(null=True)
 
 class Student_list(models.Model):
     studentListNum = models.AutoField(ClassList, primary_key=True)
