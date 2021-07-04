@@ -42,58 +42,59 @@
 								<h4>세부정보</h4>
 							</div>
 							<div class="card-body">
-								<form>
-									<div class="row">
-										<div class="col-md-8">
-											<div class="row">
 
+								<div class="row">
+									<div class="col-md-8">
+										<form action="{% url 'CRM:add_novice'%}" method="post">
+											{% csrf_token %}
+											<div class="row">
 												<div class="mb-3 col-md-6">
-													<label class="form-label" for="inputLastName">성명
-													</label>
-													<!--
-													<form action="{% url 'CRM:addnovice' member.name %}" method="post">
-														{% csrf_token %}
-														<input type="text" class="form-control" id="inputFirstName"
-														placeholder="성명">
-														
-													</form>-->
-														
+													<!-- <input type="text" class="form-control" placeholder="이름"> -->
+													<label class="form-label" for="inputLastName"> 이름</label>
+													<textarea name="name" id="name" rows="1"></textarea>
 												</div>
 												<div class="mb-3 col-md-6">
 													<label class="form-label" for="inputBirth">생년월일</label>
-													<input type="number" class="form-control" id="inputBirth"
-														placeholder="생년월일">
+													<textarea name="birth" id="birth" rows="1"></textarea>
+													<!-- <input type="number" class="form-control" id="Birth" placeholder="생년월일"> -->
 												</div>
 											</div>
 											<div class="row">
 												<div class="mb-3 col-md-6">
 													<label class="form-label" for="inputEmail">이메일</label>
-													<input type="email" class="form-control" id="inputEmail"
-														placeholder="Email">
+													<textarea name="email" id="email" rows="1"></textarea>
+													<!-- <input type="email" class="form-control" id="inputEmail"
+														placeholder="Email"> -->
 												</div>
 												<div class="mb-3 col-md-6">
 													<label class="form-label" for="inputPhonenumber">번호</label>
-													<input type="number" class="form-control" id="inputPhonenumber"
-														placeholder="번호">
+													<textarea name="digits" id="digits" rows="1"></textarea>
+													<!-- <input type="number" class="form-control" id="inputPhonenumber"
+														placeholder="번호">-->
 												</div>
 											</div>
+
 											<div class="mb-3">
 												<label class="form-label" for="inputAddress">주소</label>
-												<input type="text" class="form-control" id="inputAddress"
-													placeholder="서울시">
+												<textarea name="address" id="address" rows="1"></textarea>
+												<!-- <input type="text" class="form-control" id="inputAddress"
+													placeholder="서울시">-->
 											</div>
 											<div class="row">
 												<div class="mb-3 col-md-3">
 													<label class="form-label" for="inputUniv">학교</label>
-													<input type="text" class="form-control" id="inputUniv">
+													<textarea name="univ" id="univ" rows="1"></textarea>
+													<!-- <input type="text" class="form-control" id="inputUniv">-->
 												</div>
 												<div class="mb-3 col-md-3">
 													<label class="form-label" for="inputMajor">전공</label>
-													<input type="text" class="form-control" id="inputMajor">
+													<textarea name="major" id="major" rows="1"></textarea>
+													<!-- <input type="text" class="form-control" id="inputMajor">-->
 												</div>
 												<div class="mb-3 col-md-3">
 													<label class="form-label" for="inputLanguage">사용 가능 언어</label>
-													<input type="text" class="form-control" id="inputLanguage">
+													<textarea name="language" id="language" rows="1"></textarea>
+													<!-- <input type="text" class="form-control" id="inputLanguage">-->
 												</div>
 												<div class="mb-3 col-md-3">
 													<h5 class="card-title">과정등록</h5>
@@ -106,23 +107,26 @@
 													</select>
 												</div>
 											</div>
-										</div>
 
-										<div class="col-md-4">
-											<div class="text-center">
-												<img alt="Charles Hall" src="{% static 'img/avatars/avatar.jpg' %}"
-													class="rounded mr-2 mb-2" width="128" height="128" />
-												<div class="mt-2">
-													<span class="btn btn-primary"><i class="fas fa-upload"></i>사진
-														저장</span>
-												</div>
-												<small>For best results, use an image at least 128px by
-													128px in .jpg format</small>
-											</div>
-										</div>
+
+
 									</div>
 
-									<button type="submit" class="btn btn-primary">변경 및 저장</button>
+									<div class="col-md-4">
+										<div class="text-center">
+											<img alt="Charles Hall" src="{% static 'img/avatars/avatar.jpg' %}"
+												class="rounded mr-2 mb-2" width="128" height="128" />
+											<div class="mt-2">
+												<span class="btn btn-primary"><i class="fas fa-upload"></i>사진
+													저장</span>
+											</div>
+											<small>For best results, use an image at least 128px by
+												128px in .jpg format</small>
+										</div>
+									</div>
+								</div>
+
+								<button type="submit" class="btn btn-primary">변경 및 저장</button>
 								</form>
 
 							</div>

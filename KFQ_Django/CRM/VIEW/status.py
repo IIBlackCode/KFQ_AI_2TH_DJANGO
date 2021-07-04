@@ -1,12 +1,12 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 import sqlite3
 from CRM.models import ClassList, Member, Student_list
 from datetime import timedelta, date, time, datetime
 from django.utils import timezone
 from django.utils.dateformat import DateFormat
 from django.utils.dateparse import parse_datetime
-from CRM.forms import NoviceForm
+from CRM.forms import NoviceForm, UserForm
 
 #임시
 
@@ -23,7 +23,7 @@ class Status :
 
         for d in lst_status:
             lst_name.append(d.member_fk)
-            #print(d.member_fk.name)
+            print(d.member_fk.name)
             if d.date and d.output_time:
                 d.date = d.date.strftime('%Y-%m-%d')
                 d.input_time = d.input_time.strftime('%H:%M:%S')
@@ -95,23 +95,47 @@ class Status :
 
     def addnovice(request):
         print("PAGE : add_novice")
+
+
         if request.method == "POST":
-            form = NoviceForm()
+            
+            #form = NoviceForm()
+            #newbie = form.save(commit=False)
+            newbie_name = request.POST.get('name')
+            print(newbie_name)
+            newbie_birth = request.POST.get('birth')
+            newbie_email = request.POST.get('email')
+            newbie_digits = request.POST.get('digits')
+            newbie_address = request.POST.get('address')
+            newbie_univ = request.POST.get('univ')
+            newbie_major = request.POST.get('major')
+            newbie_language = request.POST.get('language')
+
+
+            Member.objects.create(email=newbie_email,
+                class_fk_id=1,
+                name=newbie_name,age = '28',university=newbie_univ,major=newbie_major,
+                interest_language=newbie_language, phone_number=newbie_digits, address=newbie_address,
+                birth=newbie_birth, seat_num=1, authority='수강생')
+            
+            
+            """
             if form.is_valid():
                 newbie = form.save(commit=False)
-                novice_name = newbie.name
+                novice_name = request.POST.get('name')
                 print(novice_name)
 
-                newbie.objects.create(email='zz@cc.cc',
+                newbie.create(email='zz@cc.cc',
                 class_fk_id=newbie.objects.get(class_id=1),
                 name=novice_name,age = '28',university='kfq',major='sw',
                 interest_language='python',phone_number='000-0000-0000', address='서울시 구로구',
                 temperature = 36.5, birth='1994-07-04',seat_num=1,authority='학생')
 
                 return redirect('index')
-        else:
-            form = NoviceForm()
-        return render(request, './crm/page/account/add_novice.html', {'form': form})
+            else:
+                form = NoviceForm()
+            """
+        return render(request, './crm/page/account/add_novice.html')
 
 
         
