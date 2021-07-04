@@ -7,6 +7,7 @@ from django.utils import timezone
 from django.utils.dateformat import DateFormat
 from django.utils.dateparse import parse_datetime
 
+#임시
 
 class Status :
     def status(request):
