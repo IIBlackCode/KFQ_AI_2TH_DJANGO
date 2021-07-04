@@ -21,51 +21,48 @@
 	<script>
 		// 기본설정
 		var map = L.map('map', {crs: L.CRS.Simple, zoomControl: false, maxZoom: 0, dragging: false});
-		var imgurl = '/static/img/photos/seatingChart.jpg' // 이미지 경로
+		var imgurl = '/static/PAGE/seatingChart/seatingChart.jpg' // 이미지 경로
 		var bounds = [[0,0], [680,1500]]; // 이미지의 해상도를 bounds로 설정한다. [y,x]
 		L.imageOverlay( imgurl, bounds).addTo(map); // 배경 이미지를 설정한다.
 
-		column = [138,317,496,675,854,1033,1212,1391];
-		row = [253,375,498,620];
-		set = [];
-		s_num = column.length + row.length;
-		e=0;
+		column = [138,317,496,675,854,1033,1212,1391]; // 분단 x 좌표
+		row = [253,375,498,620]; // 몇번째 자리인지 y 좌표
+		set = []; // 좌석 번호가 담길 좌표 리스트
 
+		
 		for(var i=0; i<column.length; i++) {
-			for(var j=0; j<row.length; j++) {
-				seat_on(column[i],row[j]);				
-				set[e]=1;
-				e++;
-				console.log(set[e]);
+			for(var j=0; j<row.length; j++) {				
+				set[i*row.length+j]=[i*row.length+j+1,column[i],row[j]]; // set[e] = [좌석번호, x좌표, y좌표]
+				console.log(set[i*row.length+j]);
 			}
 		}
 
+		// 모든 좌석 앉히기
 		for(var i=0; i<column.length; i++) {
 			for(var j=0; j<row.length; j++) {
 				seat_on(column[i],row[j]);				
-				console.log(s_num);
 			}
 		}
-
-
+		
 
 		// 추가할거
-		// 호버링시 popup 위치
 		// 결석,지각 등 색깔 바뀌게
 		// 함수로 좌석번호로 좌표찾게
 		// 함수로 좌석번호로 자동으로 정보 들어가게
 
 
 		// 를 쓸때 사용할 친구
-
 		function seat_on(x,y) {
-			L.circle([y, x], {color: 'green',radius: 20, fillOpacity: 0.3}).addTo(map)
-			.bindTooltip("한정탁", {permanent: true, direction: 'center'}).openTooltip()
-			.bindPopup("<center>한정탁</center><br />\
+			var popup_content = new L.Rrose({ autoPan: false, offset: new L.Point(0,-10), closeButton: false })
+			.setContent("<center>한정탁</center><br />\
 			<img src='{% static 'img/avatars/avatar-2.jpg' %}'><br />\
 			<br /><center>반 : AI 개발자 과정</center><br />\
 			<center>전공 : 기계로봇에너지공학과</center><br />\
 			<center>체온 : 39.8 도</center>")
+
+			L.circle([y, x], {color: 'green',radius: 20, fillOpacity: 0.3}).addTo(map)
+			.bindTooltip("한정탁", {permanent: true, direction: 'center'}).openTooltip()
+			.bindPopup(popup_content)
 			.on("mouseover", function(evt) { this.openPopup(); }).on("mouseout", function(evt) { this.closePopup(); });
 		}
 
@@ -74,6 +71,7 @@
 	</script>
 	
 	<script>
+	/*
 		// 우측 상위 반 선택 기능 추가하기
 		var baseMaps = {
 		"21F": L.imageOverlay('21F Image Link', bounds),
@@ -87,5 +85,6 @@
 		});
 		map.addLayer(baseMaps["15F"]);
 		map.fitBounds(bounds);
+	*/
 	</script>
 {% endblock %}
