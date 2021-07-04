@@ -22,11 +22,13 @@ class Account:
         return render(request, './crm/account/signup.html', {'form': form})
 
     def addnovice(request):
+        print("PAGE : add_novice")
         if request.method == "POST":
             form = NoviceForm()
             if form.is_valid():
                 newbie = form.save(commit=False)
                 novice_name = newbie.name
+                print(novice_name)
 
                 newbie.objects.create(email='zz@cc.cc',
                 class_fk_id=newbie.objects.get(class_id=1),

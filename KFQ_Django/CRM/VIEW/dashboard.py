@@ -7,6 +7,40 @@ conn = sqlite3.connect("db.sqlite3",check_same_thread=False)
 cur = conn.cursor()
 
 class Dashboard :
+    #진행중인 총 수강생의 수
+    def total_member(request):
+        conn = sqlite3.connect("db.sqlite3",check_same_thread=False)
+        cur = conn.cursor()
+        with conn:
+            cur.execute("select count(*) from CRM_member ")
+            total = cur.fetchone()
+            print('총 수강생 수 : ',total[0])
+        with conn:
+            cur.execute("select count(*) from CRM_student_list WHERE attendance like 'Y' ")
+            attendance = cur.fetchone()
+            print('1. 출석 수 : ',attendance[0])
+        with conn:
+            cur.execute("select count(*) from CRM_student_list WHERE absent like 'Y' ")
+            absent = cur.fetchone()
+            print('2. 결석 수 : ',absent[0])
+        with conn:
+            cur.execute("select count(*) from CRM_student_list WHERE late like 'Y' ")
+            late = cur.fetchone()
+            print('3. 지각 수 : ',late[0])
+        with conn:
+            cur.execute("select count(*) from CRM_student_list WHERE early like 'Y' ")
+            early = cur.fetchone()
+            print('4. 조퇴 수 : ',early[0])
+        context = {
+            'total' : total[0],
+            'attendance' : attendance[0],
+            'absent' : absent[0],
+            'late' : late[0],
+            'early' : early[0],
+        }
+        return JsonResponse(context,status=200)
+        # return render(request, './crm/page/01_index/index_01.html', context)
+
     #총 출석 수
     def total_attendance(request):
         conn = sqlite3.connect("db.sqlite3",check_same_thread=False)

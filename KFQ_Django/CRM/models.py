@@ -56,3 +56,4 @@ class Student_list(models.Model):
     total_time_outing = models.DateTimeField(null=True)
     total_time = models.DateTimeField(null=True)
     temperature = models.FloatField(null=True)
+
