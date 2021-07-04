@@ -112,12 +112,12 @@ class Status :
             newbie_language = request.POST.get('language')
 
 
-            Member.objects.create(email=newbie_email,
+            newbie = Member.objects.create(email=newbie_email,
                 class_fk_id=1,
                 name=newbie_name,age = '28',university=newbie_univ,major=newbie_major,
                 interest_language=newbie_language, phone_number=newbie_digits, address=newbie_address,
                 birth=newbie_birth, seat_num=1, authority='수강생')
-            
+            newbie.save()
             
             """
             if form.is_valid():
