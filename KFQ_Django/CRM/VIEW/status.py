@@ -25,23 +25,23 @@ class Status :
             #print(d.member_fk.name)
             if d.date and d.output_time:
                 d.date = d.date.strftime('%Y-%m-%d')
-                d.inout_time = d.inout_time.strftime('%H:%M:%S')
+                d.input_time = d.input_time.strftime('%H:%M:%S')
                 d.output_time = d.output_time.strftime('%H:%M:%S')
-                d.total_time = Status.diff_time(d.output_time, d.inout_time)
-                d.absent = Status.check_status(d.inout_time, d.output_time)
-            elif d.inout_time and not d.output_time:
+                d.total_time = Status.diff_time(d.output_time, d.input_time)
+                d.absent = Status.check_status(d.input_time, d.output_time)
+            elif d.input_time and not d.output_time:
                 d.date = d.date.strftime('%Y-%m-%d')
-                d.inout_time = d.inout_time.strftime('%H:%M:%S')
+                d.input_time = d.input_time.strftime('%H:%M:%S')
                 d.absent = '미퇴실'
             else:
                 d.absent = '결석'
 
             #lst_date.append(d.date.strftime('%Y:%m:%d'))
-            #lst_input_time.append(d.inout_time.strftime('%H:%M:%S'))
+            #lst_input_time.append(d.input_time.strftime('%H:%M:%S'))
             #lst_output_time.append(d.output_time.strftime('%H:%M:%S'))
 
             #print(d.date)
-            #print(d.inout_time)
+            #print(d.input_time)
             #print(d.output_time)
             #print(d.total_time)
 
