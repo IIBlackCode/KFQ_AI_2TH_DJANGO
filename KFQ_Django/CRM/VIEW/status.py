@@ -6,6 +6,7 @@ from datetime import timedelta, date, time, datetime
 from django.utils import timezone
 from django.utils.dateformat import DateFormat
 from django.utils.dateparse import parse_datetime
+from CRM.forms import NoviceForm
 
 #임시
 

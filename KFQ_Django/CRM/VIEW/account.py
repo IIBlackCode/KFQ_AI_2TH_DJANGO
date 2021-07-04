@@ -1,6 +1,6 @@
 from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect
-from CRM.forms import UserForm, NoviceForm
+from CRM.forms import UserForm
 from django.http import HttpResponseRedirect
 from CRM.models import Member
 
