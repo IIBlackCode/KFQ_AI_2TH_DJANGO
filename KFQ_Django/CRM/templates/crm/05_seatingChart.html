@@ -12,7 +12,7 @@
                         
                         <option class="dropdown-item" href="#" value = 1>AI 인공지능</option>
                         <option class="dropdown-item" href="#" value = 2>빅데이터</option>
-                        <option class="dropdown-item" href="#" value = 3>스마트펙토리</option>
+                        <option class="dropdown-item" href="#" value = 3>스마트팩토리</option>
                     </select>
                 </div>
 
@@ -33,22 +33,21 @@
 	<script type="text/javascript" src="{% static 'PAGE/seatingChart/leaflet_seat.js' %}"></script>
 
 	<script>
-	/*
+	
 		// 우측 상위 반 선택 기능 추가하기
-		var baseMaps = {
-		"21F": L.imageOverlay('21F Image Link', bounds),
-		"22F": L.imageOverlay('22F Image Link', bounds),
-		"23F": L.imageOverlay('22F Image Link', bounds)
-		}
-		L.control.layers(baseMaps).addTo(map);
-		map.on("baselayerchange", (event) => {
-			console.log(event.name); // 변경 후의 층수를 출력한다.
+		// var baseMaps = {
+		// "AI개발자": L.imageOverlay(imgurl, bounds),
+		// "빅데이터분석": L.imageOverlay(imgurl, bounds),
+		// "스마트팩토리": L.imageOverlay(imgurl, bounds)
+		// }
+		// L.control.layers(baseMaps).addTo(map);
+		// map.on("baselayerchange", (event) => {
+		// 	console.log(event.name); // 변경 후의 층수를 출력한다.
 			// 층별 처리를 구현한다.
-		});
-		map.addLayer(baseMaps["15F"]);
-		map.fitBounds(bounds);
-	*/
+		// });
+		// //map.addLayer(baseMaps["15F"]);
+		// map.fitBounds(bounds);
+	
 	</script>
 
-{% comment %} <script type="text/javascript" src="{% static 'PAGE/seatingChart/seatingChart.js' %}"></script> {% endcomment %}
 {% endblock %}
