@@ -20,7 +20,6 @@ class Status :
         lst_input_time = []
         lst_output_time = []
 
-
         for d in lst_status:
             lst_name.append(d.member_fk)
             print(d.member_fk.name)
@@ -102,7 +101,7 @@ class Status :
             #form = NoviceForm()
             #newbie = form.save(commit=False)
             newbie_name = request.POST.get('name')
-            print(newbie_name)
+            #print(newbie_name)
             newbie_birth = request.POST.get('birth')
             newbie_email = request.POST.get('email')
             newbie_digits = request.POST.get('digits')
