@@ -7,25 +7,15 @@ from .VIEW.dashboard import Dashboard
 from .VIEW.QuerryTest import Test
 from .VIEW.status import Status
 from .VIEW.seatingChart import SeatingChart
-
+from django.conf.urls import url
 app_name='CRM'
 urlpatterns = [
     path('test/', Test.test01),
     #***********************************************************************#
     #PAGE : Account
-    # path('login/',                          auth_views.LoginView.as_view(template_name='crm/account/login.html'), name='login'),
-    # path('logout/',                         auth_views.LogoutView.as_view(template_name=''),     name='logout'),
-    # path('signup/',                         Account.signup,       name='signup'),
-    # test
-    # path('login/',                          Account.login,          name='login'),
-    # path('logout/',                         Account.logout,         name='logout'),
-    path('signup/',                         Account.signup,       name='signup'),
-    path('signin/',                         Account.signin,       name='signin'),
-    path('signout/',                        Account.signout,      name='signout'),
-    
-    path('status/',                         Status.status,        name='status'),
-    path('add_novice/',                     Status.addnovice,     name='add_novice'),
-
+    path('signup/',                           Account.signup,         name='signup'),
+    path('signin/',                           Account.signin,         name='signin'),
+    path('signout/',                          Account.signout,        name='signout'),
     #***********************************************************************#
     #PAGE : 01_index Dashboard
     path('index/total_member/',             Dashboard.total_member,         name='total_member'),
@@ -40,7 +30,7 @@ urlpatterns = [
     path('index/',                          views.Crm.index,      name='index'),
     path('profile/',                        views.Crm.profile,    name='profile'),
     path('settings/',                       views.Crm.settings,   name='settings'),
-    #path('status/',                         views.Crm.status,        name='status'),
+    path('status/',                         views.Crm.status,        name='status'),
     path('statistics/',                     views.Crm.statistics, name='statics'),
     path('seatingChart/',                   views.Crm.seatingChart,    name='seatingChart'),
     path('UI_Element/page=<page>/',         views.Crm.ui_Element, name='UI_Element'),

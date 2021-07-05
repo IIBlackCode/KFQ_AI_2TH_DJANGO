@@ -8,6 +8,7 @@ class ClassList(models.Model):
     student_count = models.IntegerField()
     open_date = models.DateTimeField()
     close_date = models.DateTimeField()
+    status = models.CharField(max_length=10,default = '진행중',null=True)
 
     def __str__(self):
         return self.class_name
@@ -23,7 +24,7 @@ class Member (models.Model):
     #PK
     email = models.CharField(max_length=200, primary_key=True)
     #FK
-    class_fk = models.ForeignKey(ClassList, on_delete=models.CASCADE)
+    class_fk = models.ForeignKey(ClassList, on_delete=models.CASCADE, null=True)
 
     password = models.CharField(max_length=200)
     name = models.CharField(max_length=50)
