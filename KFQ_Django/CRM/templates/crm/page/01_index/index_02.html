@@ -17,78 +17,30 @@
 
     <div class="col-12 col-lg-8 col-xxl-9 d-flex">
         <div class="card flex-fill">
-            <div class="card-header">
-
-                <h5 class="card-title mb-0">전체 수강생 출결상황</h5>
-            </div>
+           
             <table class="table table-hover my-0">
                 <thead>
                     <tr>
                         <th>수강생 이름</th>
+                        <th class="d-none d-md-table-cell">체온</th>
                         <th class="d-none d-xl-table-cell">입실시간</th>
                         <th class="d-none d-xl-table-cell">퇴실시간</th>
                         <th>상태</th>
-                        <th class="d-none d-md-table-cell">Assignee</th>
-                        <th class="d-none d-md-table-cell">체온</th>
+                        <th class="d-none d-md-table-cell">수강 과정</th>
                     </tr>
                 </thead>
                 <tbody>
+                {% for object in studentList %}
                     <tr>
-                        <td>Project Apollo</td>
-                        <td class="d-none d-xl-table-cell">01/01/2020</td>
-                        <td class="d-none d-xl-table-cell">31/06/2020</td>
-                        <td><span class="badge bg-success">Done</span></td>
-                        <td class="d-none d-md-table-cell">Vanessa Tucker</td>
+                        <td>{{object.member_fk.name}}</td>                
+                        <td>{{object.temperature}}</td>                
+                        <td>{{object.input_time}}</td>                
+                        <td>{{object.output_time}}</td>                
+                        <td>{{object.}}</td>                
+                        <td>{{object.}}</td>                
                     </tr>
-                    <tr>
-                        <td>Project Fireball</td>
-                        <td class="d-none d-xl-table-cell">01/01/2020</td>
-                        <td class="d-none d-xl-table-cell">31/06/2020</td>
-                        <td><span class="badge bg-danger">Cancelled</span></td>
-                        <td class="d-none d-md-table-cell">William Harris</td>
-                    </tr>
-                    <tr>
-                        <td>Project Hades</td>
-                        <td class="d-none d-xl-table-cell">01/01/2020</td>
-                        <td class="d-none d-xl-table-cell">31/06/2020</td>
-                        <td><span class="badge bg-success">Done</span></td>
-                        <td class="d-none d-md-table-cell">Sharon Lessman</td>
-                    </tr>
-                    <tr>
-                        <td>Project Nitro</td>
-                        <td class="d-none d-xl-table-cell">01/01/2020</td>
-                        <td class="d-none d-xl-table-cell">31/06/2020</td>
-                        <td><span class="badge bg-warning">In progress</span></td>
-                        <td class="d-none d-md-table-cell">Vanessa Tucker</td>
-                    </tr>
-                    <tr>
-                        <td>Project Phoenix</td>
-                        <td class="d-none d-xl-table-cell">01/01/2020</td>
-                        <td class="d-none d-xl-table-cell">31/06/2020</td>
-                        <td><span class="badge bg-success">Done</span></td>
-                        <td class="d-none d-md-table-cell">William Harris</td>
-                    </tr>
-                    <tr>
-                        <td>Project X</td>
-                        <td class="d-none d-xl-table-cell">01/01/2020</td>
-                        <td class="d-none d-xl-table-cell">31/06/2020</td>
-                        <td><span class="badge bg-success">Done</span></td>
-                        <td class="d-none d-md-table-cell">Sharon Lessman</td>
-                    </tr>
-                    <tr>
-                        <td>Project Romeo</td>
-                        <td class="d-none d-xl-table-cell">01/01/2020</td>
-                        <td class="d-none d-xl-table-cell">31/06/2020</td>
-                        <td><span class="badge bg-success">Done</span></td>
-                        <td class="d-none d-md-table-cell">Christina Mason</td>
-                    </tr>
-                    <tr>
-                        <td>Project Wombat</td>
-                        <td class="d-none d-xl-table-cell">01/01/2020</td>
-                        <td class="d-none d-xl-table-cell">31/06/2020</td>
-                        <td><span class="badge bg-warning">In progress</span></td>
-                        <td class="d-none d-md-table-cell">William Harris</td>
-                    </tr>
+                {% endfor%}
+                   
                 </tbody>
             </table>
         </div>

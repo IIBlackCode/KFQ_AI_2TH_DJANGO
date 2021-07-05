@@ -22,9 +22,8 @@ class Crm :
         classList = ClassList.objects.all()
         list = []
         for object in classList:
+            #과정이 진행중인 반만 출력하기
             if object.status == '진행중':
-                
-                print("LIST : ",(object.open_date))
                 object.open_date = datetime.strftime(object.open_date,'%Y-%m-%d')
                 object.close_date = datetime.strftime(object.close_date,'%Y-%m-%d')
                 list.append(object)
@@ -32,16 +31,18 @@ class Crm :
         #입실한 수강생 출결내역
         studentList = []
         objectList = Student_list.objects.all()
-        # print(datetime.strftime(objectList.input_time,'%Y-%m-%d'))
-        for object in objectList:
-            # if object.input_time
-            print(object.input_time)
-            # object.input_time = datetime.strftime(object.input_time,'%Y-%m-%d')
 
+        #당일 출결 학생들만 출력
+        currentTime = datetime.now().strftime('%Y-%m-%d')
+        for object in objectList:
+            object.input_time = datetime.strftime(object.input_time,'%Y-%m-%d')
+            if currentTime == object.input_time :
+                studentList.append(object)
 
         context = {
             'page' : page,
             'list' : list,
+            'studentList':studentList
         }
         return render(request, './crm/01_index.html', context)
     def profile(request):
