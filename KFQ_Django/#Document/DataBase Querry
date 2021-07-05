@@ -63,7 +63,7 @@ VALUES('AI23','password','AI23',25,1,'수강생');
 INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
 VALUES('AI24','password','AI24',25,1,'수강생');
 INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
-VALUES('AI25','password','빅데이터25',25,1,'수강생');
+VALUES('AI25','password','AI25',25,1,'수강생');
 
 #빅데이터 수강생 테스트 데이터
 INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
