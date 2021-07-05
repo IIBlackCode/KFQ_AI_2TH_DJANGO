@@ -1,9 +1,8 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from CRM.models import ClassList
 import sqlite3
 from CRM.models import ClassList, Member, Student_list
-
+from datetime import timedelta, date, time, datetime
 # Create your views here.
 def index(request):
     con = sqlite3.connect("test.db")
@@ -23,9 +22,9 @@ class Crm :
         list = []
         for object in classList:
             if object.status == '진행중':
+                
                 print("LIST : ",(object.open_date))
-                # object.open_date = object.open_date.strftime('%Y-%m-%d')
-                # object.close_date = object.close_date.strftime('%Y-%m-%d')
+                # object.close_date = datetime.strftime(object.open_date,'%Y-%m-%d')
                 list.append(object)
         context = {
             'page' : page,

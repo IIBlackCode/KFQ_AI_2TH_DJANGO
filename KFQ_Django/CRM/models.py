@@ -6,8 +6,8 @@ class ClassList(models.Model):
     class_id = models.AutoField(primary_key=True)
     class_name = models.CharField(max_length=50)
     student_count = models.IntegerField()
-    open_date = models.DateTimeField()
-    close_date = models.DateTimeField()
+    open_date = models.DateField()
+    close_date = models.DateField()
     status = models.CharField(max_length=10,default = '진행중',null=True)
 
     def __str__(self):
