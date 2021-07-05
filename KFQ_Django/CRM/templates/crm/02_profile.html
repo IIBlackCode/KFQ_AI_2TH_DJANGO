@@ -15,53 +15,38 @@
 					<div class="card-body text-center">
 						<img src="{% static 'img/avatars/avatar-4.jpg' %}" alt="Christina Mason"
 							class="img-fluid rounded mr-2 mb-2" width="128" height="128" />
-						<h5 class="card-title mb-0">인공지능반</h5>
-						<div class="text-muted mb-2">홍길동</div>
-
-						<div>
-							<a class="btn btn-primary btn-sm" href="#">
-								<span data-feather="message-square"></span> Message</a>
-						</div>
+						<h5 class="card-title mb-0">{{ request.session.authority }}</h5>
+						<div class="text-muted mb-2">{{ request.session.name }}</div>
 					</div>
 
 					<hr class="my-0" />
 					<div class="card-body">
 						<h5 class="h6 card-title">About</h5>
 						<ul class="list-unstyled mb-0">
-							<li class="mr-2">
-								<span data-feather="home" class="align-middle mr-2"></span>사는 곳 <a href="#">서울 ㅇㅇ구</a>
+							<li class="mr-2" style="margin-bottom: 5px;">
+								<span data-feather="home" class="align-middle mr-2"></span>주소   {{ request.session.address }}
+							</li>
+							<li class="mr-2"  style="margin-bottom: 5px;">
+								<span data-feather="calendar" class="align-middle mr-2"></span>생년월일   {{ request.session.birth }}
+							</li>
+							<li class="mr-2"  style="margin-bottom: 5px;">
+								<span data-feather="mail" class="align-middle mr-2"></span>이메일   {{ request.session.email }}
+							</li>
+							<li class="mr-2"  style="margin-bottom: 5px;">
+								<span data-feather="phone" class="align-middle mr-2"></span>핸드폰 번호   {{ request.session.phone_number }}
+							</li>
+							<li class="mr-2" style="margin-bottom: 5px;">
+								<span data-feather="award" class="align-middle mr-2"></span>학교   {{ request.session.university }}
 							</li>
 							<li class="mr-2">
-								<span data-feather="home" class="align-middle mr-2"></span>생년월일 <a href="#">991111</a>
-							</li>
-							<li class="mr-2">
-								<span data-feather="mail" class="align-middle mr-2"></span>이메일 <a
-									href="#">aaa12345@naver.com</a>
-							</li>
-							<li class="mr-2">
-								<span data-feather="phone" class="align-middle mr-2"></span>번호 <a
-									href="#">010-1234-4567</a>
-							</li>
-							<li class="mr-2">
-								<span data-feather="award" class="align-middle mr-2"></span>학교<a href="#">ㅇㅇ대학교</a>
-							</li>
-							<li class="mr-2">
-								<span data-feather="book-open" class="align-middle mr-2"></span>전공 <a href="#">자유전공</a>
+								<span data-feather="book-open" class="align-middle mr-2"></span>전공   {{ request.session.major }}
 							</li>
 						</ul>
 					</div>
 					<hr class="my-0" />
 					<div class="card-body">
-						<h5 class="h6 card-title">Skills</h5>
-						<a href="#" class="badge bg-primary mr-1 my-1">HTML</a>
-						<a href="#" class="badge bg-primary mr-1 my-1">JavaScript</a>
-						<a href="#" class="badge bg-primary mr-1 my-1">Sass</a>
-						<a href="#" class="badge bg-primary mr-1 my-1">Angular</a>
-						<a href="#" class="badge bg-primary mr-1 my-1">Vue</a>
-						<a href="#" class="badge bg-primary mr-1 my-1">React</a>
-						<a href="#" class="badge bg-primary mr-1 my-1">Redux</a>
-						<a href="#" class="badge bg-primary mr-1 my-1">UI</a>
-						<a href="#" class="badge bg-primary mr-1 my-1">UX</a>
+						<h5 class="h6 card-title">관심 언어</h5>
+						<span data-feather="monitor" class="align-middle mr-2"></span>{{ request.session.interest_language }}
 					</div>
 					<hr class="my-0" />
 					<div class="card-body">
