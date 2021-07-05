@@ -32,11 +32,14 @@ class Crm :
         studentList = []
         objectList = Student_list.objects.all()
 
+        
         #당일 출결 학생들만 출력
         currentTime = datetime.now().strftime('%Y-%m-%d')
+        print('currentTime',currentTime)
         for object in objectList:
-            object.input_time = datetime.strftime(object.input_time,'%Y-%m-%d')
-            if currentTime == object.input_time :
+            # object.date = datetime.strftime(object.date,'%Y-%m-%d')
+            if currentTime == datetime.strftime(object.input_time,'%Y-%m-%d') :
+                print('object.date',object.date)
                 studentList.append(object)
 
         context = {
