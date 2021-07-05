@@ -12,28 +12,6 @@ class Status :
     def status(request):
         print("PAGE : status")
         page ='status'
-<<<<<<< Updated upstream
-        lst_status = Student_list.objects.all()
-        lst_name = []
-        lst_date = []
-        lst_input_time = []
-        lst_output_time = []
-
-
-        for d in lst_status:
-            lst_name.append(d.member_fk)
-            print(d.member_fk.name)
-            if d.date and d.output_time:
-                d.date = d.date.strftime('%Y-%m-%d')
-                d.input_time = d.input_time.strftime('%H:%M:%S')
-                d.output_time = d.output_time.strftime('%H:%M:%S')
-                d.total_time = Status.diff_time(d.output_time, d.input_time)
-                d.absent = Status.check_status(d.input_time, d.output_time)
-            elif d.input_time and not d.output_time:
-                d.date = d.date.strftime('%Y-%m-%d')
-                d.input_time = d.input_time.strftime('%H:%M:%S')
-                d.absent = '미퇴실'
-=======
         
         classlist = ClassList.objects.all()
         list_name = []
@@ -44,20 +22,21 @@ class Status :
 
         if request.method == "POST":
             click_search = request.POST.get('ajax_class_name')
-            print('========================')
-            print('click_search',click_search)
+            #print('========================')
+            #print('click_search',click_search)
 
             for object in classlist:
                 if object.class_name == click_search:
                     list_class_filter = object.class_id
 
         list_status = Student_list.objects.filter(class_fk=list_class_filter)
+        context = {'classlist' : classlist,}
                     
         for object in list_status:
-            print('=========================================')
-            print('html 넘겨줘~')
-            print('list_class_filter', list_class_filter)
-            print(object.member_fk.class_fk_id)
+            #print('=========================================')
+            #print('html 넘겨줘~')
+            #print('list_class_filter', list_class_filter)
+            #print(object.member_fk.class_fk_id)
 
             if list_class_filter  == object.member_fk.class_fk_id:
                 list_name.append(object.member_fk)
@@ -78,39 +57,11 @@ class Status :
                 else:
                     object.absent = '결석'
 
-                context = {
-                'list_status' : list_status,
-                'list_date' : list_date,
-                'list_input_time' : list_input_time,
-                'list_output_time' : list_output_time,
-                'classlist' : classlist,
-                }
->>>>>>> Stashed changes
-            else:
-                context = {
-                    'classlist' : classlist,
-                }
+                context = {'list_status' : list_status,'list_date' : list_date,'list_input_time' : list_input_time,'list_output_time' : list_output_time,'classlist' : classlist,}
 
-            #lst_date.append(object.date.strftime('%Y:%m:%d'))
-            #lst_input_time.append(object.input_time.strftime('%H:%M:%S'))
-            #lst_output_time.append(object.output_time.strftime('%H:%M:%S'))
-
-<<<<<<< Updated upstream
-        context = {
-            'lst_status' : lst_status,
-            'lst_date' : lst_date,
-            'lst_input_time' : lst_input_time,
-            'lst_output_time' : lst_output_time,
-        }
-=======
-            #print(object.date)
-            #print(object.input_time)
-            #print(object.output_time)
-            #print(object.total_time)
-
->>>>>>> Stashed changes
         return render(request, './crm/03_status.html', context)
 
+    
     def diff_time(time_in,time_out):
         t2 = datetime.strptime(time_out,'%H:%M:%S')
         t1 = datetime.strptime(time_in,'%H:%M:%S')

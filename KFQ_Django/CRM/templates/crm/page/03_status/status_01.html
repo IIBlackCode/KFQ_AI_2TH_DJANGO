@@ -9,9 +9,9 @@
                 <h5 class="card-title">과정명</h5>
                 <!-- <h6 class="card-subtitle text-muted">인공지능</h6>-->
                 
-                <select class="form-control mb-3" name="select_class" id="select_class" onchange="search_class()">
+                <select type = "button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" name="select_class" id="select_class" onchange="search_class()">
                     {% for class in classlist %}
-                    <option selected>{{ class.class_name }}</option>
+                    <option>{{ class.class_name }}</option>
                     {% endfor %}
                 </select>
 
@@ -37,6 +37,7 @@
                             <input type="text" name="ajax_class_name">
                             
                             <button type="submit" class="btn btn-secondary"> 조회 </button>
+
                         </form>
                     </div>
                 </div>
