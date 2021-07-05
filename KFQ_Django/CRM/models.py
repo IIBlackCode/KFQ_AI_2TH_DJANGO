@@ -8,6 +8,7 @@ class ClassList(models.Model):
     student_count = models.IntegerField()
     open_date = models.DateTimeField()
     close_date = models.DateTimeField()
+    status = models.CharField(max_length=10,default = '진행중',null=True)
 
     def __str__(self):
         return self.class_name
@@ -52,7 +53,8 @@ class Student_list(models.Model):
     
     input_time = models.DateTimeField(null=True)
     output_time= models.DateTimeField(null=True)
-    
+
     total_time_outing = models.DateTimeField(null=True)
     total_time = models.DateTimeField(null=True)
     temperature = models.FloatField(null=True)
+
