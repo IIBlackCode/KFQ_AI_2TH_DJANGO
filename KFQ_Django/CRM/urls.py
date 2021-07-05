@@ -13,24 +13,19 @@ urlpatterns = [
     path('test/', Test.test01),
     #***********************************************************************#
     #PAGE : Account
-<<<<<<< HEAD
     # path('login/',                          auth_views.LoginView.as_view(template_name='crm/account/login.html'), name='login'),
     # path('logout/',                         auth_views.LogoutView.as_view(template_name=''),     name='logout'),
     # path('signup/',                         Account.signup,       name='signup'),
     # test
     # path('login/',                          Account.login,          name='login'),
     # path('logout/',                         Account.logout,         name='logout'),
-    path('signup/',                           Account.signup,         name='signup'),
-    path('signin/',                           Account.signin,         name='signin'),
-    path('signout/',                          Account.signout,        name='signout'),
-    
-
-=======
-    path('login/',                          auth_views.LoginView.as_view(template_name='crm/account/login.html'), name='login'),
-    path('logout/',                         auth_views.LogoutView.as_view(template_name=''),     name='logout'),
     path('signup/',                         Account.signup,       name='signup'),
-    path('add_novice/',                     Account.addnovice,    name='addnovice'),
->>>>>>> 4aefb8490ae9c69650d21e76c36842a8eb6680a3
+    path('signin/',                         Account.signin,       name='signin'),
+    path('signout/',                        Account.signout,      name='signout'),
+    
+    path('status/',                         Status.status,        name='status'),
+    path('add_novice/',                     Status.addnovice,     name='add_novice'),
+
     #***********************************************************************#
     #PAGE : 01_index Dashboard
     path('index/total_member/',             Dashboard.total_member,         name='total_member'),
@@ -40,12 +35,14 @@ urlpatterns = [
     path('index/total_early/',              Dashboard.total_early,         name='Total_attendance'),
     path('index/class_statistics/',         Dashboard.class_statistics,    name='class_statistics'),
     #***********************************************************************#
+    path('seatingChart/seatingChart/',      SeatingChart.seatingChart,     name='seatingChart_data'),
+    #***********************************************************************#
     path('index/',                          views.Crm.index,      name='index'),
     path('profile/',                        views.Crm.profile,    name='profile'),
     path('settings/',                       views.Crm.settings,   name='settings'),
-    path('status/',                         Status.status,        name='status'),
+    #path('status/',                         views.Crm.status,        name='status'),
     path('statistics/',                     views.Crm.statistics, name='statics'),
-    path('seatingChart/',                   SeatingChart.test,    name='seatingChart'),
+    path('seatingChart/',                   views.Crm.seatingChart,    name='seatingChart'),
     path('UI_Element/page=<page>/',         views.Crm.ui_Element, name='UI_Element'),
     path('icons/',                          views.Crm.icons,      name='icons'),
     path('forms/page=<page>/',              views.Crm.forms,      name='Forms'),

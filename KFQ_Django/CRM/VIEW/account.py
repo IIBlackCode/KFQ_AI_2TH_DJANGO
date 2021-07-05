@@ -4,11 +4,9 @@ from CRM.forms import UserForm
 from django.http import HttpResponseRedirect
 from CRM.models import Member
 
-
 class Account:
 
     def signup(request):
-<<<<<<< HEAD
         if request.method == 'POST':
         # 회원정보 저장
             
@@ -34,7 +32,6 @@ class Account:
             pwd = request.POST.get('pwd')
 
             try:
-        # select * from user where email=? and pwd=?
                 user = Member.objects.get(email=email, pwd=pwd)
                 return render(request, 'signin_success.html')
             except:
@@ -89,34 +86,5 @@ class Account:
     #         else:
     #             form = UserForm()
     #         return render(request, '../templates/crm/page/account/signup.html', {'form': form})
-=======
-        """
-        계정생성
-        """
-        if request.method == "POST":
-            form = UserForm(request.POST)
-            if form.is_valid():
-                form.save()
-                username = form.cleaned_data.get('username')
-                raw_password = form.cleaned_data.get('password1')
-                user = authenticate(username=username, password=raw_password)
-                login(request, user)
-                return redirect('index')
-        else:
-            form = UserForm()
-        return render(request, './crm/account/signup.html', {'form': form})
 
-    def addnovice(request):
-            if request.method == "POST":
-                form = UserForm(request.POST)
-                if form.is_valid():
-                    form.save()
-                    username = form.cleaned_data.get('username')
-                    raw_password = form.cleaned_data.get('password1')
-                    user = authenticate(username=username, password=raw_password)
-                    login(request, user)
-                    return redirect('index')
-            else:
-                form = UserForm()
-            return render(request, './crm/account/add_novice.html', {'form': form})
->>>>>>> 4aefb8490ae9c69650d21e76c36842a8eb6680a3
+

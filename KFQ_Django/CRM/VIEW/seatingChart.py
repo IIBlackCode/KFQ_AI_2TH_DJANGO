@@ -1,22 +1,38 @@
-from django.http import HttpResponse
-from django.shortcuts import get_object_or_404, render
+from django.http import HttpResponse ,JsonResponse
+from django.shortcuts import render
 import sqlite3
-from CRM.models import ClassList, Member, Student_list
-from datetime import timedelta, date, time, datetime
-from django.utils import timezone
-from django.utils.dateformat import DateFormat
-from django.utils.dateparse import parse_datetime
-#***********************************************************************#    
+#***********************************************************************#
+# seatingChart
+conn = sqlite3.connect("db.sqlite3",check_same_thread=False)
+cur = conn.cursor()
 
-class SeatingChart:
-    def test(request):
-        print("PAGE : test")
-        test = Member.objects.all()
-        page ='SeatingChart'
-        test_test=[]
-        for n in test:
-            test_test.append(n.class_fk)
+class SeatingChart :
+    def seatingChart(request):
+        class_fk = request.GET.get('class_fk')
+        member_fk = request.GET.get('member_fk')
+        print('class_fk :',str(class_fk))
+        conn = sqlite3.connect("db.sqlite3",check_same_thread=False)
+        cur = conn.cursor()
+        with conn:
+            cur.execute("select name from CRM_member t1 where t1.class_fk_id ="+class_fk+" order by t1.email")
+            name = cur.fetchall()
+        with conn:
+            cur.execute("select major from CRM_member t1 where t1.class_fk_id ="+class_fk+" order by t1.email")
+            major = cur.fetchall()
+        with conn:
+            cur.execute("select seat_num from CRM_member t1 where t1.class_fk_id ="+class_fk+" order by t1.email")
+            seat_num = cur.fetchall()
+        with conn:
+            cur.execute("select max(t1.input_time),t1.temperature,t1.attendance,t1.absent,t1.late,t1.early from CRM_student_list t1, CRM_member t2 where t1.member_fk_id = t2.email and t2.class_fk_id ="+class_fk+" group by t1.member_fk_id order by t1.member_fk_id")
+            daily_info = cur.fetchall()
+        with conn:
+            cur.execute("select t3.class_name from CRM_student_list t1, CRM_member t2, CRM_classlist t3 where t1.member_fk_id = t2.email and t2.class_fk_id ="+class_fk+" group by t1.member_fk_id order by t1.member_fk_id")
+            class_name = cur.fetchall()
         context = {
-            'test':test, 'test_test':test_test, 'page' : page
+            'name' :name,
+            'major':major,
+            'seat_num':seat_num,
+            'daily_info':daily_info,
+            'class_name':class_name,
         }
-        return render(request, './crm/05_seatingChart.html', context)
+        return JsonResponse({'context' :context},status=200)
