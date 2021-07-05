@@ -17,6 +17,7 @@ function select_class() {
 			//Console 창으로 data확인
 			console.log('데이터 보내기 성공',context.context);
 			seatnum_length = context.context.seat_num.length;
+			
 			const column = [138,317,496,675,854,1033,1212,1391]; // 분단 x 좌표
 			const row = [253,375,498,620]; // 몇번째 자리인지 y 좌표
 			var set = []; // 좌석 번호가 담길 좌표 리스트

@@ -26,7 +26,6 @@ function seat_on(seat_num, select_class, nameValue, majorValue, daily_info,state
 	var img_url = "<img src="+url+">";
 
 	var color_name = color[state];
-
 	var popup_content = new L.Rrose({ autoPan: false, offset: new L.Point(0,-10), closeButton: false })
 	.setContent("<center>"+name+"</center><br />"+img_url+"<br />\
 	<br /><center>반 : "+class_name+" 반</center><br />\

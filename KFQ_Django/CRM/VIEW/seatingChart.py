@@ -23,7 +23,7 @@ class SeatingChart :
             cur.execute("select seat_num from CRM_member t1 where t1.class_fk_id ="+class_fk+" order by t1.email")
             seat_num = cur.fetchall()
         with conn:
-            cur.execute("select max(t1.inout_time),t1.temperature,t1.attendance,t1.absent,t1.late,t1.early from CRM_student_list t1, CRM_member t2 where t1.member_fk_id = t2.email and t2.class_fk_id ="+class_fk+" group by t1.member_fk_id order by t1.member_fk_id")
+            cur.execute("select max(t1.input_time),t1.temperature,t1.attendance,t1.absent,t1.late,t1.early from CRM_student_list t1, CRM_member t2 where t1.member_fk_id = t2.email and t2.class_fk_id ="+class_fk+" group by t1.member_fk_id order by t1.member_fk_id")
             daily_info = cur.fetchall()
         with conn:
             cur.execute("select t3.class_name from CRM_student_list t1, CRM_member t2, CRM_classlist t3 where t1.member_fk_id = t2.email and t2.class_fk_id ="+class_fk+" group by t1.member_fk_id order by t1.member_fk_id")
