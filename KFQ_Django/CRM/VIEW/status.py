@@ -15,14 +15,22 @@ class Status :
         print("PAGE : status")
         page ='status'
         lst_status = Student_list.objects.all()
+        
         lst_name = []
         lst_date = []
         lst_input_time = []
         lst_output_time = []
 
+        if request.method == "POST":
+            bnt_search = request.POST.get('search')
+            print(bnt_search)
+
         for d in lst_status:
             lst_name.append(d.member_fk)
-            print(d.member_fk.name)
+            # Class casting, 다형성
+            # 모든 클래스의 부모는 뭐다? Object클래스
+            # 캡슐화, 정보은닉, 추상화, 상속성, 다형성(같은상속관계에서 타입을 변경하는 것을 의미합니다.)
+            #print(d.member_fk.name)
             if d.date and d.output_time:
                 d.date = d.date.strftime('%Y-%m-%d')
                 d.input_time = d.input_time.strftime('%H:%M:%S')
@@ -44,6 +52,7 @@ class Status :
             #print(d.input_time)
             #print(d.output_time)
             #print(d.total_time)
+
 
         context = {
             'lst_status' : lst_status,

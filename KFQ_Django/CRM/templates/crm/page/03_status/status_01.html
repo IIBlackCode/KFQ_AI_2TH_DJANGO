@@ -1,4 +1,3 @@
-{% extends 'crm/include/include/base_c.html' %}
 <h1 class="h3 mb-3">수강생 현황</h1>
 
 <div class="row">
@@ -7,12 +6,26 @@
         <div class="card">
             <div class="card-header">
                 <h5 class="card-title">과정명</h5>
+               
+                
+
                 <!-- <h6 class="card-subtitle text-muted">인공지능</h6> -->
-                <select class="form-control mb-3" name="selectBox" id="selectBox" onclick="javascript()">
-                    <option selected>인공지능</option>
-                    <option>스마트팩토리</option>
-                    <option>빅데이터</option>
+                <select class="form-control mb-3" name="selectBox" id="selectBox" onchange="search_class()">
+                    {% for class in classlist %}
+                    <option>{{ class.class_name }}</option>
+                    {% endfor%}
                 </select>
+
+                <!-- <div class="btn-group">
+                    <select type="button" class="form-control mb-3" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false" id="search_class" onchange="search_class()">
+                        
+                        <option class="dropdown-item" href="#" value = 1>AI 인공지능</option>
+                        <option class="dropdown-item" href="#" value = 2>빅데이터</option>
+                        <option class="dropdown-item" href="#" value = 3>스마트팩토리</option>
+                    </select>
+                </div> -->
+
             </div>
             <div class="card-body">
                 <div class="row">
@@ -25,7 +38,10 @@
                         </form>
                     </div>
                     <div class="mb-3 col-md-6">
-                        <button type="submit" class="btn btn-secondary">조회</button>
+                        <form action="{% url 'CRM:status_data'%}" method="post">
+                            {% csrf_token %}
+                        <button type="submit" class="btn btn-secondary" id="search" name="search" > 조회 </button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -78,6 +94,7 @@
                     // 출처 https://frhyme.github.io/web/html_select_javascript/
                     // 출처 https://gocoder.tistory.com/51
                     // 출처 https://jdkblog.tistory.com/57
+
                     //function javascript(){
                     //	var target = document.getElementById("selectBox");
                     //	document.getElementById("card-title11") = target.options[target.selectedIndex].text
@@ -85,10 +102,7 @@
 
                     var target = document.getElementById("selectBox");
                     alert('선택된 옵션 text값 = ' + target.options[target.selectedIndex].text);
-                    document.getElementById("card-title11") = target.options[target.selectedIndex].text
-
-
-
+                    //document.getElementById("card-title11") = target.options[target.selectedIndex].text;
 
 							//var alert_select_value = function (select_object){
 							//	// selectbox에서 선택된 index 찾기
@@ -99,7 +113,9 @@
 							//	alert(selected_value);
 							//}
 
+
                 </script>
+                <a href=# class=text1 onclick=delete1(value); value=$row[no]>클릭</a>
 
                 <h6 class="card-subtitle text-muted">검색기능 <code>코드넣는 태그</code> 설명란 </h6>
             </div>

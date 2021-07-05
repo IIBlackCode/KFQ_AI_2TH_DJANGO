@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 import sqlite3
+from CRM.models import ClassList, Member, Student_list
 
 # Create your views here.
 def index(request):
@@ -36,11 +37,16 @@ class Crm :
         return render(request, './crm/02_settings.html', context)
     def status(request):
         print("PAGE : status")
+        classlist = ClassList.objects.all()
         page ='status'
+        print('=====================================================')
+        print(classlist)
         context = {
-            'page' : page
+            'page' : page,
+            'classlist' : classlist,
         }
         return render(request, './crm/03_status.html', context)
+
     def statistics(request):
         print("PAGE : statistics")
         page ='statistics'
