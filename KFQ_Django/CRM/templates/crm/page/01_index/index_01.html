@@ -81,15 +81,14 @@
                 <div class="btn-group">
                     <select type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false" id="select_class" onchange="select_class()">
-                        
-                        <option class="dropdown-item" href="#" value = 1>AI 인공지능</option>
-                        <option class="dropdown-item" href="#" value = 2>빅데이터</option>
-                        <option class="dropdown-item" href="#" value = 3>스마트펙토리</option>
+                        {% for object in list %}
+                        <option href="#" value = {{ object.class_id }}>{{ object.class_name }}</option>
+					
+                        {% endfor %}
                     </select>
                     <div class="dropdown-menu">
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Separated link</a>
-                    </div>
+					</div>
+                   
                 </div>
                 <!-- Start of row -->
                 <div class="col-sm-6">
@@ -97,15 +96,15 @@
 
                     <div class="card">
                         <div class="card-body">
-                            <h1 class="card-title mb-4">출석</h1>
-                            <h1 class="mt-1 mb-3" id="class_attendance"></h1>
+                            <h1 class="card-title mb-4 center">출석</h1>
+                            <h1 class="mt-1 mb-3 center" id="class_attendance"></h1>
                         </div>
                     </div>
 
                     <div class="card">
                         <div class="card-body">
-                            <h1 class="card-title mb-4">결석</h1>
-                            <h1 class="mt-1 mb-3" id="class_absent"></h1>
+                            <h1 class="card-title mb-4 center">결석</h1>
+                            <h1 class="mt-1 mb-3 center" id="class_absent"></h1>
                         </div>
                     </div>
 
@@ -115,14 +114,14 @@
 
                     <div class="card">
                         <div class="card-body">
-                            <h1 class="card-title mb-4">지각</h1>
-                            <h1 class="mt-1 mb-3" id="class_late"></h1>
+                            <h1 class="card-title mb-4 center">지각</h1>
+                            <h1 class="mt-1 mb-3 center" id="class_late"></h1>
                         </div>
                     </div>
                     <div class="card">
                         <div class="card-body">
-                            <h1 class="card-title mb-4">조퇴</h1>
-                            <h1 class="mt-1 mb-3" id="class_early"></h1>
+                            <h1 class="card-title mb-4 center">조퇴</h1>
+                            <h1 class="mt-1 mb-3 center" id="class_early"></h1>
                         </div>
                     </div>
 

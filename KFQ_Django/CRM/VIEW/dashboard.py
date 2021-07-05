@@ -103,12 +103,26 @@ class Dashboard :
             cur.execute("select count(*) from CRM_student_list t1, CRM_member t2 WHERE t1.member_fk_id = t2.email AND t1.early like 'Y' AND t2.class_fk_id ="+class_fk)
             early = cur.fetchone()
             print('반 조퇴 수 : ',early[0])
+        with conn:
+            cur.execute("select count(*) from CRM_student_list t1, CRM_member t2 WHERE t1.member_fk_id = t2.email AND t2.class_fk_id ="+class_fk)
+            totalCountMember = cur.fetchone()
+            print('반 인원 수 : ',totalCountMember[0])
 
         context = {
             'attendance':attendance,
             'absent':absent,
             'late':late,
             'early':early,
+            'totalCountMember':totalCountMember,
         }
         return JsonResponse({'context' :context},status=200)
+
+    def classNameList(request):
+        conn = sqlite3.connect("db.sqlite3",check_same_thread=False)
+        cur = conn.cursor()
+        cur.execute("select class_name from CRM_classlist WHERE status like '진행중' ")
+        classNameList = cur.fetchall()
+        print('진행과정 : ',classNameList)
+            
+        return JsonResponse({'count' :classNameList},status=200)
     

@@ -17,8 +17,9 @@ class Crm :
     def index(request):
         print("PAGE : index")
         page ='Dashboard'
+
+        #진행중인 과정 SELECT
         classList = ClassList.objects.all()
-        print(classList)
         list = []
         for object in classList:
             if object.status == '진행중':
@@ -27,6 +28,17 @@ class Crm :
                 object.open_date = datetime.strftime(object.open_date,'%Y-%m-%d')
                 object.close_date = datetime.strftime(object.close_date,'%Y-%m-%d')
                 list.append(object)
+
+        #입실한 수강생 출결내역
+        studentList = []
+        objectList = Student_list.objects.all()
+        # print(datetime.strftime(objectList.input_time,'%Y-%m-%d'))
+        for object in objectList:
+            # if object.input_time
+            print(object.input_time)
+            # object.input_time = datetime.strftime(object.input_time,'%Y-%m-%d')
+
+
         context = {
             'page' : page,
             'list' : list,

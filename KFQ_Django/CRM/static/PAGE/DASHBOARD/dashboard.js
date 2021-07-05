@@ -82,13 +82,11 @@ $.ajax({
 })//The end of Ajax
 */
 
+
+
 function select_class() {
 	var test = document.getElementById("select_class");
 	var select_class = test.options[document.getElementById("select_class").selectedIndex].value;
-	
-	console.log(select_class)
-
-	// const select_class = document.getElementById("select_class").value;
 	console.log('select : ',select_class)
 	$.ajax({
 		type : 'GET',
@@ -96,37 +94,44 @@ function select_class() {
 		data : {class_fk : select_class},
 		success : function(context) {
 			//Console 창으로 data확인
-			console.log('데이터 보내기 성공',context.context);
+			// console.log('데이터 보내기 성공',context.context);
 
 			attendanceValue = context.context.attendance
 			absentValue = context.context.absent
 			lateValue = context.context.late
 			earlyValue = context.context.early
+			totalCountMember = context.context.totalCountMember
 
+			//전광판에 반 출결지조 데이터 삽입
 			const attendanceTag = document.getElementById("class_attendance");
 			attendanceTag.innerText = attendanceValue
+			// attendanceTag.innerText = attendanceValue+' / '+totalCountMember
 
 			const absentTag = document.getElementById("class_absent");
 			absentTag.innerText = absentValue
+			// absentTag.innerText = absentValue+' / '+totalCountMember
 
 			const lateTag = document.getElementById("class_late");
 			lateTag.innerText = lateValue
+			// lateTag.innerText = lateValue+' / '+totalCountMember
 
 			const earlyTag = document.getElementById("class_early");
 			earlyTag.innerText = earlyValue
+			// earlyTag.innerText = earlyValue+' / '+totalCountMember
+
+			//HIDDEN INPUT 태그에 데이터 삽입
 			
-			console.log('출석',document.getElementById("class_attendance").innerText)
 			new Chart(document.getElementById("chartjs-dashboard-bar"), {
 		
-		
+
 				type: "bar",
 				data: {
 					labels: ["출석", "결석", "지각", "조퇴"],
 					datasets: [{
 						label: "오늘",
-						backgroundColor: window.theme.primary,
-						borderColor: window.theme.primary,
-						hoverBackgroundColor: window.theme.primary,
+						backgroundColor: window.theme.warning,
+						borderColor: window.theme.danger,
+						hoverBackgroundColor: window.theme.success,
 						hoverBorderColor: window.theme.primary,
 						data: [
 							document.getElementById("class_attendance").innerText, 
