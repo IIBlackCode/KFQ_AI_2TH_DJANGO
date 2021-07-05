@@ -1,5 +1,9 @@
 INSERT INTO CRM_classlist (class_name, student_count, open_date, close_date)
 VALUES('AI인공지능',25,'2021-04-26','2021-10-30')
+INSERT INTO CRM_classlist (class_name, student_count, open_date, close_date)
+VALUES('빅데이터',25,'2021-04-26','2021-10-30')
+INSERT INTO CRM_classlist (class_name, student_count, open_date, close_date)
+VALUES('스마트펙토리',25,'2021-04-26','2021-10-30')
 
 
 INSERT INTO CRM_member (email, password, name, age,class_fk_id)
@@ -8,3 +12,159 @@ VALUES('test','test','name',25,1)
 
 INSERT INTO CRM_student_list (member_fk_id,date,inout_time,output_time)
 VALUES('test',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP)
+
+#AI 수강생 테스트 데이터
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('AI1','password','AI1',25,1,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('AI2','password','AI2',25,1,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('AI3','password','AI3',25,1,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('AI4','password','AI4',25,1,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('AI5','password','AI5',25,1,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('AI6','password','AI6',25,1,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('AI7','password','AI7',25,1,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('AI8','password','AI8',25,1,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('AI9','password','AI9',25,1,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('AI10','password','AI10',21,1,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('AI11','password','AI11',25,1,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('AI12','password','AI12',25,1,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('AI13','password','AI13',25,1,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('AI14','password','AI14',25,1,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('AI15','password','AI15',25,1,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('AI16','password','AI16',25,1,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('AI17','password','AI17',25,1,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('AI18','password','AI18',25,1,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('AI19','password','AI19',25,1,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('AI20','password','AI20',25,1,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('AI21','password','AI21',25,1,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('AI22','password','AI22',25,1,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('AI23','password','AI23',25,1,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('AI24','password','AI24',25,1,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('AI25','password','빅데이터25',25,1,'수강생');
+
+#빅데이터 수강생 테스트 데이터
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('bitdata1','password','빅데이터1',25,2,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('bitdata2','password','빅데이터2',25,2,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('bitdata3','password','빅데이터3',25,2,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('bitdata4','password','빅데이터4',25,2,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('bitdata5','password','빅데이터5',25,2,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('bitdata6','password','빅데이터6',25,2,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('bitdata7','password','빅데이터7',25,2,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('bitdata8','password','빅데이터8',25,2,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('bitdata9','password','빅데이터9',25,2,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('bitdata10','password','빅데이터10',25,2,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('bitdata11','password','빅데이터11',25,2,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('bitdata12','password','빅데이터12',25,2,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('bitdata13','password','빅데이터13',25,2,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('bitdata14','password','빅데이터14',25,2,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('bitdata15','password','빅데이터15',25,2,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('bitdata16','password','빅데이터16',25,2,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('bitdata17','password','빅데이터17',25,2,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('bitdata18','password','빅데이터18',25,2,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('bitdata19','password','빅데이터19',25,2,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('bitdata20','password','빅데이터20',25,2,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('bitdata21','password','빅데이터21',25,2,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('bitdata22','password','빅데이터22',25,2,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('bitdata23','password','빅데이터23',25,2,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('bitdata24','password','빅데이터24',25,2,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('bitdata25','password','빅데이터25',25,2,'수강생');
+
+#스마트펙토리 수강생 테스트 데이터
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('스마트펙토리1','password','스마트펙토리1',25,3,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('스마트펙토리2','password','스마트펙토리2',25,3,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('스마트펙토리3','password','스마트펙토리3',25,3,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('스마트펙토리4','password','스마트펙토리4',25,3,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('스마트펙토리5','password','스마트펙토리5',25,3,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('스마트펙토리6','password','스마트펙토리6',25,3,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('스마트펙토리7','password','스마트펙토리7',25,3,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('스마트펙토리8','password','스마트펙토리8',25,3,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('스마트펙토리9','password','스마트펙토리9',25,3,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('스마트펙토리10','password','스마트펙토리10',25,3,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('스마트펙토리11','password','스마트펙토리11',25,3,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('스마트펙토리12','password','스마트펙토리12',25,3,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('스마트펙토리13','password','스마트펙토리13',25,3,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('스마트펙토리14','password','스마트펙토리14',25,3,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('스마트펙토리15','password','스마트펙토리15',25,3,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('스마트펙토리16','password','스마트펙토리16',25,3,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('스마트펙토리17','password','스마트펙토리17',25,3,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('스마트펙토리18','password','스마트펙토리18',25,3,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('스마트펙토리19','password','스마트펙토리19',25,3,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('스마트펙토리20','password','스마트펙토리20',25,3,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('스마트펙토리21','password','스마트펙토리21',25,3,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('스마트펙토리22','password','스마트펙토리22',25,3,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('스마트펙토리23','password','스마트펙토리23',25,3,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('스마트펙토리24','password','스마트펙토리24',25,3,'수강생');
+INSERT INTO CRM_member (email, password, name, age,class_fk_id,authority)
+VALUES('스마트펙토리25','password','스마트펙토리25',25,3,'수강생');

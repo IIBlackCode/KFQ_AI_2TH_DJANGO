@@ -23,7 +23,7 @@ urlpatterns = [
     path('signin/',                         Account.signin,       name='signin'),
     path('signout/',                        Account.signout,      name='signout'),
     
-    path('status/',                         Status.status,        name='status'),
+    #path('status/',                         Status.status,        name='status'),
     path('add_novice/',                     Status.addnovice,     name='add_novice'),
 
     #***********************************************************************#
@@ -38,7 +38,7 @@ urlpatterns = [
     path('index/',                          views.Crm.index,      name='index'),
     path('profile/',                        views.Crm.profile,    name='profile'),
     path('settings/',                       views.Crm.settings,   name='settings'),
-    #path('status/',                         views.Crm.status,        name='status'),
+    path('status/',                         views.Crm.status,        name='status'),
     path('statistics/',                     views.Crm.statistics, name='statics'),
     path('seatingChart/',                   views.Crm.seatingChart,    name='seatingChart'),
     path('UI_Element/page=<page>/',         views.Crm.ui_Element, name='UI_Element'),
