@@ -102,7 +102,7 @@ class Status :
             #form = NoviceForm()
             #newbie = form.save(commit=False)
             newbie_name = request.POST.get('name')
-            print(newbie_name)
+            #print(newbie_name)
             newbie_birth = request.POST.get('birth')
             newbie_email = request.POST.get('email')
             newbie_digits = request.POST.get('digits')

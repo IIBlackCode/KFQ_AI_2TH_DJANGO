@@ -49,52 +49,74 @@
 											{% csrf_token %}
 											<div class="row">
 												<div class="mb-3 col-md-6">
-													<!-- <input type="text" class="form-control" placeholder="이름"> -->
-													<label class="form-label" for="inputLastName"> 이름</label>
-													<textarea name="name" id="name" rows="1"></textarea>
+													<div class="form-group">
+														<label class="form-label" for="inputLastName"> 이름</label>
+														<input type="text" id="name" name="name" class="form-control"
+															placeholder="이름">
+
+														<!-- <textarea name="name" class="form-control" id="name" rows="1"></textarea> -->
+													</div>
 												</div>
 												<div class="mb-3 col-md-6">
-													<label class="form-label" for="inputBirth">생년월일</label>
-													<textarea name="birth" id="birth" rows="1"></textarea>
-													<!-- <input type="number" class="form-control" id="Birth" placeholder="생년월일"> -->
+													<div class="form-group">
+														<label class="form-label" for="inputBirth">생년월일</label>
+														<!-- <textarea name="birth" class="form-control" id="birth" rows="1"></textarea> -->
+														<input type="text" id="birth" name="birth" class="form-control"
+															id="Birth" placeholder="생년월일">
+													</div>
 												</div>
 											</div>
 											<div class="row">
 												<div class="mb-3 col-md-6">
-													<label class="form-label" for="inputEmail">이메일</label>
-													<textarea name="email" id="email" rows="1"></textarea>
-													<!-- <input type="email" class="form-control" id="inputEmail"
-														placeholder="Email"> -->
+													<div class="form-group">
+														<label class="form-label" for="inputEmail">이메일</label>
+														<!-- <textarea name="email"  class="form-control" id="email" rows="1"></textarea> -->
+														<input type="email" id="email" name="email" class="form-control"
+															id="inputEmail" placeholder="Email">
+													</div>
 												</div>
 												<div class="mb-3 col-md-6">
-													<label class="form-label" for="inputPhonenumber">번호</label>
-													<textarea name="digits" id="digits" rows="1"></textarea>
-													<!-- <input type="number" class="form-control" id="inputPhonenumber"
-														placeholder="번호">-->
+													<div class="form-group">
+														<label class="form-label" for="inputPhonenumber">번호</label>
+														<!-- <textarea name="digits" class="form-control" id="digits" rows="1"></textarea> -->
+														<input type="text" id="digits" name="digits"
+															class="form-control" id="inputPhonenumber" placeholder="번호">
+													</div>
 												</div>
 											</div>
 
 											<div class="mb-3">
-												<label class="form-label" for="inputAddress">주소</label>
-												<textarea name="address" id="address" rows="1"></textarea>
-												<!-- <input type="text" class="form-control" id="inputAddress"
-													placeholder="서울시">-->
+												<div class="form-group">
+													<label class="form-label" for="inputAddress">주소</label>
+													<!-- <textarea name="address" class="form-control" id="address" rows="1"></textarea> -->
+													<input type="text" id="address" name="address" class="form-control"
+														id="inputAddress" placeholder="서울시">
+												</div>
 											</div>
 											<div class="row">
 												<div class="mb-3 col-md-3">
-													<label class="form-label" for="inputUniv">학교</label>
-													<textarea name="univ" id="univ" rows="1"></textarea>
-													<!-- <input type="text" class="form-control" id="inputUniv">-->
+													<div class="form-group">
+														<label class="form-label" for="inputUniv">학교</label>
+														<!-- <textarea name="univ" class="form-control" id="univ" rows="1"></textarea> -->
+														<input type="text" id="univ" name="univ" class="form-control"
+															id="inputUniv">
+													</div>
 												</div>
 												<div class="mb-3 col-md-3">
-													<label class="form-label" for="inputMajor">전공</label>
-													<textarea name="major" id="major" rows="1"></textarea>
-													<!-- <input type="text" class="form-control" id="inputMajor">-->
+													<div class="form-group">
+														<label class="form-label" for="inputMajor">전공</label>
+														<!-- <textarea name="major" class="form-control" id="major" rows="1"></textarea> -->
+														<input type="text" id="major" name="major" class="form-control"
+															id="inputMajor">
+													</div>
 												</div>
 												<div class="mb-3 col-md-3">
-													<label class="form-label" for="inputLanguage">사용 가능 언어</label>
-													<textarea name="language" id="language" rows="1"></textarea>
-													<!-- <input type="text" class="form-control" id="inputLanguage">-->
+													<div class="form-group">
+														<label class="form-label" for="inputLanguage">사용 가능 언어</label>
+														<!-- <textarea name="language" class="form-control" id="language" rows="1"></textarea> -->
+														<input type="text" id="language" name="language"
+															class="form-control" id="inputLanguage">
+													</div>
 												</div>
 												<div class="mb-3 col-md-3">
 													<h5 class="card-title">과정등록</h5>
@@ -107,9 +129,6 @@
 													</select>
 												</div>
 											</div>
-
-
-
 									</div>
 
 									<div class="col-md-4">
