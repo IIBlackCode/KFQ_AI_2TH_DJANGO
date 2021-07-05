@@ -10,32 +10,59 @@
 		<div class="row">
 
 			<div class="col-12 col-xl-3">
-
 				<div class="card">
 					<div class="card-header">
 						<h5 class="card-title">과정명</h5>
 						<!-- <h6 class="card-subtitle text-muted">인공지능</h6> -->
-						<select class="form-control mb-3">
-							<option selected>과정명</option>
-							<option>인공지능</option>
+						<select class="form-control mb-3" name="selectBox" id="selectBox" onclick="javascript()" >
+							<option selected>인공지능</option>
 							<option>스마트팩토리</option>
 							<option>빅데이터</option>
 						</select>
 					</div>
 					<div class="card-body">
-						<form>
-
-							<div class="mb-3 row">
-								<div class="col-sm-10 ml-sm-auto">
-									<button type="submit" class="btn btn-primary">
-										<a href='/CRM/add_novice'> 수강생등록 </a>
+						<div class="row">
+							<div class="mb-3 col-md-6">
+								<form action="/CRM/add_novice">
+									<button type="submit" class="btn btn-primary"
+										onClick="location.href='/CRM/add_novice'">
+										등록
+										<!-- <a href='/CRM/add_novice'> 수강생등록 </a> -->
 									</button>
+								</form>
+							</div>
+							<div class="mb-3 col-md-6">
+								<button type="submit" class="btn btn-secondary">조회</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-12 col-xl-9">
+				<div class="card">
+					<div class="card-header"> 조건검색 </div>
+					<div class="card-body">
+						<div class="mb-3 row">
+							<div class="col-sm-10 ml-sm-3">
+								<div class="form-check form-switch">
+									<input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+									<label class="form-check-label" for="flexSwitchCheckDefault"> 미퇴실 </label>
 								</div>
-								<div class="col-sm-10 ml-sm-auto">
-									<button type="submit" class="btn btn-secondary">수강생조회</button>
+								<div class="form-check form-switch">
+									<input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+									<label class="form-check-label" for="flexSwitchCheckDefault"> 결석 </label>
+								</div>
+								<div class="form-check form-switch">
+									<input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+									<label class="form-check-label" for="flexSwitchCheckDefault"> 지각 </label>
+								</div>
+								<div class="form-check form-switch">
+									<input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+									<label class="form-check-label" for="flexSwitchCheckDefault"> 조퇴 </label>
 								</div>
 							</div>
-						</form>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -44,7 +71,43 @@
 			<div class="col-12">
 				<div class="card">
 					<div class="card-header">
-						<h5 class="card-title">인공지능</h5>
+
+						<!-- 출처: https://all-record.tistory.com/109 
+						<%
+							// 한글 깨짐을 방지하기 위한 인코딩 처리
+							request.setCharacterEncoding("euc-kr"); 
+							String[] class_id = request.getParameter("selectbox");
+				
+						%>-->
+
+						<h5 class="card-title" id = "card-title11"> </h5>
+						<script type="text/javascript">
+							// 출처 https://frhyme.github.io/web/html_select_javascript/
+							// 출처 https://gocoder.tistory.com/51
+							// 출처 https://jdkblog.tistory.com/57
+							//function javascript(){
+							//	var target = document.getElementById("selectBox");
+							//	document.getElementById("card-title11") = target.options[target.selectedIndex].text
+							//}
+
+							var target = document.getElementById("selectBox");
+							alert('선택된 옵션 text값 = ' + target.options[target.selectedIndex].text); 
+							document.getElementById("card-title11") = target.options[target.selectedIndex].text
+							
+
+
+
+							//var alert_select_value = function (select_object){
+							//	// selectbox에서 선택된 index 찾기
+							//	var selected_index = select_obj.selectedIndex;
+							//	// 선택된 index의 value를 찾고 
+							//	var selected_value = select_obj.options[selected_index].value;
+							//	// 원하는 동작을 수행한다. 여기서는 그냥 alert해주는 식으로만 처리함. 
+							//	alert(selected_value);
+							//}
+							
+						</script>
+
 						<h6 class="card-subtitle text-muted">검색기능 <code>코드넣는 태그</code> 설명란 </h6>
 					</div>
 					<table class="table table-striped">
@@ -100,11 +163,8 @@
 								<td> {{status.input_time}} </td> <!-- 출석시간 -->
 								<td> {{status.output_time}} </td> <!-- 퇴실시간 -->
 								{% if status.absent == '결석' %}
-								<!-- 출결상태 -->
 								<td> <span class="badge bg-danger"> 결석 </span> </td>
-
 								{% elif status.absent == '미퇴실' %}
-								<!-- 출결상태 -->
 								<td> <span class="align-middle"> 미퇴실 </span> </td>
 								{% elif status.absent == '지각' %}
 								<td> <span class="badge bg-warning"> 지각 </span> </td>

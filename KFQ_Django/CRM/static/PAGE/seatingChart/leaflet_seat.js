@@ -25,7 +25,7 @@ function seat_on(seat_num, select_class, nameValue, majorValue, daily_info,state
 	var url = "'/static/img/avatars/avatar-2.jpg'";
 	var img_url = "<img src="+url+">";
 
-	var color_name = color[state-2];
+	var color_name = color[state];
 
 	var popup_content = new L.Rrose({ autoPan: false, offset: new L.Point(0,-10), closeButton: false })
 	.setContent("<center>"+name+"</center><br />"+img_url+"<br />\

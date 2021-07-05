@@ -41,8 +41,9 @@ function select_class() {
 				seatnumValue = context.context.seat_num[i];
 				daily_info_Value = context.context.daily_info[i];
 				input_time_Value = context.context.daily_info[i][0];
-				state = context.context.daily_info[i].findIndex(findstate);
-				console.log(context.context.daily_info[i].length);
+				state = context.context.daily_info[i].slice(2).lastIndexOf('Y');
+				// state = context.context.daily_info[i].findIndex(findstate);
+				console.log(state);
 				seat_on(seatnumValue, classValue, nameValue, majorValue, daily_info_Value,state);
 			}
 		}//end of success
