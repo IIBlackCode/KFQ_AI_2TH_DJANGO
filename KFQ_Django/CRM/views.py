@@ -24,7 +24,8 @@ class Crm :
             if object.status == '진행중':
                 
                 print("LIST : ",(object.open_date))
-                # object.close_date = datetime.strftime(object.open_date,'%Y-%m-%d')
+                object.open_date = datetime.strftime(object.open_date,'%Y-%m-%d')
+                object.close_date = datetime.strftime(object.close_date,'%Y-%m-%d')
                 list.append(object)
         context = {
             'page' : page,
