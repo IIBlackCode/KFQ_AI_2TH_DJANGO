@@ -8,12 +8,11 @@ from django.utils.dateformat import DateFormat
 from django.utils.dateparse import parse_datetime
 from CRM.forms import NoviceForm, UserForm
 
-#임시
-
 class Status :
     def status(request):
         print("PAGE : status")
         page ='status'
+<<<<<<< Updated upstream
         lst_status = Student_list.objects.all()
         lst_name = []
         lst_date = []
@@ -34,24 +33,82 @@ class Status :
                 d.date = d.date.strftime('%Y-%m-%d')
                 d.input_time = d.input_time.strftime('%H:%M:%S')
                 d.absent = '미퇴실'
+=======
+        
+        classlist = ClassList.objects.all()
+        list_name = []
+        list_date = []
+        list_input_time = []
+        list_output_time = []
+        list_class_filter = 0
+
+        if request.method == "POST":
+            click_search = request.POST.get('ajax_class_name')
+            print('========================')
+            print('click_search',click_search)
+
+            for object in classlist:
+                if object.class_name == click_search:
+                    list_class_filter = object.class_id
+
+        list_status = Student_list.objects.filter(class_fk=list_class_filter)
+                    
+        for object in list_status:
+            print('=========================================')
+            print('html 넘겨줘~')
+            print('list_class_filter', list_class_filter)
+            print(object.member_fk.class_fk_id)
+
+            if list_class_filter  == object.member_fk.class_fk_id:
+                list_name.append(object.member_fk)
+                # Class casting, 다형성
+                # 모든 클래스의 부모는 뭐다? Object클래스
+                # 캡슐화, 정보은닉, 추상화, 상속성, 다형성(같은상속관계에서 타입을 변경하는 것을 의미합니다.)
+                #print(object.member_fk.name)
+                if object.date and object.output_time:
+                    object.date = object.date.strftime('%Y-%m-%d')
+                    object.input_time = object.input_time.strftime('%H:%M:%S')
+                    object.output_time = object.output_time.strftime('%H:%M:%S')
+                    object.total_time = Status.diff_time(object.output_time, object.input_time)
+                    object.absent = Status.check_status(object.input_time, object.output_time)
+                elif object.input_time and not object.output_time:
+                    object.date = object.date.strftime('%Y-%m-%d')
+                    object.input_time = object.input_time.strftime('%H:%M:%S')
+                    object.absent = '미퇴실'
+                else:
+                    object.absent = '결석'
+
+                context = {
+                'list_status' : list_status,
+                'list_date' : list_date,
+                'list_input_time' : list_input_time,
+                'list_output_time' : list_output_time,
+                'classlist' : classlist,
+                }
+>>>>>>> Stashed changes
             else:
-                d.absent = '결석'
+                context = {
+                    'classlist' : classlist,
+                }
 
-            #lst_date.append(d.date.strftime('%Y:%m:%d'))
-            #lst_input_time.append(d.input_time.strftime('%H:%M:%S'))
-            #lst_output_time.append(d.output_time.strftime('%H:%M:%S'))
+            #lst_date.append(object.date.strftime('%Y:%m:%d'))
+            #lst_input_time.append(object.input_time.strftime('%H:%M:%S'))
+            #lst_output_time.append(object.output_time.strftime('%H:%M:%S'))
 
-            #print(d.date)
-            #print(d.input_time)
-            #print(d.output_time)
-            #print(d.total_time)
-
+<<<<<<< Updated upstream
         context = {
             'lst_status' : lst_status,
             'lst_date' : lst_date,
             'lst_input_time' : lst_input_time,
             'lst_output_time' : lst_output_time,
         }
+=======
+            #print(object.date)
+            #print(object.input_time)
+            #print(object.output_time)
+            #print(object.total_time)
+
+>>>>>>> Stashed changes
         return render(request, './crm/03_status.html', context)
 
     def diff_time(time_in,time_out):
@@ -78,10 +135,10 @@ class Status :
         time_stay= time_stay.seconds //3600
         result = ''
 
-        print(time_stay)
+        #print(time_stay)
 
         if diff_time.days < 0 and time_stay > 5:
-            print('late')
+            #print('late')
             result = '지각'
             return result
         elif time_stay < 7:
@@ -89,13 +146,11 @@ class Status :
             return result
         else:
             result = '출석'
-            print('done')
+            #print('done')
             return result
         
-
     def addnovice(request):
         print("PAGE : add_novice")
-
 
         if request.method == "POST":
             

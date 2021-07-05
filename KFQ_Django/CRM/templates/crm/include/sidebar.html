@@ -40,15 +40,10 @@
 			{% else %}
 			<li class="sidebar-item">
 			{% endif %}
-				<a class="sidebar-link" href="{% url 'CRM:status' %}">
-					<i class="align-middle" data-feather="book"></i> <span class="align-middle">수강생 현황</span>
-				</a>
-			<!--
 				<a class="sidebar-link" href="/CRM/status">
 					<i class="align-middle" data-feather="book"></i> <span class="align-middle">수강생 현황</span>
-				</a>-->
+				</a>
 			</li>
-
 			{% if page == 'statistics' %}
 			<li class="sidebar-item active">
 			{% else %}
@@ -56,7 +51,7 @@
 			{% endif %}
 				<a class="sidebar-link" href="/CRM/statistics">
 					<i class="align-middle" data-feather="book"></i> <span class="align-middle">반별 통계</span>
-				</a>-
+				</a>
 			</li>
 
 			{% if page == 'SeatingChart' %}

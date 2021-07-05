@@ -1,0 +1,163 @@
+
+<h1 class="h3 mb-3">수강생 현황</h1>
+
+<div class="row">
+
+    <div class="col-12 col-xl-3">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">과정명</h5>
+                <!-- <h6 class="card-subtitle text-muted">인공지능</h6>-->
+                
+                <select class="form-control mb-3" name="select_class" id="select_class" onchange="search_class()">
+                    {% for class in classlist %}
+                    <option selected>{{ class.class_name }}</option>
+                    {% endfor %}
+                </select>
+
+                <!-- <span id="ajax_class_name"> </span> -->
+
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="mb-3 col-md-6">
+                        <form action="/CRM/add_novice">
+                            <button type="submit" class="btn btn-primary" onClick="location.href='/CRM/add_novice'">
+                                등록
+                            </button>
+                        </form>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        <form action="{% url 'CRM:status_data'%}" method="post">
+                            {% csrf_token %}
+                            
+                            <!-- <span id="ajax_class_name"> </span> -->
+                            <script>
+                            </script>
+                            <input type="text" name="ajax_class_name">
+                            
+                            <button type="submit" class="btn btn-secondary"> 조회 </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 col-xl-9">
+        <div class="card">
+            <div class="card-header"> 조건검색 </div>
+            <div class="card-body">
+                <div class="mb-3 row">
+                    <div class="mb-3 col-md-3">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                            <label class="form-check-label" for="flexSwitchCheckDefault"> 미퇴실 </label>
+                        </div>
+                    </div>
+                    <div class="mb-3 col-md-3">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                            <label class="form-check-label" for="flexSwitchCheckDefault"> 결석 </label>
+                        </div>
+                    </div>
+                    <div class="mb-3 col-md-3">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                            <label class="form-check-label" for="flexSwitchCheckDefault"> 지각 </label>
+                        </div>
+                    </div>
+                    <div class="mb-3 col-md-3">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                            <label class="form-check-label" for="flexSwitchCheckDefault"> 조퇴 </label>
+                        </div>
+                    </div>
+                </div>    
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title" id="card-title11"> </h5>
+                <a href=# class=text1 onclick=delete1(value); value=$row[no]>클릭</a>
+
+                <h6 class="card-subtitle text-muted">검색기능 <code>코드넣는 태그</code> 설명란 </h6>
+            </div>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th style="width:6%;">Email</th>
+                        <th style="width:10%">이름</th>
+                        <th style="width:15%">날짜</th>
+                        <th style="width:13%">입실시간</th>
+                        <th style="width:13%">퇴실시간</th>
+                        <th style="width:10%">출결상태</th>
+                        <th style="width:10%">총 외출시간</th>
+                        <th style="width:10%">총 수강시간</th>
+                        <th style="width:5%">사유서</th>
+                        <th style="width:4%">편집</th>
+                        <th style="width:4%">삭제</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for status in list_status %}
+                    <tr>
+                        <td> {{status.member_fk.email}} </td> <!-- ID -->
+                        <td>
+
+                            <a class="dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">
+                                {{ status.member_fk.name }}
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-right show">
+                                <a class="dropdown-item" href='/CRM/settings'>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill='none' stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="feather feather-user align-middle mr-1">
+                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="12" cy="7" r="4"></circle>
+                                    </svg>
+                                    학생정보편집
+                                </a>
+                            </div>
+                        </td>
+                        <td> {{status.date}} </td> <!-- 날짜 -->
+                        <td> {{status.input_time}} </td> <!-- 출석시간 -->
+                        <td> {{status.output_time}} </td> <!-- 퇴실시간 -->
+                        {% if status.absent == '결석' %}
+                        <td> <span class="badge bg-danger"> 결석 </span> </td>
+                        {% elif status.absent == '미퇴실' %}
+                        <td> <span class="align-middle"> 미퇴실 </span> </td>
+                        {% elif status.absent == '지각' %}
+                        <td> <span class="badge bg-warning"> 지각 </span> </td>
+                        {% elif status.absent == '조퇴/외출' %}
+                        <td> 조퇴/외출 </td>
+                        {% else %}
+                        <td> <span class="badge bg-success"> 출석 </span> </td>
+                        {% endif %}
+                        <td> </td> <!-- 총 외출시간 -->
+                        <td> {{status.total_time}} </td> <!-- 총 시간 -->
+                        <!--사유서-->
+                        <td> <a href="#"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round"
+                                    class="feather feather-file align-middle mr-2">
+                                    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                                    <polyline points="13 2 13 9 20 9"></polyline>
+                                </svg></a></td>
+                        <td> <a href="#"> <i class="align-middle" data-feather="edit-2"></i></a>편집 </td>
+                        <td> <a href="#"> <i class="align-middle" data-feather="edit-2"></i></a>삭제 </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
