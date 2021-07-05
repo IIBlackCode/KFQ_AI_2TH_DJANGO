@@ -35,6 +35,8 @@ urlpatterns = [
     path('index/total_early/',              Dashboard.total_early,         name='Total_attendance'),
     path('index/class_statistics/',         Dashboard.class_statistics,    name='class_statistics'),
     #***********************************************************************#
+    path('seatingChart/seatingChart/',      SeatingChart.seatingChart,     name='seatingChart_data'),
+    #***********************************************************************#
     path('index/',                          views.Crm.index,      name='index'),
     path('profile/',                        views.Crm.profile,    name='profile'),
     path('settings/',                       views.Crm.settings,   name='settings'),

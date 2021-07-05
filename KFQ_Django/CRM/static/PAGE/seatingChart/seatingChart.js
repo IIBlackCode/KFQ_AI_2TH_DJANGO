@@ -17,6 +17,7 @@ function select_class() {
 			//Console 창으로 data확인
 			console.log('데이터 보내기 성공',context.context);
 			seatnum_length = context.context.seat_num.length;
+			
 			const column = [138,317,496,675,854,1033,1212,1391]; // 분단 x 좌표
 			const row = [253,375,498,620]; // 몇번째 자리인지 y 좌표
 			var set = []; // 좌석 번호가 담길 좌표 리스트
@@ -41,8 +42,9 @@ function select_class() {
 				seatnumValue = context.context.seat_num[i];
 				daily_info_Value = context.context.daily_info[i];
 				input_time_Value = context.context.daily_info[i][0];
-				state = context.context.daily_info[i].findIndex(findstate);
-				console.log(context.context.daily_info[i].length);
+				state = context.context.daily_info[i].slice(2).lastIndexOf('Y');
+				// state = context.context.daily_info[i].findIndex(findstate);
+				console.log(state);
 				seat_on(seatnumValue, classValue, nameValue, majorValue, daily_info_Value,state);
 			}
 		}//end of success
