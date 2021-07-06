@@ -123,31 +123,29 @@
 							<div class="card-body">
 								<h5 class="card-title">비밀번호</h5>
 
-								<form>
+								<form method="post" action='/CRM/settings/password/'>
 									{% csrf_token %}
 									<div class="mb-3">
 										<label class="form-label" for="password">현재
 											비밀번호</label>
-										<input type="password" class="form-control" id="password">
+										<input type="password" class="form-control" name ="password" id="password">
 										<small><a href="#">비밀번호를 잊으셨나요?</a></small>
 									</div>
 									<div class="mb-3">
 										<label class="form-label" for="password1">새
 											비밀번호</label>
-										<input type="password" class="form-control" id="password1">
+										<input type="password" class="form-control" name ="password1" id="password1">
 									</div>
 									<div class="mb-3">
 										<label class="form-label" for="password2">새
 											비밀번호 확인</label>
-										<input type="password" class="form-control" id="password2">
+										<input type="password" class="form-control" name ="password2" id="password2">
 									</div>
 									{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
-									<form method="post" style="text-align:center;">
-										{% csrf_token %}
 										{{ form }}
 										<button type="submit" class="btn btn-primary" href="/CRM/settings/">변경 및
 											저장</button>
-									</form>
+								</form>
 
 							</div>
 						</div>
