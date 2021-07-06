@@ -48,25 +48,6 @@
 					</div>
 				</div><!-- end section -->
 			</div>
-			<div class="carousel-item">
-				<div id="home" class="first-section" style="background-image:url({% static 'images/slider-03.jpg' %});">
-					<div class="dtab">
-						<div class="container">
-							<div class="row">
-								<div class="col-md-12 col-sm-12 text-center">
-									<div class="big-tagline">
-										<h2 data-animation="animated zoomInRight"><strong>초록색</strong>하얀색</h2>
-										<p class="lead" data-animation="animated fadeInLeft">내용인데 뭐로채울까요 세번째 페이지</p>
-											<a href="{% url 'BRAND:contact' %}" class="hover-btn-new"><span>연락처</span></a>
-											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-											<a href="{% url 'BRAND:about' %}" class="hover-btn-new"><span>자세히</span></a>
-									</div>
-								</div>
-							</div><!-- end row -->            
-						</div><!-- end container -->
-					</div>
-				</div><!-- end section -->
-			</div>
             <div class="carousel-item">
 				<div id="home" class="first-section" style="background-image:url({% static 'images/slider-03.jpg' %});">
 					<div class="dtab">
@@ -110,7 +91,6 @@
                     <form class="checkdomain form-inline">
                         <div class="checkdomain-wrapper">
                             <div class="form-group">
-                                <label class="sr-only" for="domainnamehere">Domain name</label>
                                 <input type="text" class="form-control" id="domainnamehere" placeholder="검색창에서 WeAreHere를 검색하세요!">
                                 <button type="submit" class="btn btn-primary grd1"><i class="fa fa-search"></i></button>
                             </div>
@@ -140,7 +120,7 @@
                     </form>
                 </div>
                 
-				<div class="col-lg-12">
+				{% comment %} <div class="col-lg-12">
                     <div class="customwidget text-center">
                         <h1>뭐라쓰지</h1>
                         <p>설명을</p>
@@ -152,7 +132,7 @@
                         <!-- end list -->
                         <a href="#" class="hover-btn-new"><span>어디로 연결할지</span></a>
                     </div>
-                </div>
+                </div> {% endcomment %}
 				
                 <!-- end col -->
             </div><!-- end row -->
@@ -164,19 +144,19 @@
             <div class="section-title row text-center">
                 <div class="col-md-8 offset-md-2">
                     <h3>개발환경</h3>
-                    <p class="lead">뭐라 설명을 써놓지</p>
+                    <p class="lead">5조 프로젝트 진행간 개발환경은~ 두구두구</p>
                 </div>
             </div><!-- end title -->
         
             <div class="row align-items-center">
                 <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
                     <div class="message-box">
-                        <h4>조그만글자</h4>
-                        <h2>제목</h2>
-                        <p>내용</p>
-                        <p>내용</p>
+                        <h4>사용한 것들은... 바로...</h4>
+                        <h2>다음과 같습니다..!</h2>
+                        <p>Python 3.8.8, PyCharm 2021.1.2, Django 3.1.3,</p>
+                        <p>BootStrap 4.0, HTML5, CSS3,,, 등등,,!</p>
 
-                        <a href="#" class="hover-btn-new"><span>어디에 연결할지</span></a>
+                        <a href="#" class="hover-btn-new"><span>to be continue..</span></a>
                     </div><!-- end messagebox -->
                 </div><!-- end col -->
 				
@@ -195,11 +175,12 @@
 				
 				<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
                     <div class="message-box">
-                        <h2>제목</h2>
-                        <p>내용</p>
-                        <p>내용</p>
+                        <h2>06월 22일 회의</h2>
+                        <p>열심히 회의하던 20시의 모습이다</p>
+                        <p>special Thanks to.</p>
+                        <p>사진 찍어주신</p>
 
-                        <a href="#" class="hover-btn-new"><span>어디에 연결할지</span></a>
+                        <a href="#" class="hover-btn-new"><span>김경진 님</span></a>
                     </div><!-- end messagebox -->
                 </div><!-- end col -->
 				
@@ -220,53 +201,52 @@
 					<div class="timeline__items">
 						<div class="timeline__item">
 							<div class="timeline__content img-bg-01">
-								<h2>2018</h2>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dignissim neque condimentum lacus dapibus. Lorem
-									ipsum dolor sit amet, consectetur adipiscing elit. Integer dignissim neque condimentum lacus dapibus.</p>
+								<h2>6월 15일</h2>
+								<p>주제 선정. 브레인스토밍을 진행하여 학생 관리시스템에 대하여 기능을 하나씩 하나씩, 엄청난 상상을 시작하였다.</p>
 							</div>
 						</div>
 						<div class="timeline__item">
 							<div class="timeline__content img-bg-02">
-								<h2>2015</h2>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dignissim neque condimentum lacus dapibus.</p>
+								<h2>6월 16일</h2>
+								<p>사용할 템플릿을 찾아보았다. 참고로 우리팀은 무료 템플릿으로 대부분을 구현하였다... 버스기사님이 운전을 잘하신다..</p>
+								<p>Notion을 사용하여 정리를 시작했다. 우리의 기록들이 차곡차곡 쌓여간다.</p>
 							</div>
 						</div>
 						<div class="timeline__item">
 							<div class="timeline__content img-bg-03">
-								<h2>2014</h2>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dignissim neque condimentum lacus dapibus.</p>
+								<h2>6월 17일</h2>
+								<p>요구사항 정의서 작성 시작. 템플릿을 최종 선정하고 기능별로 ERD를 작성하기 시작했다.</p>
 							</div>
 						</div>
 						<div class="timeline__item">
 							<div class="timeline__content img-bg-04">
-								<h2>2012</h2>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dignissim neque condimentum lacus dapibus.</p>
+								<h2>6월 18일</h2>
+								<p>본격적인 개발에 앞서 최종적인 브레인스토밍을 진행하였다. </p>
 							</div>
 						</div>
 						<div class="timeline__item">
 							<div class="timeline__content img-bg-01">
-								<h2>2010</h2>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dignissim neque condimentum lacus dapibus. Lorem
-									ipsum dolor sit amet, consectetur adipiscing elit.</p>
+								<h2>6월 21일</h2>
+								<p>페이지별 기능 정의와 함께 UI/UX 설계를 진행하였다.</p>
 							</div>
 						</div>
 						<div class="timeline__item">
 							<div class="timeline__content img-bg-02">
-								<h2>2007</h2>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dignissim neque condimentum lacus dapibus.</p>
+								<h2>6월 22일</h2>
+								<p>김남현 강사님 피드백. 기능을 상세하게 구분지어 Web Site 구조도를 작성하였다.</p>
 							</div>
 						</div>
 						<div class="timeline__item">
 							<div class="timeline__content img-bg-03">
-								<h2>2004</h2>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dignissim neque condimentum lacus dapibus.</p>
+								<h2>6월 23일</h2>
+								<p>김남현 강사님 피드백. 배경삼 연구원님 추천으로 Power MockUp 사용. 구정은 강사님 피드백. 역할분담. 질문전용 Notion 개설 등.. 본격적인 시작이다.</p>
 							</div>
 						</div>
 						<div class="timeline__item">
 							<div class="timeline__content img-bg-04">
-								<h2>2002</h2>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dignissim neque condimentum lacus dapibus.</p>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dignissim neque condimentum lacus dapibus.</p>
+								<h2>6월 24일~</h2>
+								<p>Notion 용량문제로 인하여 OneNote로 이사왔다..</p>
+								<p>본격적인 개발에 들어섰다.</p>
 							</div>
 						</div>
 					</div>
@@ -279,19 +259,19 @@
 		<div class="container">
 			<div class="row text-left stat-wrap">
 				<div class="col-md-4 col-sm-4 col-xs-12">
-					<span data-scroll class="global-radius icon_wrap effect-1 alignleft"><i class="flaticon-hosting"></i></span>
+					<span data-scroll class="global-radius icon_wrap effect-1 alignleft"><i class="flaticon-money"></i></span>
 					<p class="stat_count">1000</p>
 					<h3>취업자 수</h3>
 				</div><!-- end col -->
 
 				<div class="col-md-4 col-sm-4 col-xs-12">
-					<span data-scroll class="global-radius icon_wrap effect-1 alignleft"><i class="flaticon-domain-registration"></i></span>
+					<span data-scroll class="global-radius icon_wrap effect-1 alignleft"><i class="flaticon-idea"></i></span>
 					<p class="stat_count">1200</p>
 					<h3>수료생 수</h3>
 				</div><!-- end col -->
 
 				<div class="col-md-4 col-sm-4 col-xs-12">
-					<span data-scroll class="global-radius icon_wrap effect-1 alignleft"><i class="flaticon-mail"></i></span>
+					<span data-scroll class="global-radius icon_wrap effect-1 alignleft"><i class="flaticon-happy"></i></span>
 					<p class="stat_count">4.87</p>
 					<h3>수강생 만족도</h3>
 				</div><!-- end col -->

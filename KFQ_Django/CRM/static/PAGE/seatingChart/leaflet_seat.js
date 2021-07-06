@@ -29,12 +29,13 @@ for(var i=0; i<column.length; i++) {
 const color = ['green','red','orange','gray'];
 // 출 결 지 조 색깔
 
-function seat_on(seat_num, select_class, nameValue, majorValue, daily_info,state) {
+function seat_on(seat_num, select_class, nameValue, majorValue, daily_info,state,emailValue) {
 	var name='"'+nameValue+'"';
 	var class_name='"'+select_class+'"';
 	var major='"'+majorValue+'"';
 	var temperature=daily_info[1];
-	var url = "'/static/img/avatars/avatar-2.jpg'";
+	var email=emailValue;
+	var url = "'/static/img/avatars/"+email+".jpg'";
 	var img_url = "<img src="+url+">";
 	var color_name = color[state];
 	var popup_content = new L.Rrose({ autoPan: false, offset: new L.Point(0,-10), closeButton: false })
@@ -60,10 +61,11 @@ function seat_on_all(context){
 			daily_info_Value = context.context.daily_info[i];
 			input_time_Value = context.context.daily_info[i][0];
 			state = context.context.daily_info[i].slice(2).lastIndexOf('Y');
+			emailValue = context.context.email[i];
 
 			console.log("seat_on"+i);
 			// remove_async();
-			seat_on(seatnumValue, classValue, nameValue, majorValue, daily_info_Value,state);
+			seat_on(seatnumValue, classValue, nameValue, majorValue, daily_info_Value,state,emailValue);
 		} catch(error) { 
 			console.log(error); 
 		}

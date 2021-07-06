@@ -90,6 +90,7 @@ class Account:
         request.session.flush() # 전체 삭제
 
         return HttpResponseRedirect('/CRM/signin/')
+        # return HttpResponseRedirect('/CRM/signin/')
 
 
     def change_pw(request):

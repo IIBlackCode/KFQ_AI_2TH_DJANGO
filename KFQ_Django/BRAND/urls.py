@@ -1,6 +1,7 @@
 from django.urls import path
 from BRAND import views
 from .VIEW.theme import Theme
+from .VIEW.account import Account
 
 app_name='BRAND'
 
@@ -22,5 +23,10 @@ urlpatterns = [
     path('theme/domain/', Theme.theme_domain, name='5_domain.html'),
     path('theme/pricing/', Theme.theme_pricing, name='6_pricing.html'),
     path('theme/contact/', Theme.theme_contact, name='7_contact.html'),
+#***********************************************************************#
+    path('signup/', Account.signup, name="signup"),
+    path('signin/', Account.signin, name="signin"),
+    path('signout/', Account.signout, name="signout"),
+    path('find_password/', Account.find_password, name='find_password'),
 #***********************************************************************#
 ]

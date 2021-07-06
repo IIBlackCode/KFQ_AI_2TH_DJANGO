@@ -28,11 +28,15 @@ class SeatingChart :
         with conn:
             cur.execute("select t3.class_name from CRM_student_list t1, CRM_member t2, CRM_classlist t3 where t1.member_fk_id = t2.email and t2.class_fk_id ="+class_fk+" group by t1.member_fk_id order by t1.member_fk_id")
             class_name = cur.fetchall()
+        with conn:
+            cur.execute("select t2.email from CRM_student_list t1, CRM_member t2, CRM_classlist t3 where t1.member_fk_id = t2.email and t2.class_fk_id ="+class_fk+" group by t1.member_fk_id order by t1.member_fk_id")
+            email = cur.fetchall()
         context = {
             'name' :name,
             'major':major,
             'seat_num':seat_num,
             'daily_info':daily_info,
             'class_name':class_name,
+            'email':email,
         }
         return JsonResponse({'context' :context},status=200)
