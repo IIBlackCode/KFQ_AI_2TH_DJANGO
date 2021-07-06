@@ -21,8 +21,9 @@ from CRM import views as viewCRM
 
 urlpatterns = [
 
-    path('',viewCRM.Crm.index),
+    path('',Theme.theme_index),
     path('admin/', admin.site.urls),
+
 
     #Brand 관련 페이지
     path('BRAND/', include('BRAND.urls')),
