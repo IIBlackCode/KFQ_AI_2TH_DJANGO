@@ -138,4 +138,14 @@ class Dashboard :
         print('진행과정 : ',classNameList)
             
         return JsonResponse({'count' :classNameList},status=200)
+
+    #과정 진행율
+    def process(request):
+        conn = sqlite3.connect("db.sqlite3",check_same_thread=False)
+        cur = conn.cursor()
+        cur.execute("select class_name,(julianday(Date('now'))-julianday(open_date))/(julianday(close_date)-julianday(open_date))*100 from CRM_classlist WHERE status like '진행중' ")
+        data = cur.fetchall()
+        print('진행율 : ',data)
+            
+        return JsonResponse({'data' :data},status=200)
     
