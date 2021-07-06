@@ -2,8 +2,6 @@ from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from CRM.models import Member
-from django.contrib.auth import update_session_auth_hash
-from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth.hashers import check_password
 
 class Account:
@@ -51,7 +49,7 @@ class Account:
             try:
                 user = Member.objects.get(email=email, password=password)
                 request.session['name'] = user.name
-                # request.session['birth'] = user.birth
+                request.session['birth'] = str(user.birth)
                 request.session['email'] = user.email
                 request.session['address'] = user.address
                 request.session['university'] = user.university
@@ -73,20 +71,39 @@ class Account:
 
     def change_pw(request):
         context= {}
+        
         if request.method == "POST":
-            current_password = request.POST.get("password")
-            user = request.user
-            if check_password(current_password,user.password):
-                new_password = request.POST.get("password1")
-                password_confirm = request.POST.get("password2")
-                if new_password == password_confirm:
-                    user.set_password(new_password)
-                    user.save()
-                    Account.signin(request,user)
-                    return redirect("CRM:index")
-                else:
-                    context.update({'error':"새로운 비밀번호를 다시 확인해주세요."})
-        else:
-            context.update({'error':"현재 비밀번호가 일치하지 않습니다."})
-
+            # 현재 html 창에서 비밀번호 호출
+            input_password = request.POST.get("password")
+            print(input_password)
+            # db에 있는 비밀번호 호출
+            
+            user = Member.objects.get(password=input_password)
+            print("user",user)
+            print("hi", user.password )
+            request.session['password'] = user.password
+            # print(password,request.session['password'],1)
+           
+            
         return render(request, "account/settings.html",context)
+
+        # def change_pw(request):
+        #         context= {}
+        #         if request.method == "POST":
+        #             current_password = request.POST.get("password")
+        #             user = request.user
+        #             print(current_password,1)
+        #             if check_password(current_password,user.password):
+        #                 new_password = request.POST.get("password1")
+        #                 password_confirm = request.POST.get("password2")
+        #                 if new_password == password_confirm:
+        #                     user.set_password(new_password)
+        #                     user.save()
+        #                     Account.signin(request,user)
+        #                     return redirect("CRM:index")
+        #                 else:
+        #                     context.update({'error':"새로운 비밀번호를 다시 확인해주세요."})
+        #         else:
+        #             context.update({'error':"현재 비밀번호가 일치하지 않습니다."})
+
+        #         return render(request, "account/settings.html",context)
