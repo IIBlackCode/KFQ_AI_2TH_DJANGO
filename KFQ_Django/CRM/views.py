@@ -21,18 +21,19 @@ class Crm :
         #진행중인 과정 SELECT
         classList = ClassList.objects.all()
         list = []
-        for object in classList:
-            #과정이 진행중인 반만 출력하기
-            if object.status == '진행중':
-                object.open_date = datetime.strftime(object.open_date,'%Y-%m-%d')
-                object.close_date = datetime.strftime(object.close_date,'%Y-%m-%d')
-                list.append(object)
-
+        try:
+            for object in classList:
+                #과정이 진행중인 반만 출력하기
+                if object.status == '진행중':
+                    object.open_date = datetime.strftime(object.open_date,'%Y-%m-%d')
+                    object.close_date = datetime.strftime(object.close_date,'%Y-%m-%d')
+                    list.append(object)
+        except:
+            print("ClassList.objects.all() ---> Error!")
         #입실한 수강생 출결내역
         studentList = []
         objectList = Student_list.objects.all()
 
-        
         #당일 출결 학생들만 출력
         currentTime = datetime.now().strftime('%Y-%m-%d')
         # print('currentTime',currentTime)
