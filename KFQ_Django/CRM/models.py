@@ -41,7 +41,7 @@ class Member (models.Model):
 class Student_list(models.Model):
     studentListNum = models.AutoField(ClassList, primary_key=True)
     member_fk = models.ForeignKey(Member, on_delete=models.CASCADE)
-    #class_fg = models.ForeignKey(ClassList, on_delete=models.CASCADE)
+    class_fk = models.ForeignKey(ClassList, on_delete=models.CASCADE)
 
     date = models.DateField(auto_now_add=True)
 

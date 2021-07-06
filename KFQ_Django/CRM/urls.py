@@ -24,7 +24,6 @@ urlpatterns = [
     path('index/total_late/',               Dashboard.total_late,          name='Total_attendance'),
     path('index/total_early/',              Dashboard.total_early,         name='Total_attendance'),
     path('index/class_statistics/',         Dashboard.class_statistics,    name='class_statistics'),
-    path('index/classNameList/',            Dashboard.classNameList,    name='class_statistics'),
     
     #***********************************************************************#
     #PAGE : 03_status     
