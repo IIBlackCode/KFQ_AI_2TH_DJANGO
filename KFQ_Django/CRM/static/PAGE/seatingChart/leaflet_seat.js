@@ -35,7 +35,7 @@ function seat_on(seat_num, select_class, nameValue, majorValue, daily_info,state
 	<center>체온 : "+temperature+" 도</center>");
 
 	L.circle([set[seat_num-1][2], set[seat_num-1][1]], {color: color_name,radius: 20, fillOpacity: 1}).addTo(map)
-	.bindTooltip(name, {permanent: true, direction: 'center'}).openTooltip()
+	.bindTooltip(name, {permanent: true, direction: 'center', opacity: 1}).openTooltip()
 	.bindPopup(popup_content)
 	.on("mouseover", function(evt) { this.openPopup(); })
 	.on("mouseout", function(evt) { this.closePopup(); });
