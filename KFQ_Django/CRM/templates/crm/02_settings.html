@@ -68,7 +68,8 @@
 													<p>{{ request.session.email }}</p>
 												</div>
 												<div class="mb-3 col-md-6">
-													<label class="form-label" for="inputPhonenumber">번호</label>
+													<span data-feather="phone" class="align-middle mr-2"></span>
+													<label class="form-label" for="inputPhonenumber" >전화 번호</label>
 													<input type="tel" class="form-control" name="inputPhonenumber"
 														id="inputPhonenumber"
 														value="{{ request.session.phone_number }}">
@@ -81,16 +82,19 @@
 											</div>
 											<div class="row">
 												<div class="mb-3 col-md-4">
+													<span data-feather="award" class="align-middle mr-2"></span>
 													<label class="form-label" for="inputUniv">학교</label>
 													<input type="text" class="form-control" name="inputUniv"
 														id="inputUniv" value="{{ request.session.university }}">
 												</div>
 												<div class="mb-3 col-md-4">
+													<span data-feather="book-open" class="align-middle mr-2"></span>
 													<label class="form-label" for="inputMajor">전공</label>
 													<input type="text" class="form-control" name="inputMajor"
 														id="inputMajor" value="{{ request.session.major }}">
 												</div>
 												<div class="mb-3 col-md-4">
+													<span data-feather="monitor" class="align-middle mr-2"></span>
 													<label class="form-label" for="inputLanguage">사용 가능 언어</label>
 													<input type="text" class="form-control" name="inputLanguage"
 														id="inputLanguage"
@@ -98,12 +102,10 @@
 												</div>
 											</div>
 										</div>
-
-
 										<div class="col-md-4">
 											<div class="text-center">
 												<img alt="Charles Hall"
-													src="../img/avatars/{{ request.session.email }}.jpg"
+													src ="../../static/img/avatars/{{ request.session.email }}.jpg"
 													class="rounded mr-2 mb-2" width="128" height="128" />
 											</div>
 										</div>
@@ -179,14 +181,6 @@
 		<onsubmit='return check();'>
 	</div>
 </main>
-<script>
-
-	const str = 'img/avatars/' + request.session.email + '.jpg';
-	console.log(str)
-
-	document.write(str);
-</script>
-
 <script>
 	function check() {
 		const isDel = confirm('삭제 하시겠습니까?')

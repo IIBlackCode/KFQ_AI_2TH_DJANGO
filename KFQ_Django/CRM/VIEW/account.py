@@ -81,7 +81,6 @@ class Account:
 
                 return render(request, './crm/page/02_account/signin_success.html')
             except:
-                print("hi",class_name)
                 return render(request, './crm/page/02_account/signin_fail.html')
         return render(request, './crm/page/02_account/signin.html')
 
