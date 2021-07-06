@@ -26,7 +26,8 @@ urlpatterns = [
     path('signin/',                           Account.signin,         name='signin'),
     path('signout/',                          Account.signout,        name='signout'),
     path('settings/password/',                Account.change_pw,      name='change_pw'),
-
+    path('settings/info/',                    Account.change_info,      name='change_info'),
+    path('settings/delete/',                  Account.delete_member,    name='delete_member'),
     #***********************************************************************#
     #PAGE : 03_status     
     path('status/data',                     Status.status,        name='status_data'),
