@@ -19,7 +19,6 @@ urlpatterns = [
     path('index/total_late/',               Dashboard.total_late,          name='Total_attendance'),
     path('index/total_early/',              Dashboard.total_early,         name='Total_attendance'),
     path('index/class_statistics/',         Dashboard.class_statistics,    name='class_statistics'),
-<<<<<<< HEAD
     path('index/classNameList/',            Dashboard.classNameList,    name='class_statistics'),
     #***********************************************************************#
     #PAGE : 02_Account
@@ -28,9 +27,6 @@ urlpatterns = [
     path('signout/',                          Account.signout,        name='signout'),
     path('settings/password/',                Account.change_pw,      name='change_pw'),
 
-=======
-    
->>>>>>> 0d532bf8587c02bf9528b9fabe8fbdcc4b45a1c5
     #***********************************************************************#
     #PAGE : 03_status     
     path('status/data',                     Status.status,        name='status_data'),
