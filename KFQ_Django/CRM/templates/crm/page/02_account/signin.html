@@ -9,13 +9,15 @@
                 <form method="post" action="/CRM/signin/">
                     {% csrf_token %}
                     <div class="form-group">
-                        <label for="email">Email:</label>
-                        <input type="text" class="form-control" id="email" name="email" style="width:300px;height:30px;font-size:12px;">
+                        
+                        <input type="text" class="form-control" id="email" name="email" placeholder="email" >
                     </div>
+                    <br>
+
                     <div class="form-group">
-                        <label for="pwd">Password:</label>
-                        <input type="password" class="form-control" id="password" name="password">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="password">
                     </div>
+                    <small><a href="/CRM/signin/find_password/">비밀번호를 잊으셨나요?</a></small>
                     <button class="btn btn-primary btn-block" id="signin" style="margin-top: 20px;">Sign
                         in</button>
                     <button type="button" class="btn btn-primary" onClick="location.href='/CRM/signup'" style="margin-top: 20px;">계정 만들기</button>
