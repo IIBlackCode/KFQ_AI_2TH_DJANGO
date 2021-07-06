@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 import sqlite3
 from CRM.models import ClassList, Member, Student_list
@@ -7,6 +7,7 @@ from django.utils import timezone
 from django.utils.dateformat import DateFormat
 from django.utils.dateparse import parse_datetime
 from CRM.forms import NoviceForm, UserForm
+from django.contrib import messages
 
 class Status :
     def status(request):
@@ -159,6 +160,44 @@ class Status :
                 form = NoviceForm()
             """
         return render(request, './crm/page/account/add_novice.html')
+
+    def signup(request):
+        print("PAGE : status")
+        page ='status'
+        classlist = ClassList.objects.all()
+        context = {
+            'classlist' : classlist,
+            'page':page,
+        }
+
+        if request.method == 'POST':
+        # 회원정보 저장
+            name = request.POST.get('name')
+            birth = request.POST.get('birth')
+            email = request.POST.get('email')
+            password = request.POST.get('password')
+            repassword = request.POST.get('repassword')
+            address = request.POST.get('address')
+            university = request.POST.get('university')
+            major = request.POST.get('major')
+            interest_language = request.POST.get('interest_language')
+            authority = request.POST.get('authority')
+            phone_number = request.POST.get('phone_number')
+            if password != repassword:
+                messages.error(request, '비밀번호가 일치 하지 않습니다.')
+            elif password is None or password.strip() == ''or email is None or email.strip() == '':
+                messages.error(request, '필수 사항을 입력하세요.')
+            elif password is None or password.strip() == '':
+                messages.error(request, '비밀번호를 입력하세요.')
+            elif email is None or email.strip() == '':
+                messages.error(request, '이메일을 입력하세요.')
+            else:
+                user = Member.objects.create( name=name,birth=birth, email=email, password=password,
+                                address=address, university=university, major= major ,interest_language=interest_language
+                                ,authority=authority,phone_number=phone_number)
+                user.save()
+                return HttpResponseRedirect('#')
+        return redirect('CRM:status')
 
 
         

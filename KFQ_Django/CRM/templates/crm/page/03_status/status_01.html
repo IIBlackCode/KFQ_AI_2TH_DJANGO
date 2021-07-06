@@ -2,94 +2,210 @@
 
 <div class="row">
 
-    <div class="col-12 col-xl-3">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="card-title">과정명</h5>
-                <!-- <h6 class="card-subtitle text-muted">인공지능</h6>-->
-
-                <select type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false" name="select_class" id="select_class"
-                    onchange="search_class()">
-                    {% for class in classlist %}
-                    <option>{{ class.class_name }}</option>
-                    {% endfor %}
-                </select>
-
-                <!-- <span id="ajax_class_name"> </span> -->
-
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="mb-3 col-md-6">
-                        <form action="/CRM/add_novice">
-                            <button type="submit" class="btn btn-primary" onClick="location.href='/CRM/add_novice'">
-                                등록
-                            </button>
-                        </form>
-                    </div>
-                    <div class="mb-3 col-md-6">
-                        <form action="{% url 'CRM:status_data'%}" method="post">
-                            {% csrf_token %}
-
-                            <!-- <span id="ajax_class_name"> </span> -->
-                            <script>
-                            </script>
-                            <input type="text" name="ajax_class_name">
-
-                            <button type="submit" class="btn btn-secondary"> 조회 </button>
-
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-12 col-xl-9">
-        <div class="card">
-            <div class="card-header"> 조건검색 </div>
-            <div class="card-body">
-                <div class="mb-3 row">
-                    <div class="mb-3 col-md-3">
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                            <label class="form-check-label" for="flexSwitchCheckDefault"> 미퇴실 </label>
-                        </div>
-                    </div>
-                    <div class="mb-3 col-md-3">
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                            <label class="form-check-label" for="flexSwitchCheckDefault"> 결석 </label>
-                        </div>
-                    </div>
-                    <div class="mb-3 col-md-3">
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                            <label class="form-check-label" for="flexSwitchCheckDefault"> 지각 </label>
-                        </div>
-                    </div>
-                    <div class="mb-3 col-md-3">
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                            <label class="form-check-label" for="flexSwitchCheckDefault"> 조퇴 </label>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                <h5 class="card-title" id="card-title11"> </h5>
-                <a href=# class=text1 onclick=delete1(value); value=$row[no]>클릭</a>
+                <div class="card">
+                    
+                    <div class="card-header">
+                        <!-- 회원등록 -->
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#centeredModalWarning" style="width:450px">
+                            회원등록
+                            </button>
+                            <form method="post" action="{% url 'CRM:add_member' %}">
+                                <div class="modal fade" id="centeredModalWarning" tabindex="-1" role="dialog" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" style="position:absolute; left:45%;">회원등록</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body m-3">
 
-                <h6 class="card-subtitle text-muted">검색기능 <code>코드넣는 태그</code> 설명란 </h6>
+                                                <table class="table table-hover my-0">
+                                                    <tbody>
+                                                        
+                                                            <tr>
+                                                                <!-- 이름, 아이디 -->
+                                                                <div class="row">
+                                                                    <div class="col-md-4 text-center">
+                                                                            <div class="card-body">
+                                                                                <div class="form-group">
+                                                                                    <input type="text" class="form-control" id="name" name="name" placeholder="이름">
+                                                                                </div>
+                                                                            </div>
+                                                                    </div>
+                                                                    <div class="col-md-8 text-center">
+                                                                            <div class="card-body">
+                                                                                <div class="form-group">
+                                                                                    <input type="text" class="form-control" id="email" name="email" placeholder="이메일, 필수 입력 사항">
+                                                                                </div>
+                                                                            </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- 비밀번호 -->
+                                                                <div class="row">
+                                                                    <div class="col-md-6 text-center">
+                                                                            <div class="card-body">
+                                                                                <div class="form-group">
+                                                                                    <input type="text" class="form-control" id="password" name="password" placeholder="비밀번호, 필수입력">
+                                                                                </div>
+                                                                            </div>
+                                                                    </div>
+                                                                    <div class="col-md-6 text-center">
+                                                                            <div class="card-body">
+                                                                                <div class="form-group">
+                                                                                    <input type="text" class="form-control" id="repassword" name="repassword" placeholder="비밀번호확인">
+                                                                                </div>
+                                                                            </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- 주소 -->
+                                                                <div class="row">
+                                                                    <div class="col-md-12 text-center">
+                                                                            <div class="card-body">
+                                                                                <div class="form-group">
+                                                                                    <input type="text" class="form-control" id="address" name="address" placeholder="주소">
+                                                                                </div>
+                                                                            </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- 학교, 전공 -->
+                                                                <div class="row">
+                                                                    <div class="col-md-6 text-center">
+                                                                            <div class="card-body">
+                                                                                <div class="form-group">
+                                                                                    <input type="text" class="form-control" id="university" name="university" placeholder="학교">
+                                                                                </div>
+                                                                            </div>
+                                                                    </div>
+                                                                    <div class="col-md-6 text-center">
+                                                                            <div class="card-body">
+                                                                                <div class="form-group">
+                                                                                    <input type="text" class="form-control" id="major" name="major" placeholder="전공">
+                                                                                </div>
+                                                                            </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- 관심언어  -->
+                                                                <div class="row">
+                                                                    <div class="col-md-12 text-center">
+                                                                            <div class="card-body">
+                                                                                <div class="form-group">
+                                                                                    <input type="text" class="form-control" id="interest_language" name="interest_language" placeholder="관심언어">
+                                                                                </div>
+                                                                            </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- 생일, 핸드폰번호, 직책  -->
+                                                                <div class="row">
+                                                                    <div class="col-md-4 text-center">
+                                                                            <div class="card-body">
+                                                                                <div class="form-group">
+                                                                                    <input type="date" class="form-control" id="birth" name="birth" placeholder="생일">
+                                                                                </div>
+                                                                            </div>
+                                                                    </div>
+                                                                    <div class="col-md-4 text-center">
+                                                                            <div class="card-body">
+                                                                                <div class="form-group">
+                                                                                    <input type="text" class="form-control" id="phone_number" name="phone_number" placeholder="핸드폰번호">
+                                                                                </div>
+                                                                            </div>
+                                                                    </div>
+                                                                    <div class="col-md-4 text-center">
+                                                                            <div class="card-body">
+                                                                                <div class="form-group">
+                                                                                    <input type="text" class="form-control" id="authority" name="authority" placeholder="직책">
+                                                                                </div>
+                                                                            </div>
+                                                                    </div>
+                                                                </div>
+                                                                <button class="btn btn-primary btn-block" id="signup" href='#' style="margin-top: 20px;" onclick="test()">
+                                                                회원등록</button>
+                                                            </tr>
+                                                        
+                                                    </tbody>
+                                                </table>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                        <!-- 회원등록 끝 -->
+                        <!-- 조건검색 -->
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" style="width:450px">
+                            조건검색
+                            </button>
+                                <div class="dropdown-menu">
+                                    <div class="mb-12 row">
+                                        <div class="mb-8 col-md-3">
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                                <label class="form-check-label" for="flexSwitchCheckDefault"> 미퇴실 </label>
+                                            </div>
+                                        </div>
+                                        <div class="mb-8 col-md-3">
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                                <label class="form-check-label" for="flexSwitchCheckDefault"> 결석 </label>
+                                            </div>
+                                        </div>
+                                        <div class="mb-8 col-md-3">
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                                <label class="form-check-label" for="flexSwitchCheckDefault"> 지각 </label>
+                                            </div>
+                                        </div>
+                                        <div class="mb-8 col-md-3">
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                                <label class="form-check-label" for="flexSwitchCheckDefault"> 조퇴 </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                        <!-- 조건검색 끝 -->
+                        <!-- 과정검색 -->
+                        <div class="btn-group">
+                            <select type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" name="select_class" id="select_class" onchange="search_class()" style="width:450px">
+                                <div class="dropdown-menu">
+                                    {% for class in classlist %}
+                                        <option>{{ class.class_name }}</option>
+                                    {% endfor %}
+                                </div>
+                            </select>
+                        </div>
+                        <!-- 과정검색 끝 -->
+                        {% if messages %}
+                                {% for message in messages %}
+                                <div class="alert alert-danger alert-dismissible" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+
+                                    <div class="alert-icon">
+                                    <i class="far fa-fw fa-bell"></i>
+                                    </div>
+                                    <div class="alert-message">
+                                        <strong>{{ message.tags }}!</strong> {{ message.message }}
+                                    </div>
+                                </div>
+                                {% endfor %}
+                        {% endif %}
+                        {% csrf_token %}
+                            </form>
+                    </div>
+                </div>
+
             </div>
+            <div class="card-body">
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -158,6 +274,7 @@
                     {% endfor %}
                 </tbody>
             </table>
+            </div>
         </div>
     </div>
 
