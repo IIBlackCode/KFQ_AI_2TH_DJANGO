@@ -42,7 +42,8 @@
 								<h5 class="card-title mb-0">세부정보</h5>
 							</div>
 							<div class="card-body">
-								<form>
+								<form method="post" action='/CRM/settings/info/'>
+									{% csrf_token %}
 									<div class="row">
 										<div class="col-md-8">
 											<div class="row">
@@ -57,8 +58,7 @@
 												<div class="mb-3 col-md-6">
 													<span data-feather="calendar" class="align-middle mr-2"></span>
 													<label class="form-label" for="inputBirth">생년월일</label>
-													<input type="date" class="form-control" id="inputBirth"
-														placeholder="생년월일">
+													<p>{{ request.session.birth }}</p>
 												</div>
 											</div>
 											<div class="row">
@@ -69,27 +69,32 @@
 												</div>
 												<div class="mb-3 col-md-6">
 													<label class="form-label" for="inputPhonenumber">번호</label>
-													<input type="tel" class="form-control" id="inputPhonenumber"
-														placeholder="번호">
+													<input type="tel" class="form-control" name="inputPhonenumber"
+														id="inputPhonenumber"
+														value="{{ request.session.phone_number }}">
 												</div>
 											</div>
 											<div class="mb-3">
 												<label class="form-label" for="inputAddress">주소</label>
-												<input type="text" class="form-control" id="inputAddress"
-													placeholder="서울시">
+												<input type="text" class="form-control" name="inputAddress"
+													id="inputAddress" value="{{ request.session.address }}">
 											</div>
 											<div class="row">
 												<div class="mb-3 col-md-4">
 													<label class="form-label" for="inputUniv">학교</label>
-													<input type="text" class="form-control" id="inputUniv">
+													<input type="text" class="form-control" name="inputUniv"
+														id="inputUniv" value="{{ request.session.university }}">
 												</div>
 												<div class="mb-3 col-md-4">
 													<label class="form-label" for="inputMajor">전공</label>
-													<input type="text" class="form-control" id="inputMajor">
+													<input type="text" class="form-control" name="inputMajor"
+														id="inputMajor" value="{{ request.session.major }}">
 												</div>
 												<div class="mb-3 col-md-4">
 													<label class="form-label" for="inputLanguage">사용 가능 언어</label>
-													<input type="text" class="form-control" id="inputLanguage">
+													<input type="text" class="form-control" name="inputLanguage"
+														id="inputLanguage"
+														value="{{ request.session.interest_language }}">
 												</div>
 											</div>
 										</div>
@@ -97,90 +102,96 @@
 
 										<div class="col-md-4">
 											<div class="text-center">
-												<img alt="Charles Hall" src="{% static 'img/avatars/avatar.jpg' %}"
+												<img alt="Charles Hall"
+													src="../img/avatars/{{ request.session.email }}.jpg"
 													class="rounded mr-2 mb-2" width="128" height="128" />
-												<div class="mt-2">
-													<span class="btn btn-primary"><i class="fas fa-upload"></i>사진
-														저장</span>
-												</div>
-												<small>For best results, use an image at least 128px by
-													128px in .jpg format</small>
 											</div>
 										</div>
 									</div>
-
-									<button type="submit" class="btn btn-primary" href="#">변경 및 저장</button>
+									<button type="submit" class="btn btn-primary" href="/CRM/settings/">변경 및 저장</button>
 								</form>
-
 							</div>
 						</div>
-
-
-
 					</div>
 					<div class="tab-pane fade" id="password" role="tabpanel">
 						<div class="card">
 							<div class="card-body">
 								<h5 class="card-title">비밀번호</h5>
 
-								<form>
+								<form method="post" action='/CRM/settings/password/'>
+									{% if messages %}
+									{% for message in messages %}
+									<div class="row" style="margin:20px auto;">
+										<div class="col-sm-12">
+											<div class="alert alert-danger">
+												<strong>{{ message.tags }}!</strong> {{ message.message }}
+											</div>
+										</div>
+									</div>
+									{% endfor %}
+									{% endif %}
 									{% csrf_token %}
 									<div class="mb-3">
 										<label class="form-label" for="password">현재
 											비밀번호</label>
-										<input type="password" class="form-control" id="password">
+										<input type="password" class="form-control" name="password" id="password">
 										<small><a href="#">비밀번호를 잊으셨나요?</a></small>
 									</div>
 									<div class="mb-3">
 										<label class="form-label" for="password1">새
 											비밀번호</label>
-										<input type="password" class="form-control" id="password1">
+										<input type="password" class="form-control" name="password1" id="password1">
 									</div>
 									<div class="mb-3">
 										<label class="form-label" for="password2">새
 											비밀번호 확인</label>
-										<input type="password" class="form-control" id="password2">
+										<input type="password" class="form-control" name="password2" id="password2">
 									</div>
-									{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
-									<form method="post" style="text-align:center;">
-										{% csrf_token %}
-										{{ form }}
-										<button type="submit" class="btn btn-primary" href="/CRM/settings/">변경 및
-											저장</button>
-									</form>
+									<button type="submit" class="btn btn-primary" href="/CRM/settings/">변경 및
+										저장</button>
+								</form>
 
 							</div>
 						</div>
 					</div>
-
 					<div class="tab-pane fade" id="Delete_account" role="tabpanel">
 
-						<div class="col-12 col-lg-6">
-							<div class="card">
-								<div class="card-header">
-									<h5 class="card-title">계정 삭제</h5>
-									<h6 class="card-subtitle text-muted">계정을 정말 삭제하시겠습니까?</h6>
-								</div>
-								<div class="card-body text-center">
-									<div class="mb-3">
-
-										<button class="btn btn-danger"><i class="fas fa-times"></i> 계정삭제</button>
-
+						<form method="post" action='/CRM/settings/delete/' onsubmit='return check();'>
+							{% csrf_token %}
+							<div class="col-12 col-lg-6">
+								<div class="card">
+									<div class="card-header">
+										<h5 class="card-title">계정 삭제</h5>
+										<h6 class="card-subtitle text-muted">계정을 정말 삭제하시겠습니까?</h6>
 									</div>
-
-
+									<div class="card-body text-center">
+										<div class="mb-3">
+											<button class="btn btn-danger"><i class="fas fa-times"></i> 계정삭제</button>
+										</div>
+									</div>
 								</div>
 							</div>
-						</div>
-
-
+						</form>
 					</div>
-
 				</div>
 			</div>
 		</div>
-
+		<onsubmit='return check();'>
 	</div>
 </main>
+<script>
+
+	const str = 'img/avatars/' + request.session.email + '.jpg';
+	console.log(str)
+
+	document.write(str);
+</script>
+
+<script>
+	function check() {
+		const isDel = confirm('삭제 하시겠습니까?')
+		return isDel;
+	}
+</script>
 
 {% endblock %}

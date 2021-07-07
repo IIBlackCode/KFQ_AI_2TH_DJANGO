@@ -12,11 +12,6 @@ app_name='CRM'
 urlpatterns = [
     path('test/', Test.test01),
     #***********************************************************************#
-    #PAGE : Account
-    path('signup/',                           Account.signup,         name='signup'),
-    path('signin/',                           Account.signin,         name='signin'),
-    path('signout/',                          Account.signout,        name='signout'),
-    #***********************************************************************#
     #PAGE : 01_index Dashboard
     path('index/total_member/',             Dashboard.total_member,         name='total_member'),
     path('index/total_attendance/',         Dashboard.total_attendance,    name='Total_attendance'),
@@ -24,15 +19,23 @@ urlpatterns = [
     path('index/total_late/',               Dashboard.total_late,          name='Total_attendance'),
     path('index/total_early/',              Dashboard.total_early,         name='Total_attendance'),
     path('index/class_statistics/',         Dashboard.class_statistics,    name='class_statistics'),
-    
+    path('index/classNameList/',            Dashboard.classNameList,    name='class_statistics'),
+    #***********************************************************************#
+    #PAGE : 02_Account
+    path('signup/',                           Account.signup,         name='signup'),
+    path('signin/',                           Account.signin,         name='signin'),
+    path('signout/',                          Account.signout,        name='signout'),
+    path('settings/password/',                Account.change_pw,      name='change_pw'),
+    path('settings/info/',                    Account.change_info,      name='change_info'),
+    path('settings/delete/',                  Account.delete_member,    name='delete_member'),
     #***********************************************************************#
     #PAGE : 03_status     
-    path('status/data',                     Status.status,        name='status_data'),
+    path('status/data/',                    Status.status,        name='status_data'),
     path('add_novice/',                     Status.addnovice,     name='add_novice'),
-    
+    path('status/join/',                    Status.addnovice,         name='add_member'),
     #***********************************************************************#
+    #PAGE : 05_seatingChart     
     path('seatingChart/seatingChart/',      SeatingChart.seatingChart,     name='seatingChart_data'),
-
     #***********************************************************************#
     path('index/',                          views.Crm.index,      name='index'),
     path('profile/',                        views.Crm.profile,    name='profile'),

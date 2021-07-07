@@ -13,7 +13,7 @@ class Dashboard :
     def total_member(request):
         conn = sqlite3.connect("db.sqlite3",check_same_thread=False)
         cur = conn.cursor()
-        print(currentTime)
+        print("=========================",currentTime)
         with conn:
             cur.execute("select count(*) from CRM_member ")
             total = cur.fetchone()
