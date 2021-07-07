@@ -78,7 +78,12 @@ class Account:
                 request.session['phone_number'] = user.phone_number
                 request.session['class_fk'] = user.class_fk_id
                 request.session['class_name'] = class_name.class_name
-
+                session_list = ['name','birth','email','address','university','major',
+                                'interest_language','authority','phone_number',
+                                'class_fk', 'class_name', ]
+                for i in session_list:
+                    if request.session[i] is None:
+                        request.session[i] = ""
 
                 return render(request, './crm/page/02_account/signin_success.html')
             except:
