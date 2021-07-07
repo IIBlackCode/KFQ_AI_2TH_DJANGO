@@ -24,7 +24,7 @@
 				{% endif %}
 				<div class="dropdown-menu dropdown-menu-right">
 					{% if request.session.email %}
-						<a class="dropdown-item" href="{% url 'CRM:Profile'%}"><i class="align-middle mr-1"
+						<a class="dropdown-item" href="{% url 'CRM:profile' %}"><i class="align-middle mr-1"
 								data-feather="user"></i> 프로필</a>
 						<a class="dropdown-item" href="{% url 'CRM:settings' %}"><i class="align-middle mr-1"
 								data-feather="settings"></i> 세팅</a>
