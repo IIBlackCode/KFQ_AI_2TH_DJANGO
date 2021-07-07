@@ -9,7 +9,7 @@
 			</li>
 			<!-- Nav List Start -->
 			{% block content %}
-
+{% if request.session.email %}
 			{% if page == 'Dashboard' %}
 			<li class="sidebar-item active">
 			{% else %}
@@ -68,7 +68,8 @@
 					<i class="align-middle" data-feather="book"></i> <span class="align-middle">반별 좌석배치도</span>
 				</a>
 			</li>
-
+{% else %}
+{% endif %}
 		{% endblock %}
 
 		<div class="sidebar-cta">
