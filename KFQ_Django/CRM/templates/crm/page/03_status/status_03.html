@@ -1,3 +1,7 @@
+{% extends 'crm/include/base_c.html' %}
+{% load static %}
+{% block content %}
+
 <h1 class="h3 mb-3">수강생 현황</h1>
 
 <div class="row">
@@ -207,7 +211,7 @@
 
                                 <form action="{% url 'CRM:status_data'%}"method="post">
                                     {% csrf_token %}
-                                    <input type="hidden" name="ajax_class_name">
+                                    <input type="text" name="ajax_class_name">
                                     <button type="submit" class="btn btn-secondary"> 조회 </button>
                                 </form>
                             </div>
@@ -319,3 +323,4 @@
     </div>
 
 </div>
+{% endblock %}

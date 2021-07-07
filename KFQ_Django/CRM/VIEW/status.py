@@ -44,7 +44,6 @@ class Status :
         list_status = Student_list.objects.filter(class_fk=list_class_filter)
         context = {'classlist' : classlist,}
         for object in list_status:
-
             if list_class_filter  == object.member_fk.class_fk_id:
                 list_name.append(object.member_fk)
                 if object.date and object.output_time:
@@ -75,15 +74,10 @@ class Status :
             #list_output_time.append(dict_output_time)
             #list_total_time.append(dict_output_time)
             #list_absent.append(dict_absent)
-
             #list_data.append(object)
-                
 
             context = {'list_status' : list_status,'list_date' : list_date,'list_input_time' : list_input_time,'list_output_time' : list_output_time,'classlist' : classlist,}
-        print(list_date)
         return render(request, './crm/03_status.html', context)
-
-
     
     def diff_time(time_in,time_out):
         t2 = datetime.strptime(time_out,'%H:%M:%S')
@@ -179,8 +173,66 @@ class Status :
                 return HttpResponseRedirect('#')
         return redirect('CRM:status')
 
+    def stillhere(request):
+        classlist = ClassList.objects.all()
+        list_status_here = Student_list.objects.filter(attendance='Y')
+        context = {'classlist' : classlist,}
+
+        for object in list_status_here:
+            object.date = object.date.strftime('%Y-%m-%d')
+            object.input_time = object.input_time.strftime('%H:%M:%S')
+            object.output_time = object.output_time.strftime('%H:%M:%S')
+            object.total_time = Status.diff_time(object.output_time, object.input_time)
+            object.absent = '미퇴실'
+        context = {'list_status' : list_status_here, 'classlist' : classlist,}
+        
+        return render(request, './crm/page/03_status/status_02.html', context)
+
+    def absent(request):
+        classlist = ClassList.objects.all()
+        list_status_here = Student_list.objects.filter(absent='Y')
+        context = {'classlist' : classlist,}
+
+        for object in list_status_here:
+            object.date = ''
+            object.input_time = ''
+            object.output_time = ''
+            object.total_time = '00:00'
+            object.absent = '결석'
+
+        
+        context = {'list_status' : list_status_here, 'classlist' : classlist,}
+        return render(request, './crm/page/03_status/status_03.html', context)
+
+    def late(request):
+        classlist = ClassList.objects.all()
+        list_status_here = Student_list.objects.filter(late='Y')
+        context = {'classlist' : classlist,}
+
+        for object in list_status_here:
+            object.date = object.date.strftime('%Y-%m-%d')
+            object.input_time = object.input_time.strftime('%H:%M:%S')
+            object.output_time = object.output_time.strftime('%H:%M:%S')
+            object.total_time = Status.diff_time(object.output_time, object.input_time)
+            object.absent = '지각'
+        context = {'list_status' : list_status_here, 'classlist' : classlist,}
+        return render(request, './crm/page/03_status/status_04.html', context)
 
 
+    
+    def early(request):
+        classlist = ClassList.objects.all()
+        list_status_here = Student_list.objects.filter(early='Y')
+        context = {'classlist' : classlist,}
+
+        for object in list_status_here:
+            object.date = object.date.strftime('%Y-%m-%d')
+            object.input_time = object.input_time.strftime('%H:%M:%S')
+            object.output_time = object.output_time.strftime('%H:%M:%S')
+            object.total_time = Status.diff_time(object.output_time, object.input_time)
+            object.absent = '조퇴'
+        context = {'list_status' : list_status_here, 'classlist' : classlist,}
+        return render(request, './crm/page/03_status/status_05.html', context)
         
 
 #***********************************************************************#    

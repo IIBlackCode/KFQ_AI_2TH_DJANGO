@@ -33,7 +33,11 @@ urlpatterns = [
     #PAGE : 03_status     
     path('status/data/',                    Status.status,        name='status_data'),
     path('add_novice/',                     Status.addnovice,     name='add_novice'),
-    path('status/join/',                    Status.addnovice,         name='add_member'),
+    path('status/join/',                    Status.addnovice,     name='add_member'),
+    path('status/data/stay/',               Status.stillhere,     name='status_stay'),
+    path('status/data/late/',               Status.late,          name='status_late'),
+    path('status/data/absent/',             Status.absent,        name='status_absent'),
+    path('status/data/early/',              Status.early,         name='status_early'),
     #***********************************************************************#
     #PAGE : 05_seatingChart     
     path('seatingChart/seatingChart/',      SeatingChart.seatingChart,     name='seatingChart_data'),
