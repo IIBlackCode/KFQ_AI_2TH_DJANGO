@@ -207,7 +207,7 @@
 
                                 <form action="{% url 'CRM:status_data'%}"method="post">
                                     {% csrf_token %}
-                                    <input type="text" name="ajax_class_name">
+                                    <input type="hidden" name="ajax_class_name">
                                     <button type="submit" class="btn btn-secondary"> 조회 </button>
                                 </form>
                             </div>
