@@ -31,9 +31,9 @@ urlpatterns = [
     path('signin/find_password/',             Account.find_password,    name='find_password'),
     #***********************************************************************#
     #PAGE : 03_status     
-    path('status/data',                     Status.status,        name='status_data'),
+    path('status/data/',                    Status.status,        name='status_data'),
     path('add_novice/',                     Status.addnovice,     name='add_novice'),
-    path('status/data/',                     Status.signup,         name='add_member'),
+    path('status/join/',                    Status.addnovice,         name='add_member'),
     #***********************************************************************#
     #PAGE : 05_seatingChart     
     path('seatingChart/seatingChart/',      SeatingChart.seatingChart,     name='seatingChart_data'),

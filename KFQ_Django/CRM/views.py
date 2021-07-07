@@ -1,8 +1,15 @@
-from django.http import HttpResponse
-from django.shortcuts import render
+from django.http import HttpResponse, HttpResponseRedirect, request
+from django.http.response import JsonResponse
+from django.shortcuts import render, redirect
 import sqlite3
 from CRM.models import ClassList, Member, Student_list
 from datetime import timedelta, date, time, datetime
+from django.utils import timezone
+from django.utils.dateformat import DateFormat
+from django.utils.dateparse import parse_datetime
+from CRM.forms import NoviceForm, UserForm
+from django.contrib import messages
+
 # Create your views here.
 def index(request):
     con = sqlite3.connect("test.db")
@@ -77,12 +84,12 @@ class Crm :
             'page' : page
         }
         return render(request, './crm/02_settings.html', context)
+    
     def status(request):
         print("PAGE : status")
         classlist = ClassList.objects.all()
         page ='status'
-        print('=====================================================')
-        print(classlist)
+
         context = {
             'page' : page,
             'classlist' : classlist,
@@ -96,6 +103,7 @@ class Crm :
             'page' : page
         }
         return render(request, './crm/04_statistics.html', context)
+
     def seatingChart(request):
         print("PAGE : SeatingChart")
         page ='SeatingChart'
