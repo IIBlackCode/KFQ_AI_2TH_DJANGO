@@ -16,12 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from BRAND.VIEW.theme import Theme
-from CRM import views as viewCRM
+from BRAND import views
 
 
 urlpatterns = [
 
-    path('',Theme.theme_index),
+    path('',views.Brand.index),
     path('admin/', admin.site.urls),
 
 

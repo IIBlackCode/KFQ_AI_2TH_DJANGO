@@ -78,10 +78,15 @@ class Account:
                 request.session['phone_number'] = user.phone_number
                 request.session['class_fk'] = user.class_fk_id
                 request.session['class_name'] = class_name.class_name
+                session_list = ['name','birth','email','address','university','major',
+                                'interest_language','authority','phone_number',
+                                'class_fk', 'class_name', ]
+                for i in session_list:
+                    if request.session[i] is None:
+                        request.session[i] = ""
 
                 return render(request, './crm/page/02_account/signin_success.html')
             except:
-                print("hi",class_name)
                 return render(request, './crm/page/02_account/signin_fail.html')
         return render(request, './crm/page/02_account/signin.html')
 
@@ -90,6 +95,7 @@ class Account:
         request.session.flush() # 전체 삭제
 
         return HttpResponseRedirect('/CRM/signin/')
+        # return HttpResponseRedirect('/CRM/signin/')
 
 
     def change_pw(request):
@@ -163,3 +169,20 @@ class Account:
             del request.session['email'] # 개별 삭제
             request.session.flush() # 전체 삭제
             return redirect('/CRM/signin/')
+
+    def find_password(request):
+        if request.method == "POST":
+            inputPhonenumber = request.POST.get("phone_number")
+            email = request.POST.get('email')
+            name = request.POST.get('name')
+            if inputPhonenumber is None or inputPhonenumber.strip() == '' or email is None or email.strip() == ''or name is None or name.strip() == '':
+                messages.error(request,"정보를 다 입력해주세요." )
+                return HttpResponseRedirect('/CRM/signin/find_password/')
+            user = Member.objects.get(email=email)
+            if inputPhonenumber == user.phone_number and email == user.email and name == user.name:
+                messages.success(request,"비밀 번호는" + user.password + "입니다.")
+                return HttpResponseRedirect('/CRM/signin/find_password/')
+            else:
+                messages.error(request,"정보를 다시 확인해주세요." )
+                return HttpResponseRedirect('/CRM/signin/find_password/')
+        return render(request, "./crm/page/02_account/find_password.html")

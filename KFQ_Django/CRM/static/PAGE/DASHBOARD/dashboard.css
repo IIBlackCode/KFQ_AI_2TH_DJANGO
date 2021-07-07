@@ -44,3 +44,20 @@
     top: 0px;
     background-color: rgb(233, 220, 220) !important;
 }
+
+.currentTime {
+    margin-bottom: 10px;
+    padding: 0rem 1.25rem;
+}
+
+.height101{
+    height: 101px;
+}
+
+.margin05{
+    margin: 0.5rem 0;
+}
+
+.noPadding{
+    padding: 0.25rem !important;
+}

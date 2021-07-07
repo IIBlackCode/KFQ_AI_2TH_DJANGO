@@ -6,154 +6,128 @@
         <div class="card">
             <div class="card-header">
                 <div class="card">
-
+                    
                     <div class="card-header">
                         <!-- 회원등록 -->
                         <div class="btn-group">
-                            <button type="button" class="btn btn-warning" data-toggle="modal"
-                                data-target="#centeredModalWarning" style="width:450px">
-                                회원등록
+                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#centeredModalWarning" style="width:450px">
+                            회원등록
                             </button>
                             <form method="post" action="{% url 'CRM:add_member' %}">
-                                <div class="modal fade" id="centeredModalWarning" tabindex="-1" role="dialog"
-                                    aria-hidden="true">
+                                <div class="modal fade" id="centeredModalWarning" tabindex="-1" role="dialog" aria-hidden="true">
                                     <div class="modal-dialog modal-lg" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 class="modal-title" style="position:absolute; left:45%;">회원등록</h5>
-                                                <button type="button" class="close" data-dismiss="modal"
-                                                    aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
                                                 </button>
                                             </div>
                                             <div class="modal-body m-3">
 
                                                 <table class="table table-hover my-0">
                                                     <tbody>
-
-                                                        <tr>
-                                                            <!-- 이름, 아이디 -->
-                                                            <div class="row">
-                                                                <div class="col-md-4 text-center">
-                                                                    <div class="card-body">
-                                                                        <div class="form-group">
-                                                                            <input type="text" class="form-control"
-                                                                                id="name" name="name" placeholder="이름">
-                                                                        </div>
+                                                        
+                                                            <tr>
+                                                                <!-- 이름, 아이디 -->
+                                                                <div class="row">
+                                                                    <div class="col-md-4 text-center">
+                                                                            <div class="card-body">
+                                                                                <div class="form-group">
+                                                                                    <input type="text" class="form-control" id="name" name="name" placeholder="이름">
+                                                                                </div>
+                                                                            </div>
+                                                                    </div>
+                                                                    <div class="col-md-8 text-center">
+                                                                            <div class="card-body">
+                                                                                <div class="form-group">
+                                                                                    <input type="text" class="form-control" id="email" name="email" placeholder="이메일, 필수 입력 사항">
+                                                                                </div>
+                                                                            </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-8 text-center">
-                                                                    <div class="card-body">
-                                                                        <div class="form-group">
-                                                                            <input type="text" class="form-control"
-                                                                                id="email" name="email"
-                                                                                placeholder="이메일, 필수 입력 사항">
-                                                                        </div>
+                                                                <!-- 비밀번호 -->
+                                                                <div class="row">
+                                                                    <div class="col-md-6 text-center">
+                                                                            <div class="card-body">
+                                                                                <div class="form-group">
+                                                                                    <input type="text" class="form-control" id="password" name="password" placeholder="비밀번호, 필수입력">
+                                                                                </div>
+                                                                            </div>
+                                                                    </div>
+                                                                    <div class="col-md-6 text-center">
+                                                                            <div class="card-body">
+                                                                                <div class="form-group">
+                                                                                    <input type="text" class="form-control" id="repassword" name="repassword" placeholder="비밀번호확인">
+                                                                                </div>
+                                                                            </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                            <!-- 비밀번호 -->
-                                                            <div class="row">
-                                                                <div class="col-md-6 text-center">
-                                                                    <div class="card-body">
-                                                                        <div class="form-group">
-                                                                            <input type="text" class="form-control"
-                                                                                id="password" name="password"
-                                                                                placeholder="비밀번호, 필수입력">
-                                                                        </div>
+                                                                <!-- 주소 -->
+                                                                <div class="row">
+                                                                    <div class="col-md-12 text-center">
+                                                                            <div class="card-body">
+                                                                                <div class="form-group">
+                                                                                    <input type="text" class="form-control" id="address" name="address" placeholder="주소">
+                                                                                </div>
+                                                                            </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-6 text-center">
-                                                                    <div class="card-body">
-                                                                        <div class="form-group">
-                                                                            <input type="text" class="form-control"
-                                                                                id="repassword" name="repassword"
-                                                                                placeholder="비밀번호확인">
-                                                                        </div>
+                                                                <!-- 학교, 전공 -->
+                                                                <div class="row">
+                                                                    <div class="col-md-6 text-center">
+                                                                            <div class="card-body">
+                                                                                <div class="form-group">
+                                                                                    <input type="text" class="form-control" id="university" name="university" placeholder="학교">
+                                                                                </div>
+                                                                            </div>
+                                                                    </div>
+                                                                    <div class="col-md-6 text-center">
+                                                                            <div class="card-body">
+                                                                                <div class="form-group">
+                                                                                    <input type="text" class="form-control" id="major" name="major" placeholder="전공">
+                                                                                </div>
+                                                                            </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                            <!-- 주소 -->
-                                                            <div class="row">
-                                                                <div class="col-md-12 text-center">
-                                                                    <div class="card-body">
-                                                                        <div class="form-group">
-                                                                            <input type="text" class="form-control"
-                                                                                id="address" name="address"
-                                                                                placeholder="주소">
-                                                                        </div>
+                                                                <!-- 관심언어  -->
+                                                                <div class="row">
+                                                                    <div class="col-md-12 text-center">
+                                                                            <div class="card-body">
+                                                                                <div class="form-group">
+                                                                                    <input type="text" class="form-control" id="interest_language" name="interest_language" placeholder="관심언어">
+                                                                                </div>
+                                                                            </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                            <!-- 학교, 전공 -->
-                                                            <div class="row">
-                                                                <div class="col-md-6 text-center">
-                                                                    <div class="card-body">
-                                                                        <div class="form-group">
-                                                                            <input type="text" class="form-control"
-                                                                                id="university" name="university"
-                                                                                placeholder="학교">
-                                                                        </div>
+                                                                <!-- 생일, 핸드폰번호, 직책  -->
+                                                                <div class="row">
+                                                                    <div class="col-md-4 text-center">
+                                                                            <div class="card-body">
+                                                                                <div class="form-group">
+                                                                                    <input type="date" class="form-control" id="birth" name="birth" placeholder="생일">
+                                                                                </div>
+                                                                            </div>
+                                                                    </div>
+                                                                    <div class="col-md-4 text-center">
+                                                                            <div class="card-body">
+                                                                                <div class="form-group">
+                                                                                    <input type="text" class="form-control" id="phone_number" name="phone_number" placeholder="핸드폰번호">
+                                                                                </div>
+                                                                            </div>
+                                                                    </div>
+                                                                    <div class="col-md-4 text-center">
+                                                                            <div class="card-body">
+                                                                                <div class="form-group">
+                                                                                    <input type="text" class="form-control" id="authority" name="authority" placeholder="직책">
+                                                                                </div>
+                                                                            </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-6 text-center">
-                                                                    <div class="card-body">
-                                                                        <div class="form-group">
-                                                                            <input type="text" class="form-control"
-                                                                                id="major" name="major"
-                                                                                placeholder="전공">
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <!-- 관심언어  -->
-                                                            <div class="row">
-                                                                <div class="col-md-12 text-center">
-                                                                    <div class="card-body">
-                                                                        <div class="form-group">
-                                                                            <input type="text" class="form-control"
-                                                                                id="interest_language"
-                                                                                name="interest_language"
-                                                                                placeholder="관심언어">
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <!-- 생일, 핸드폰번호, 직책  -->
-                                                            <div class="row">
-                                                                <div class="col-md-4 text-center">
-                                                                    <div class="card-body">
-                                                                        <div class="form-group">
-                                                                            <input type="date" class="form-control"
-                                                                                id="birth" name="birth"
-                                                                                placeholder="생일">
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-4 text-center">
-                                                                    <div class="card-body">
-                                                                        <div class="form-group">
-                                                                            <input type="text" class="form-control"
-                                                                                id="phone_number" name="phone_number"
-                                                                                placeholder="핸드폰번호">
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-4 text-center">
-                                                                    <div class="card-body">
-                                                                        <div class="form-group">
-                                                                            <input type="text" class="form-control"
-                                                                                id="authority" name="authority"
-                                                                                placeholder="직책">
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <button class="btn btn-primary btn-block" id="signup"
-                                                                href='#' style="margin-top: 20px;" onclick="test()">
+                                                                <button class="btn btn-primary btn-block" id="signup" href='#' style="margin-top: 20px;" onclick="test()">
                                                                 회원등록</button>
-                                                        </tr>
-
+                                                            </tr>
+                                                        
                                                     </tbody>
                                                 </table>
 

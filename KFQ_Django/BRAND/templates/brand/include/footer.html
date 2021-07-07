@@ -1,5 +1,5 @@
     {% load static %}
-    <div class="parallax section dbcolor">
+    {% comment %} <div class="parallax section dbcolor">
         <div class="container">
             <div class="row logos">
                 <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
@@ -22,7 +22,7 @@
                 </div>
             </div><!-- end row -->
         </div><!-- end container -->
-    </div><!-- end section -->
+    </div><!-- end section --> {% endcomment %}
 
     <footer class="footer">
         <div class="container">
@@ -32,10 +32,9 @@
                         <div class="widget-title">
                             <h3>We're Here</h3>
                         </div>
-                        <p>상호:</p>
-                        <p>대표:</p>
-                        <p>소재지:</p>
-                        <p>이런내용??</p>
+                        <p>5조 팀명:We're Here</p>
+                        <p>팀장:한정탁</p>
+                        <p>팀원:김민서,김영주,유수진</p>
                     </div><!-- end clearfix -->
                 </div><!-- end col -->
 
@@ -45,12 +44,11 @@
                             <h3>Information Link</h3>
                         </div>
                         <ul class="footer-links">
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">Blog</a></li>
-                            <li><a href="#">Pricing</a></li>
-							<li><a href="#">About</a></li>
-							<li><a href="#">Faq</a></li>
-							<li><a href="#">Contact</a></li>
+                            <li><a href="{% url 'BRAND:index' %}">홈</a></li>
+                            <li><a href="{% url 'BRAND:features' %}">핵심기능</a></li>
+							<li><a href="{% url 'BRAND:contact' %}">고객센터</a></li>
+							<li><a href="{% url 'BRAND:about' %}">팀원소개</a></li>
+							<li><a href="https://github.com/IIBlackCode/KFQ">깃허브</a></li>
                         </ul><!-- end links -->
                     </div><!-- end clearfix -->
                 </div><!-- end col -->
@@ -62,10 +60,12 @@
                         </div>
 
                         <ul class="footer-links">
-                            <li><a href="mailto:#">info@yoursite.com</a></li>
-                            <li><a href="#">www.yoursite.com</a></li>
-                            <li>PO Box 16122 Collins Street West Victoria 8007 Australia</li>
-                            <li>+61 3 8376 6284</li>
+                            <li><a href="https://kfq.or.kr">한국품질재단</a></li>
+                            <li>02-2025-9000</li>
+                            <li><a href="https://kfq.or.kr">kfq.or.kr</a></li>
+                            <li>평일 10:00 ~ 18:00 | 주말,공휴일 휴무</li>
+                            <li>서울특별시 금천구 가산디지털1로 168(가산동)</li>
+                            <li>우림라이온스밸리 B동 13층 (재) 한국품질재단</li>
                         </ul><!-- end links -->
                     </div><!-- end clearfix -->
                 </div><!-- end col -->
@@ -84,9 +84,9 @@
                 <div class="footer-right">
                     <ul class="footer-links-soi">
 						<li><a href="https://www.facebook.com"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="https://www.instagram.com"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="https://www.instagram.com/taaaktaaaak/"><i class="fa fa-instagram"></i></a></li>
                         <li><a href="https://www.youtube.com"><i class="fa fa-youtube"></i></a></li>
-                        <li><a href="https://github.com/"><i class="fa fa-github"></i></a></li>
+                        <li><a href="https://github.com/IIBlackCode/KFQ"><i class="fa fa-github"></i></a></li>
 						{% comment %} <li><a href="#"><i class="fa fa-twitter"></i></a></li> {% endcomment %}
 						{% comment %} <li><a href="#"><i class="fa fa-dribbble"></i></a></li> {% endcomment %}
 						{% comment %} <li><a href="#"><i class="fa fa-pinterest"></i></a></li> {% endcomment %}
