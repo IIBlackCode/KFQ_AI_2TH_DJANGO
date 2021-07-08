@@ -1,7 +1,7 @@
+from CRM.VIEW.dashboard import Dashboard
 from django.http import HttpResponse, HttpResponseRedirect, request
 from django.http.response import JsonResponse
 from django.shortcuts import render, redirect
-import sqlite3
 from CRM.models import ClassList, Member, Student_list
 from datetime import timedelta, date, time, datetime
 from django.utils import timezone
@@ -9,6 +9,7 @@ from django.utils.dateformat import DateFormat
 from django.utils.dateparse import parse_datetime
 from CRM.forms import NoviceForm, UserForm
 from django.contrib import messages
+import sqlite3
 
 # Create your views here.
 def index(request):
@@ -21,16 +22,61 @@ def index(request):
     
 #***********************************************************************#
 class Crm :
+    currentTime = datetime.now().strftime('%Y-%m-%d')
+    # currentTime = '2021-07-07'
+    classList = []
+    prosessess = []
+    studentList = []
+    def select_date(reqeust):
+        value = reqeust.GET.get("date")
+        print("self.currentTime",Crm.currentTime)
+        if value == Crm.currentTime :
+            print("똑같다.")
+            print("Crm.currentTime.",Crm.currentTime)
+            print("value.",value)
+        else:
+            print("다르다")
+            print("Crm.currentTime.",Crm.currentTime)
+            print("value.",value)
+            
+            Crm.currentTime = value
+            Dashboard.currentTime = value
+
+            #진행과정, 출결 수강생 리스트 출력
+            try:
+                #선택한 날짜의 수강생 입출력 데이터 불러오기
+                objectList = Student_list.objects.all()
+                classLists = ClassList.objects.all()
+                for object in objectList:
+                    # object.date = datetime.strftime(object.date,'%Y-%m-%d')
+                    if Crm.currentTime == datetime.strftime(object.input_time,'%Y-%m-%d') :
+                        Crm.studentList.append(object)
+                        
+                #과정이 진행중인 반만 출력하기
+                for object in classLists:
+                    if object.status == '진행중':
+                        object.open_date = datetime.strftime(object.open_date,'%Y-%m-%d')
+                        object.close_date = datetime.strftime(object.close_date,'%Y-%m-%d')
+                        Crm.classList.append(object)
+                        print("입력시간 != 현제시간, classlist :",Crm.classList)
+            except:
+                print("Student_list.objects.all() Error! --> No Data")
+
+        return JsonResponse(value,status=200,safe=False)
+        # return render(request, './crm/01_index.html', context)
     def index(request):
+        # global currentTime
+        Crm.classList.clear()
+        Crm.studentList.clear()
         print("PAGE : index")
         page ='Dashboard'
 
         #진행중인 과정 SELECT
-        classList = ClassList.objects.all()
-        list = []
+        classLists = ClassList.objects.all()
+        # classList = []
         prosessess = []
         try:
-            for object in classList:
+            for object in classLists:
                 #과정이 진행중인 반만 출력하기
                 if object.status == '진행중':
                     totalDay = (object.close_date-object.open_date).days
@@ -41,32 +87,29 @@ class Crm :
 
                     object.open_date = datetime.strftime(object.open_date,'%Y-%m-%d')
                     object.close_date = datetime.strftime(object.close_date,'%Y-%m-%d')
-                    list.append(object)
-                   
+                    Crm.classList.append(object)
         except:
             print("ClassList.objects.all() ---> Error!")
 
         #입실한 수강생 출결내역
-        studentList = []
+        # studentList = []
         objectList = Student_list.objects.all()
 
         #당일 출결 학생들만 출력
-        currentTime = datetime.now().strftime('%Y-%m-%d')
-        # print('currentTime',currentTime)
         try:
             for object in objectList:
-                # object.date = datetime.strftime(object.date,'%Y-%m-%d')
-                if currentTime == datetime.strftime(object.input_time,'%Y-%m-%d') :
-                    # print('object.date',object.date)
-                    studentList.append(object)
+                if Crm.currentTime == datetime.strftime(object.input_time,'%Y-%m-%d') :
+                    print(object.class_fk)
+                    Crm.studentList.append(object)
         except:
             print("Student_list.objects.all() Error! --> No Data")
             
         context = {
-            'currentTime':datetime.now(),
+            # 'currentTime':datetime.now(),
+            'currentTime':Crm.currentTime,
             'page' : page,
-            'list' : list,
-            'studentList':studentList,
+            'list' : Crm.classList,
+            'studentList':Crm.studentList,
             'prosessess' :prosessess,
         }
         return render(request, './crm/01_index.html', context)
@@ -89,7 +132,6 @@ class Crm :
         print("PAGE : status")
         classlist = ClassList.objects.all()
         page ='status'
-
         context = {
             'page' : page,
             'classlist' : classlist,

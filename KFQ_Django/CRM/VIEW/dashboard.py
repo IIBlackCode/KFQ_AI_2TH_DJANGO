@@ -4,38 +4,40 @@ from datetime import timedelta, date, time, datetime
 import sqlite3
 #***********************************************************************#
 # Dashboard 통계
-conn = sqlite3.connect("db.sqlite3",check_same_thread=False)
-cur = conn.cursor()
-currentTime = datetime.now().strftime('%Y-%m-%d')
 
 class Dashboard :
+    conn = sqlite3.connect("db.sqlite3",check_same_thread=False)
+    cur = conn.cursor()
+    currentTime = datetime.now().strftime('%Y-%m-%d')
     #진행중인 총 수강생의 수
     def total_member(request):
+        if request.method == 'POST':
+            pass
         conn = sqlite3.connect("db.sqlite3",check_same_thread=False)
         cur = conn.cursor()
-        print("=========================",currentTime)
+        print("=========================",Dashboard.currentTime)
         with conn:
             cur.execute("select count(*) from CRM_member ")
             total = cur.fetchone()
             print('총 수강생 수 : ',total[0])
         with conn:
             querry = "select count(*) from CRM_student_list WHERE attendance like 'Y' AND date = "
-            cur.execute(querry + '\''+currentTime+'\'')
+            cur.execute(querry + '\''+Dashboard.currentTime+'\'')
             attendance = cur.fetchone()
             print('1. 출석 수 : ',attendance[0])
         with conn:
             querry = "select count(*) from CRM_student_list WHERE absent like 'Y' AND date = "
-            cur.execute(querry + '\''+currentTime+'\'')
+            cur.execute(querry + '\''+Dashboard.currentTime+'\'')
             absent = cur.fetchone()
             print('2. 결석 수 : ',absent[0])
         with conn:
             querry = "select count(*) from CRM_student_list WHERE late like 'Y' AND date = "
-            cur.execute(querry + '\''+currentTime+'\'')
+            cur.execute(querry + '\''+Dashboard.currentTime+'\'')
             late = cur.fetchone()
             print('3. 지각 수 : ',late[0])
         with conn:
             querry = "select count(*) from CRM_student_list WHERE early like 'Y' AND date = "
-            cur.execute(querry + '\''+currentTime+'\'')
+            cur.execute(querry + '\''+Dashboard.currentTime+'\'')
             early = cur.fetchone()
             print('4. 조퇴 수 : ',early[0])
         context = {
@@ -95,22 +97,22 @@ class Dashboard :
         conn = sqlite3.connect("db.sqlite3",check_same_thread=False)
         cur = conn.cursor()
         with conn:
-            querry = "select count(*) from CRM_student_list t1, CRM_member t2 WHERE t1.member_fk_id = t2.email AND t1.attendance like 'Y' AND t2.class_fk_id ="+class_fk+" AND t1.date = "+'\''+currentTime+'\''
+            querry = "select count(*) from CRM_student_list t1, CRM_member t2 WHERE t1.member_fk_id = t2.email AND t1.attendance like 'Y' AND t2.class_fk_id ="+class_fk+" AND t1.date = "+'\''+Dashboard.currentTime+'\''
             cur.execute(querry)
             attendance = cur.fetchone()
             print('반 출석 수 : ',attendance[0])
         with conn:
-            querry = "select count(*) from CRM_student_list t1, CRM_member t2 WHERE t1.member_fk_id = t2.email AND t1.absent like 'Y' AND t2.class_fk_id ="+class_fk+" AND t1.date = "+'\''+currentTime+'\''
+            querry = "select count(*) from CRM_student_list t1, CRM_member t2 WHERE t1.member_fk_id = t2.email AND t1.absent like 'Y' AND t2.class_fk_id ="+class_fk+" AND t1.date = "+'\''+Dashboard.currentTime+'\''
             cur.execute(querry)
             absent = cur.fetchone()
             print('반 결석 수 : ',absent[0])
         with conn:
-            querry = "select count(*) from CRM_student_list t1, CRM_member t2 WHERE t1.member_fk_id = t2.email AND t1.late like 'Y' AND t2.class_fk_id ="+class_fk+" AND t1.date = "+'\''+currentTime+'\''
+            querry = "select count(*) from CRM_student_list t1, CRM_member t2 WHERE t1.member_fk_id = t2.email AND t1.late like 'Y' AND t2.class_fk_id ="+class_fk+" AND t1.date = "+'\''+Dashboard.currentTime+'\''
             cur.execute(querry)
             late = cur.fetchone()
             print('반 지각 수 : ',late[0])
         with conn:
-            querry = "select count(*) from CRM_student_list t1, CRM_member t2 WHERE t1.member_fk_id = t2.email AND t1.early like 'Y' AND t2.class_fk_id ="+class_fk+" AND t1.date = "+'\''+currentTime+'\''
+            querry = "select count(*) from CRM_student_list t1, CRM_member t2 WHERE t1.member_fk_id = t2.email AND t1.early like 'Y' AND t2.class_fk_id ="+class_fk+" AND t1.date = "+'\''+Dashboard.currentTime+'\''
             cur.execute(querry)
             early = cur.fetchone()
             print('반 조퇴 수 : ',early[0])

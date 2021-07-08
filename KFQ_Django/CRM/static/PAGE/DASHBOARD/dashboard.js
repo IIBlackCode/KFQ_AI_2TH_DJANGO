@@ -183,3 +183,19 @@ document.addEventListener("DOMContentLoaded", function () {
 		console.log("조퇴 :")
 	
 });
+
+function select_date(request) {
+	const value = document.getElementById("inputDate").value;
+	console.log(value)
+	$.ajax({
+		type : 'GET',
+		url : "select_date",
+		data : {date : value},
+		success : function(data) {
+			//Console 창으로 data확인
+			console.log('데이터 보내기 성공',value);
+			window.location.reload()
+			// value.innerText = count.count
+		}//end of success
+	})//The end of Ajax
+}

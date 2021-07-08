@@ -13,14 +13,15 @@ urlpatterns = [
     path('test/', Test.test01),
     #***********************************************************************#
     #PAGE : 01_index Dashboard
-    path('index/total_member/',             Dashboard.total_member,        name='total_member'),
-    path('index/total_attendance/',         Dashboard.total_attendance,    name='Total_attendance'),
-    path('index/total_absent/',             Dashboard.total_absent,        name='Total_attendance'),
-    path('index/total_late/',               Dashboard.total_late,          name='Total_attendance'),
-    path('index/total_early/',              Dashboard.total_early,         name='Total_attendance'),
-    path('index/class_statistics/',         Dashboard.class_statistics,    name='class_statistics'),
+    path('index/total_member/',             Dashboard.total_member,         name='total_member'),
+    path('index/total_attendance/',         Dashboard.total_attendance,     name='Total_attendance'),
+    path('index/total_absent/',             Dashboard.total_absent,         name='Total_attendance'),
+    path('index/total_late/',               Dashboard.total_late,           name='Total_attendance'),
+    path('index/total_early/',              Dashboard.total_early,          name='Total_attendance'),
+    path('index/class_statistics/',         Dashboard.class_statistics,     name='class_statistics'),
     path('index/classNameList/',            Dashboard.classNameList,        name='class_statistics'),
     path('index/process/',                  Dashboard.process,              name='class_statistics'),
+    path('index/select_date/',              views.Crm.select_date,          name='select_date'),
     #***********************************************************************#
     #PAGE : 02_Account
     path('signup/',                           Account.signup,           name='signup'),

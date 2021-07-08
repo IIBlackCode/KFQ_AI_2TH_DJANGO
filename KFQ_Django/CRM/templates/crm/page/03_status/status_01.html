@@ -187,10 +187,10 @@
                         <div class="btn-group">
                             <select type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false" name="select_class"
-                                id="select_class" onchange="search_class()" style="width:450px">
+                                id="select_class" onchange="search_class()" style="width:450px; text-align: center;">
                                 <div class="dropdown-menu">
                                     {% for object in classlist %}
-                                    <option>{{ object.class_name }}</option>
+                                    <option style="text-align: center;">{{ object.class_name }}</option>
                                 </div>
                                 {% endfor %}
                             </select>
@@ -255,7 +255,6 @@
                         <tr>
                             <td> {{status.member_fk.email}} </td> <!-- ID -->
                             <td>
-
                                 <a class="dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">
                                     {{ status.member_fk.name }}
                                 </a>
