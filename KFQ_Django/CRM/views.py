@@ -65,7 +65,6 @@ class Crm :
         return JsonResponse(value,status=200,safe=False)
         # return render(request, './crm/01_index.html', context)
     def index(request):
-        # global currentTime
         Crm.classList.clear()
         Crm.studentList.clear()
         print("PAGE : index")
@@ -73,8 +72,6 @@ class Crm :
 
         #진행중인 과정 SELECT
         classLists = ClassList.objects.all()
-        # classList = []
-        classlist_pro=[]
         prosessess = []
         for object in classLists:
             #과정이 진행중인 반만 출력하기
@@ -96,7 +93,6 @@ class Crm :
         #     print("ClassList.objects.all() ---> Error!")
 
         #입실한 수강생 출결내역
-        # studentList = []
         objectList = Student_list.objects.all()
 
         #당일 출결 학생들만 출력
