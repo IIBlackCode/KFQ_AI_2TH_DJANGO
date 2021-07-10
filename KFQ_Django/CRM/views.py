@@ -74,22 +74,26 @@ class Crm :
         #진행중인 과정 SELECT
         classLists = ClassList.objects.all()
         # classList = []
+        classlist_pro=[]
         prosessess = []
-        try:
-            for object in classLists:
-                #과정이 진행중인 반만 출력하기
-                if object.status == '진행중':
-                    totalDay = (object.close_date-object.open_date).days
-                    processDay = (datetime.now().date()-object.open_date).days
-                    process = int(processDay/totalDay*100)
-                    print('진행도 : ',process)
-                    prosessess.append(process)
+        for object in classLists:
+            #과정이 진행중인 반만 출력하기
+            if object.status == '진행중':
+                totalDay = (object.close_date-object.open_date).days
+                processDay = (datetime.now().date()-object.open_date).days
+                process = int(processDay/totalDay*100)
+                object.totalDatePer = process
+                print('진행도 : ',object.totalDatePer)
 
-                    object.open_date = datetime.strftime(object.open_date,'%Y-%m-%d')
-                    object.close_date = datetime.strftime(object.close_date,'%Y-%m-%d')
-                    Crm.classList.append(object)
-        except:
-            print("ClassList.objects.all() ---> Error!")
+                object.open_date = datetime.strftime(object.open_date,'%Y-%m-%d')
+                object.close_date = datetime.strftime(object.close_date,'%Y-%m-%d')
+                # Crm.classList.append(object)
+                Crm.classList.append(object)
+
+                print(classLists)
+        # try:
+        # except:
+        #     print("ClassList.objects.all() ---> Error!")
 
         #입실한 수강생 출결내역
         # studentList = []

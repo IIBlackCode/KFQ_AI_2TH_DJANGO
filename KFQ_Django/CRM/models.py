@@ -1,5 +1,6 @@
 from django.db import models
 from django.db.models.fields import CharField
+from datetime import timedelta, date, time, datetime
 
 # Create your models here.
 class ClassList(models.Model):
@@ -9,7 +10,7 @@ class ClassList(models.Model):
     open_date = models.DateField()
     close_date = models.DateField()
     status = models.CharField(max_length=10,default = '진행중',null=True)
-
+    totalDatePer = models.IntegerField()
     def __str__(self):
         return self.class_name
 

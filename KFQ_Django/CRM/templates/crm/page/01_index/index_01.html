@@ -141,12 +141,28 @@
                         <div class="card-header currentTime">
 							<h4 class=" mb-0 center" style="color">{{ currentTime }}</h4>
 						</div>
-          
                         {% for object in list %}
                         <div class="progress mb-3">
 							<div class="progress-bar progress-bar-striped progress-bar-animated" 
-                            role="progressbar" style="width: 38%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">{{ object.class_name }}</div>
+                            id = "bar{{ object.class_id }}" 
+                            style="width : {{object.totalDatePer}}%"
+                            role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">{{ object.class_name }}</div>
+                            <!--
+                            <div class="progress-bar progress-bar-striped progress-bar-animated" 
+                            role="progressbar" style="width: {{object.pro}}%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">{{ object.list }}</div>
+                            -->
 						</div><hr class="margin05">
+                        <script>
+                            var value = {{object.close_date}} - {{object.open_date}};
+                            var probar = document.getElementById("bar{{ object.class_id }}");
+                       
+                            //probar.width = value                      ;
+                            $('#bar{{ object.class_id }}').width="'"+value+"%'";
+                            probar.style.width = value+"%";
+                            console.log($('#bar{{ object.class_id }}'))
+                            console.log("bar{{ object.class_id }}",$('#bar{{ object.class_id }}').width());
+
+                        </script>
                         {% endfor %}
                     </div>
                 </div>

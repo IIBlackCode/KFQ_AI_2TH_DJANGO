@@ -30,13 +30,27 @@ class Brand :
         }
         return render(request, './brand/3_features.html', context)
 
-    def hosting(request):
+    def hosting01(request):
         print("PAGE : theme_hosting")
         page = 'Hosting'
         context = {
             'page': page
         }
-        return render(request, './brand/4_hosting.html', context)
+        return render(request, './brand/page/04_hosting/4_hosting_01.html', context)
+    def hosting02(request):
+        print("PAGE : theme_hosting")
+        page = 'Hosting'
+        context = {
+            'page': page
+        }
+        return render(request, './brand/page/04_hosting/4_hosting_02.html', context)
+    def hosting03(request):
+        print("PAGE : theme_hosting")
+        page = 'Hosting'
+        context = {
+            'page': page
+        }
+        return render(request, './brand/page/04_hosting/4_hosting_03.html', context)
 
     def domain(request):
         print("PAGE : theme_domain")
