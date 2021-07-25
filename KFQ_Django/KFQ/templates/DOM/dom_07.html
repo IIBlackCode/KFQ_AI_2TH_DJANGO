@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure</title>
+    
+
+    <script defer src = {% static 'JavaScript/2021-06-24/05.js' %}></script>
+    <link href="{% static 'CSS/main.css' %}" rel="stylesheet">
+</head>
+<body style="background-image: url({% static 'image/hacker2.jpg' %}); height:100%; width:100%">
+ 
+    <h1>연습문제</h1>
+    <h3>● 검색용 해시태그 입력을 위한 사용자 편의 기능 추가하기</h3>
+    <p>검색어 입력 : <input type="text" name="search"></p>  
+
+    <script>
+        const input = document.querySelector('[name=search]');
+        input.addEventListener('focus', (event) => {
+            let search = event.currentTarget.value;
+            console.log('search :',search)
+            if(search == ''){
+                event.currentTarget.value = '#';
+            }
+            if(event.keyCode == 32){
+                event.currentTarget.value = ' , ';
+            }
+        });
+
+        input.addEventListener('keyup', (event) => {
+            console.log(event.keyCode)
+        });
+
+    </script>
+    
+
+
+    <textarea>
+        <script>
+            
+        </script>
+    </textarea>
+
+</body>
+</html>

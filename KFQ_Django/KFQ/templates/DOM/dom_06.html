@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure</title>
+    
+
+    <script defer src = {% static 'JavaScript/2021-06-24/05.js' %}></script>
+    <link href="{% static 'CSS/main.css' %}" rel="stylesheet">
+</head>
+<body style="background-image: url({% static 'image/hacker2.jpg' %}); height:100%; width:100%">
+ 
+    <h1>연습문제</h1>
+    <h3>inch를 cm로 변환하는 기능 구현하기</h3>
+    
+    <input type="text"> inch
+    <button>계산</button>
+    <p></p>
+
+    <script>
+        //변환 공식 : inch * 2.54 => cm
+        const input = document.querySelector('input');
+        const button = document.querySelector('button');
+        button.addEventListener('click',() => {
+            let value = input.value;
+            input.value = value * 2.54;
+        });
+    </script>
+    
+
+
+    <textarea>
+        <h1>연습문제</h1>
+        <h3>inch를 cm로 변환하는 기능 구현하기</h3>
+        
+        <input type="text"> inch
+        <button>계산</button>
+        <p></p>
+
+        <script>
+            //변환 공식 : inch * 2.54 => cm
+            const input = document.querySelector('input');
+            const button = document.querySelector('button');
+            button.addEventListener('click',() => {
+                let value = input.value;
+                input.value = value * 2.54;
+            });
+        </script>
+    </textarea>
+
+</body>
+</html>

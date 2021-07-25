@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'BRAND',
     'CRM',
+    'KFQ',
 ]
 
 MIDDLEWARE = [

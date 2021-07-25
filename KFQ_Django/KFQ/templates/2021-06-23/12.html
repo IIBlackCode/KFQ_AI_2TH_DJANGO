@@ -1,0 +1,14 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Kakao 지도 시작하기</title>
+    <script defer src={% static 'JavaScript/2021-06-23/12.js' %}></script>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2606e8a452bdf6118d61cdbb4d2069e4"></script>
+</head>
+<body style="background-image: url({% static 'image/hacker2.jpg' %}); height:100%; width:100%">
+	<div id="map" style="width:500px;height:400px;"></div>
+	
+</body>
+</html>

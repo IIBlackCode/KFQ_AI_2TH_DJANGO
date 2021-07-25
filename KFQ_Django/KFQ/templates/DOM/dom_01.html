@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom</title>
+    
+
+    <script defer src = {% static 'JavaScript/2021-06-24/05.js' %}></script>
+    <link href="{% static 'CSS/main.css' %}" rel="stylesheet">
+</head>
+<body style="background-image: url({% static 'image/hacker2.jpg' %}); height:100%; width:100%">
+ 
+    <h1> ■ async / await</h1>
+    <p style="color:#FFFFFF;">● 웹 브라우저가 HTML을 인식하는 방식 (넓은 의미)</p>
+    <p style="color:#FFFFFF;">● document 객체와 관련된 객체의 집합 (좁은 의미)</p>
+    <p style="color:#FFFFFF;">● HTML의 Tag를 자바스크립트에서 이용할 수 있도록 객체로 만든 것</p>
+    <p style="color:#FFFFFF;">● Element Node / Text Node (Text Content)</p>
+  
+    <textarea>
+        <h1 title='Header'>
+            Text Node
+        </h1>
+        <p id='content'>
+            Text Node
+        </p>
+    </textarea>
+
+</body>
+</html>

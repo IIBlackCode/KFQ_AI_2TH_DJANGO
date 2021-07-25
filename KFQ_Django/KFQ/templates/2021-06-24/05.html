@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure</title>
+    
+
+    <script defer src = {% static 'JavaScript/2021-06-24/05.js' %}></script>
+    <link href="{% static 'CSS/main.css' %}" rel="stylesheet">
+</head>
+<body style="background-image: url({% static 'image/hacker2.jpg' %}); height:100%; width:100%">
+ 
+  <h1> ■ async / await</h1>
+  <p style="color:#FFFFFF;">● '사과' 와 '키위' 를 각각 1초 동안 가져와서 판매하는 코드 작성</p>
+  <p style="color:#FFFFFF;">●- Promise / then</p>
+  
+  <textarea>
+
+    Promise - 비동기 기능
+    - resolve() reject()
+    => 대체 가능 방법
+        함수에 async 키워드 붙이기
+    
+    a = new Promise() //호출방법
+    a.then()
+    => 대체 가능 방법 : await
+
+    await는 async함수 안에서만 사용!!
+
+
+  function getApple() {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve('🍎');
+      }, 1000)
+    });
+  }
+
+  function getKiwi() {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve('🥝');
+      }, 1000)
+    });
+  }
+
+  async function sell() {
+    const apple = await getApple();
+    const kiwi = await getKiwi();
+    return `${apple} + ${kiwi}`
+  }
+  sell().then(res => console.log(res));
+  </textarea>
+</body>
+</html>
